@@ -1,19 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqwxoo7jos214"]
+[gd_scene load_steps=6 format=3 uid="uid://dqwxoo7jos214"]
 
-[ext_resource type="Texture2D" uid="uid://bq3b15s22teu4" path="res://icon.svg" id="1_71by3"]
 [ext_resource type="Script" path="res://player.gd" id="1_c74fi"]
+[ext_resource type="Texture2D" uid="uid://fsuqafaqe0ia" path="res://assets/player/player_cat_up.png" id="5_htgsq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhpxb"]
-size = Vector2(94, 94)
+[sub_resource type="SpriteFrames" id="SpriteFrames_imoq5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_htgsq")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4si8v"]
+radius = 20.025
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wplpl"]
+size = Vector2(67, 154)
 
 [node name="Player" type="Area2D"]
-position = Vector2(480, 328)
+position = Vector2(471, 322)
+collision_mask = 2
 script = ExtResource("1_c74fi")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.734375, 0.734375)
-texture = ExtResource("1_71by3")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_imoq5")
+animation = &"up"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_fhpxb")
+[node name="HitBox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4si8v")
+
+[node name="SpriteBounds" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_wplpl")
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://30y4r8nnjlcx"]
+
+[ext_resource type="Script" path="res://in_game_hud.gd" id="1_36w8j"]
+
+[node name="InGameHUD" type="CanvasLayer"]
+script = ExtResource("1_36w8j")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 66.0
+offset_top = 647.0
+offset_right = 203.0
+offset_bottom = 707.0
+theme_override_font_sizes/font_size = 24
+text = "score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1

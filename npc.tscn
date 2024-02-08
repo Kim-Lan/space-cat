@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1hb3s3wqw7ms"]
+
+[ext_resource type="Script" path="res://npc.gd" id="1_587je"]
+[ext_resource type="Texture2D" uid="uid://bd1g61ncobp24" path="res://assets/enemy/enemy_cat.png" id="2_jnvm4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j2gw1"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gvhx0"]
+radius = 95.0474
+
+[node name="NPC" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_587je")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, 0)
+texture = ExtResource("2_jnvm4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_j2gw1")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_gvhx0")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-0.499998, 4)
+scale = Vector2(4.95, 3.5)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

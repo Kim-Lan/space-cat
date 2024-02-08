@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://3ug1t30kx5j4"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_mfp3s"]
+[ext_resource type="PackedScene" uid="uid://cimgwhgbt41ci" path="res://game_over_screen.tscn" id="2_cw34c"]
+[ext_resource type="PackedScene" uid="uid://blgxkiiadrh4k" path="res://start_screen.tscn" id="2_ejwkf"]
+[ext_resource type="PackedScene" uid="uid://30y4r8nnjlcx" path="res://in_game_hud.tscn" id="3_gnf21"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_mfp3s")
+
+[node name="StartScreen" parent="." instance=ExtResource("2_ejwkf")]
+
+[node name="InGameHUD" parent="." instance=ExtResource("3_gnf21")]
+
+[node name="GameOverScreen" parent="." instance=ExtResource("2_cw34c")]
+visible = false
+
+[connection signal="start_button_pressed" from="StartScreen" to="." method="_on_start_button_pressed"]
+[connection signal="play_again_button_pressed" from="GameOverScreen" to="." method="_on_play_again_button_pressed"]
