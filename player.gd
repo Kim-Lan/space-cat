@@ -18,7 +18,7 @@ func start(pos):
 	position = pos
 	show()
 	velocity = autoscroll
-	$HitBox.disabled = false
+	$DamageArea.disabled = false
 
 func _physics_process(delta):
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -35,7 +35,7 @@ func _physics_process(delta):
 	
 	position += velocity * delta
 	
-	var player_bounds = $SpriteBounds.get_shape().get_rect().size
+	var player_bounds = $Sprite/SpriteArea.get_shape().get_rect().size
 	
 	# horizontal looping
 	if position.x < -player_bounds.x / 2:
@@ -48,12 +48,10 @@ func _physics_process(delta):
 	if (position.y <= player_bounds.y / 2) or (position.y >= screen_size.y - player_bounds.y / 2):
 		velocity.y = 0
 
-func _on_body_entered(body):
-	hide()
-	hit.emit()
-	$HitBox.set_deferred("disabled", true)
-
 func _on_area_entered(area):
 	hide()
 	hit.emit()
-	$HitBox.set_deferred("disabled", true)
+	$DamageArea.set_deferred("disabled", true)
+
+func _on_sprite_area_entered(area):
+	pass # Replace with function body.

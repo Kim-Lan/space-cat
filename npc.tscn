@@ -10,7 +10,7 @@ radius = 32.0
 radius = 95.0474
 
 [node name="NPC" type="Area2D"]
-collision_layer = 2
+collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_587je")
 metadata/_edit_group_ = true
@@ -23,7 +23,7 @@ texture = ExtResource("2_jnvm4")
 shape = SubResource("CircleShape2D_j2gw1")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
