@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://3ug1t30kx5j4"]
 
-[ext_resource type="Script" path="res://hud.gd" id="1_mfp3s"]
-[ext_resource type="PackedScene" uid="uid://cimgwhgbt41ci" path="res://game_over_screen.tscn" id="2_cw34c"]
-[ext_resource type="PackedScene" uid="uid://blgxkiiadrh4k" path="res://start_screen.tscn" id="2_ejwkf"]
-[ext_resource type="PackedScene" uid="uid://30y4r8nnjlcx" path="res://in_game_hud.tscn" id="3_gnf21"]
+[ext_resource type="Script" path="res://UI/ui.gd" id="1_mfp3s"]
+[ext_resource type="PackedScene" uid="uid://cimgwhgbt41ci" path="res://UI/game_over_screen.tscn" id="2_cw34c"]
+[ext_resource type="PackedScene" uid="uid://blgxkiiadrh4k" path="res://UI/start_screen.tscn" id="2_ejwkf"]
+[ext_resource type="PackedScene" uid="uid://30y4r8nnjlcx" path="res://UI/in_game_hud.tscn" id="3_gnf21"]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer"]
 script = ExtResource("1_mfp3s")
 
 [node name="StartScreen" parent="." instance=ExtResource("2_ejwkf")]

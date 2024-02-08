@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://main.gd" id="1_4nttm"]
 [ext_resource type="PackedScene" uid="uid://c1hb3s3wqw7ms" path="res://npc.tscn" id="2_18feu"]
 [ext_resource type="PackedScene" uid="uid://dqyowsh0kubut" path="res://treat.tscn" id="3_p38tt"]
-[ext_resource type="PackedScene" uid="uid://3ug1t30kx5j4" path="res://hud.tscn" id="4_5gj3v"]
+[ext_resource type="PackedScene" uid="uid://3ug1t30kx5j4" path="res://UI/ui.tscn" id="4_5gj3v"]
 
 [sub_resource type="Curve2D" id="Curve2D_kuycc"]
 _data = {
@@ -43,9 +43,9 @@ metadata/_edit_lock_ = true
 position = Vector2(480, 360)
 metadata/_edit_lock_ = true
 
-[node name="HUD" parent="." instance=ExtResource("4_5gj3v")]
+[node name="UI" parent="." instance=ExtResource("4_5gj3v")]
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="NPCTimer" to="." method="_on_npc_timer_timeout"]
 [connection signal="timeout" from="TreatTimer" to="." method="_on_treat_timer_timeout"]
-[connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="start_game" from="UI" to="." method="new_game"]

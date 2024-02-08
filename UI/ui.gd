@@ -2,7 +2,6 @@ extends CanvasLayer
 
 signal start_game
 
-const SCORE_LABEL = "score: "
 var score: int
 
 func _ready():
@@ -20,7 +19,7 @@ func update_score(new_score):
 
 func show_game_over():
 	$InGameHUD.hide()
-	$GameOverScreen.set_score(score)
+	$GameOverScreen.set_score_label($InGameHUD/ScoreLabel.text)
 	$GameOverScreen.show()
 
 func _on_start_button_pressed():

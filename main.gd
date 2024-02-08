@@ -17,7 +17,7 @@ func new_game():
 	$TreatTimer.start()
 
 func game_over():
-	$HUD.show_game_over()
+	$UI.show_game_over()
 	$NPCTimer.stop()
 	$TreatTimer.stop()
 
@@ -48,7 +48,7 @@ func _on_treat_timer_timeout():
 
 func _on_treat_collected():
 	score += 1
-	$HUD.update_score(score)
+	$UI.update_score(score)
 
 func _on_player_hit():
 	game_over()
