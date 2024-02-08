@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://blgxkiiadrh4k"]
 
-[ext_resource type="Script" path="res://UI/start_screen.gd" id="1_hbyif"]
+[ext_resource type="Script" path="res://UI/start_screen.gd" id="1_cp2ag"]
 
 [node name="StartScreen" type="CanvasLayer"]
-script = ExtResource("1_hbyif")
+script = ExtResource("1_cp2ag")
 
 [node name="TitleLabel" type="Label" parent="."]
 anchors_preset = 8

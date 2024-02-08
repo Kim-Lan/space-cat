@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://cimgwhgbt41ci"]
 
-[ext_resource type="Script" path="res://UI/game_over_screen.gd" id="1_0rx2r"]
+[ext_resource type="Script" path="res://UI/game_over_screen.gd" id="1_4whc3"]
 
 [node name="GameOverScreen" type="CanvasLayer"]
-script = ExtResource("1_0rx2r")
+script = ExtResource("1_4whc3")
 
 [node name="GameOverLabel" type="Label" parent="."]
 anchors_preset = 8
