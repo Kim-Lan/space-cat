@@ -49,6 +49,3 @@ func _on_treat_timer_timeout():
 func _on_treat_collected():
 	score += 1
 	$UI.update_score(score)
-
-func _on_player_hit():
-	game_over()
