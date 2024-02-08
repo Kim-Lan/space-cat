@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://c1hb3s3wqw7ms"]
 
 [ext_resource type="Script" path="res://npc.gd" id="1_587je"]
-[ext_resource type="Texture2D" uid="uid://bq3b15s22teu4" path="res://icon.svg" id="2_ks621"]
+[ext_resource type="Texture2D" uid="uid://c6qaxopdogp85" path="res://assets/npc/npc_angy.png" id="2_rtqhm"]
 [ext_resource type="Texture2D" uid="uid://bd1g61ncobp24" path="res://assets/npc/npc_eepy.png" id="3_u7jjs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fp7fr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ks621")
+"texture": ExtResource("2_rtqhm")
 }],
 "loop": true,
 "name": &"angy",
@@ -27,7 +27,7 @@ animations = [{
 radius = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvhx0"]
-radius = 95.0474
+radius = 145.993
 
 [node name="NPC" type="Area2D"]
 collision_layer = 4
@@ -37,12 +37,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fp7fr")
-animation = &"eepy"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(3, 0)
-texture = ExtResource("3_u7jjs")
+animation = &"angy"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_j2gw1")
@@ -51,7 +46,7 @@ shape = SubResource("CircleShape2D_j2gw1")
 collision_layer = 4
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TerritoryArea"]
+[node name="TerritoryCollisionShape" type="CollisionShape2D" parent="TerritoryArea"]
 shape = SubResource("CircleShape2D_gvhx0")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

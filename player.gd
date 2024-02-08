@@ -1,6 +1,7 @@
 extends Area2D
 
 signal health_depleted
+
 @export var autoscroll: Vector2
 
 const ACCELERATION = 400
@@ -16,7 +17,7 @@ var health: int
 func _ready():
 	hide()
 	screen_size = get_viewport_rect().size
-	
+
 func start(pos):
 	position = pos
 	show()
@@ -52,12 +53,12 @@ func _physics_process(delta):
 	if (position.y <= player_bounds.y / 2) or (position.y >= screen_size.y - player_bounds.y / 2):
 		velocity.y = 0
 
-func take_damage(dmg):
+func take_damage(dmg: int):
 	health -= dmg
 	if health <= 0:
 		hide()
 		health_depleted.emit()
 		$DamageArea.set_deferred("disabled", true)
 
-func _on_area_entered(area):
+func _on_area_entered(_area):
 	take_damage(1)

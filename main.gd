@@ -32,7 +32,7 @@ func spawnArea2D(scene):
 	# set instance position and velocity
 	instance.position = spawn_location.position
 	instance.rotation = randf_range(0, 2 * PI)
-	instance.velocity = AUTOSCROLL
+	instance.autoscroll = AUTOSCROLL
 	
 	# spawn instance
 	add_child(instance)
