@@ -52,6 +52,3 @@ func _on_area_entered(area):
 	hide()
 	hit.emit()
 	$DamageArea.set_deferred("disabled", true)
-
-func _on_sprite_area_entered(area):
-	pass # Replace with function body.
