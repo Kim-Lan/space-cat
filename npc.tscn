@@ -27,7 +27,7 @@ animations = [{
 radius = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvhx0"]
-radius = 145.993
+radius = 212.681
 
 [node name="NPC" type="Area2D"]
 collision_layer = 4

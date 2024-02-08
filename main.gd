@@ -48,4 +48,4 @@ func _on_treat_timer_timeout():
 
 func _on_treat_collected():
 	score += 1
-	$UI.update_score(score)
+	$UI/InGameHUD.update_score(score)
