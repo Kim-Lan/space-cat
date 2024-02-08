@@ -1,6 +1,6 @@
 extends Node
 
-const AUTOSCROLL = Vector2(0.0, 100.0) # 100 pixels/sec downwards
+const AUTOSCROLL = Vector2(0.0, 50.0) # 50 pixels/sec downwards
 
 @export var npc_scene: PackedScene
 @export var treat_scene: PackedScene
@@ -21,7 +21,7 @@ func game_over():
 	$NPCTimer.stop()
 	$TreatTimer.stop()
 
-func spawnRigidBody2D(scene):
+func spawnArea2D(scene):
 	# create new instance of given scene
 	var instance = scene.instantiate()
 	
@@ -32,7 +32,7 @@ func spawnRigidBody2D(scene):
 	# set instance position and velocity
 	instance.position = spawn_location.position
 	instance.rotation = randf_range(0, 2 * PI)
-	instance.linear_velocity = AUTOSCROLL
+	instance.velocity = AUTOSCROLL
 	
 	# spawn instance
 	add_child(instance)
@@ -40,10 +40,10 @@ func spawnRigidBody2D(scene):
 	return instance
 
 func _on_npc_timer_timeout():
-	spawnRigidBody2D(npc_scene)
+	spawnArea2D(npc_scene)
 
 func _on_treat_timer_timeout():
-	var treat = spawnRigidBody2D(treat_scene)
+	var treat = spawnArea2D(treat_scene)
 	treat.collected.connect(_on_treat_collected)
 
 func _on_treat_collected():

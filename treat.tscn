@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_5g6x2"]
 radius = 34.2345
 
-[node name="Treat" type="RigidBody2D"]
+[node name="Treat" type="Area2D"]
 collision_layer = 4
 script = ExtResource("1_0l278")
 metadata/_edit_group_ = true

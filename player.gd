@@ -52,3 +52,8 @@ func _on_body_entered(body):
 	hide()
 	hit.emit()
 	$HitBox.set_deferred("disabled", true)
+
+func _on_area_entered(area):
+	hide()
+	hit.emit()
+	$HitBox.set_deferred("disabled", true)
