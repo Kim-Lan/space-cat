@@ -164,7 +164,7 @@ tracks/5/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_olgjt"]
-length = 0.1
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -291,7 +291,7 @@ texture = ExtResource("4_3neiv")
 region_enabled = true
 region_rect = Rect2(1000, 0, 100, 100)
 
-[node name="BapTimer" type="Timer" parent="."]
+[node name="FreezeTimer" type="Timer" parent="."]
 process_mode = 3
 one_shot = true
 
@@ -300,4 +300,4 @@ one_shot = true
 [connection signal="area_exited" from="TerritoryArea" to="." method="_on_territory_area_exited"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="timeout" from="BapTimer" to="." method="_on_bap_timer_timeout"]
+[connection signal="timeout" from="FreezeTimer" to="." method="_on_freeze_timer_timeout"]

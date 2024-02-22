@@ -53,7 +53,7 @@ func _get_plugin_name():
 
 
 func _get_plugin_icon():
-	var editor_theme := editor_base_control.theme
+	var editor_theme := editor_interface.get_editor_theme()
 
 	if editor_theme.get_constant("dark_theme", "Editor"):
 		return LIGHT_ICON;
@@ -72,7 +72,7 @@ func set_state(state: Dictionary) -> void:
 
 
 func _update_theme() -> void:
-	var editor_theme := EditorTheme.new(editor_base_control.theme)
+	var editor_theme := EditorTheme.new(editor_interface.get_editor_theme())
 	interface.propagate_call("_update_theme", [editor_theme])
 
 
