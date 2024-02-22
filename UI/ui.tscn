@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://30y4r8nnjlcx" path="res://UI/in_game_hud.tscn" id="3_gnf21"]
 
 [node name="UI" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_mfp3s")
 
 [node name="StartScreen" parent="." instance=ExtResource("2_ejwkf")]

@@ -7,7 +7,9 @@ signal collected
 var velocity: Vector2 = Vector2.ZERO
 
 func _ready():
-	pass
+	var type = randi() % 2
+	var texture = load("res://assets/treat/treat_" + str(type + 1) + ".png")
+	$Sprite2D.texture = texture
 
 func _physics_process(delta):
 	position += (velocity + autoscroll) * delta

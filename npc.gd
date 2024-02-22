@@ -2,6 +2,17 @@ extends Area2D
 
 @export var autoscroll: Vector2
 
+enum COLORS { BLACK, GRAY, TABBY }
+const ANIMATIONS = {
+	COLORS.BLACK: 'black',
+	COLORS.GRAY: 'gray',
+	COLORS.TABBY: 'tabby'
+}
+
+enum STATES { EEPY, ANGY, BAP }
+
+var color = 0
+var state = 0
 var speed = 50
 
 var velocity: Vector2 = Vector2.ZERO
@@ -9,11 +20,20 @@ var angy: bool = false
 var target: Area2D
 
 func _ready():
-	$AnimatedSprite2D.set_animation("eepy")
-	pass
+	select_color()
+	state = STATES.EEPY
+	$AnimationPlayer.play("eepy")
+
+func select_color():
+	color = randi() % COLORS.size()
+	for sprite in $ColorSprites.get_children():
+		if sprite.name.to_lower() != ANIMATIONS[color]:
+			sprite.hide()
+		else:
+			sprite.show()
 
 func _physics_process(delta):
-	if angy:
+	if state == STATES.ANGY:
 		var target_direction = target.position
 		look_at(target_direction)
 		velocity = transform.x * speed
@@ -21,14 +41,35 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 	position += (velocity + autoscroll) * delta
 
-func _on_territory_area_entered(area):
-	angy = true
+func get_angy(area):
+	state = STATES.ANGY
 	target = area
-	$AnimatedSprite2D.set_animation("angy")
+	$AnimationPlayer.play("angy")
 
-func _on_territory_area_exited(_area):
-	angy = false
-	$AnimatedSprite2D.set_animation("eepy")
+func get_eepy():
+	target = null
+	state = STATES.EEPY
+	$AnimationPlayer.play("eepy")
+
+func _on_territory_area_exited(area):
+	await get_tree().create_timer(1.0).timeout
+	get_eepy()
+
+func _on_area_entered(area):
+	state = STATES.BAP
+	$AnimationPlayer.play("bap")
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "bap":
+		$BapTimer.start()
+		get_tree().paused = true
+
+func _on_bap_timer_timeout():
+	get_tree().paused = false
+	get_eepy()
+
+func stop_timer():
+	$BapTimer.paused = true
 
 # delete itself once offscreen
 func _on_visible_on_screen_notifier_2d_screen_exited():

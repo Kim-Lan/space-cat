@@ -1,24 +1,117 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqwxoo7jos214"]
+[gd_scene load_steps=12 format=3 uid="uid://dqwxoo7jos214"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_c74fi"]
-[ext_resource type="Texture2D" uid="uid://fsuqafaqe0ia" path="res://assets/player/player_cat_up.png" id="5_htgsq"]
+[ext_resource type="Texture2D" uid="uid://bnfjffy0den5i" path="res://assets/player/player.png" id="3_se1pk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4si8v"]
 radius = 20.025
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_imoq5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_htgsq")
-}],
-"loop": true,
-"name": &"up",
-"speed": 5.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wplpl"]
-size = Vector2(67, 154)
+size = Vector2(49, 94)
+
+[sub_resource type="Animation" id="Animation_i0t0u"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 100, 100), Rect2(100, 0, 100, 100), Rect2(200, 0, 100, 100), Rect2(300, 0, 100, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a0e01"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(400, 0, 100, 100), Rect2(500, 0, 100, 100), Rect2(600, 0, 100, 100), Rect2(300, 0, 100, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mb7tt"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3n5qt"]
+_data = {
+"RESET": SubResource("Animation_mb7tt"),
+"idle": SubResource("Animation_i0t0u"),
+"swim": SubResource("Animation_a0e01")
+}
+
+[sub_resource type="Animation" id="Animation_rk8fu"]
+resource_name = "damaged"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_q1non"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uyl7n"]
+_data = {
+"RESET": SubResource("Animation_q1non"),
+"damaged": SubResource("Animation_rk8fu")
+}
 
 [node name="Player" type="Area2D"]
 position = Vector2(471, 322)
@@ -33,14 +126,29 @@ shape = SubResource("CircleShape2D_4si8v")
 collision_layer = 2
 collision_mask = 0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite"]
-sprite_frames = SubResource("SpriteFrames_imoq5")
-animation = &"up"
-
 [node name="SpriteArea" type="CollisionShape2D" parent="Sprite"]
-position = Vector2(-0.5, -2)
+position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_wplpl")
 
+[node name="Sprite2D" type="Sprite2D" parent="Sprite"]
+texture = ExtResource("3_se1pk")
+region_enabled = true
+region_rect = Rect2(400, 0, 100, 100)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite")
+libraries = {
+"": SubResource("AnimationLibrary_3n5qt")
+}
+
+[node name="DamagedAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uyl7n")
+}
+
 [node name="BapCooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="BapCooldown" to="." method="_on_bap_cooldown_timeout"]

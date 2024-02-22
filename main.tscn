@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bueoer6l0n5wf"]
+[gd_scene load_steps=9 format=3 uid="uid://bueoer6l0n5wf"]
 
 [ext_resource type="PackedScene" uid="uid://dqwxoo7jos214" path="res://player.tscn" id="1_1wr41"]
 [ext_resource type="Script" path="res://main.gd" id="1_4nttm"]
-[ext_resource type="PackedScene" uid="uid://c1hb3s3wqw7ms" path="res://npc.tscn" id="2_18feu"]
+[ext_resource type="PackedScene" uid="uid://c1hb3s3wqw7ms" path="res://npc.tscn" id="2_akmrm"]
 [ext_resource type="PackedScene" uid="uid://dqyowsh0kubut" path="res://treat.tscn" id="3_p38tt"]
 [ext_resource type="PackedScene" uid="uid://3ug1t30kx5j4" path="res://UI/ui.tscn" id="4_5gj3v"]
+[ext_resource type="Texture2D" uid="uid://dw2ccthpfjttu" path="res://assets/background/backstars.png" id="4_vkgkb"]
+[ext_resource type="Texture2D" uid="uid://b5yprj84nn3wy" path="res://assets/background/frontstars.png" id="5_68xh3"]
 
 [sub_resource type="Curve2D" id="Curve2D_kuycc"]
 _data = {
@@ -14,10 +16,22 @@ point_count = 2
 
 [node name="Main" type="Node"]
 script = ExtResource("1_4nttm")
-npc_scene = ExtResource("2_18feu")
+npc_scene = ExtResource("2_akmrm")
 treat_scene = ExtResource("3_p38tt")
 
+[node name="Backstars" type="Sprite2D" parent="."]
+position = Vector2(512, 561)
+texture = ExtResource("4_vkgkb")
+
+[node name="Frontstars" type="Sprite2D" parent="."]
+position = Vector2(515, 501)
+texture = ExtResource("5_68xh3")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
+
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -45,6 +59,7 @@ metadata/_edit_lock_ = true
 
 [node name="UI" parent="." instance=ExtResource("4_5gj3v")]
 
+[connection signal="damaged" from="Player" to="." method="_on_player_damaged"]
 [connection signal="health_depleted" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="NPCTimer" to="." method="_on_npc_timer_timeout"]
 [connection signal="timeout" from="TreatTimer" to="." method="_on_treat_timer_timeout"]
