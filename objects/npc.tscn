@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1hb3s3wqw7ms"]
+[gd_scene load_steps=15 format=3 uid="uid://c1hb3s3wqw7ms"]
 
 [ext_resource type="Script" path="res://objects/npc.gd" id="1_587je"]
+[ext_resource type="PackedScene" uid="uid://dlnloh38qsoch" path="res://objects/npc_territory.tscn" id="2_a6slc"]
 [ext_resource type="Texture2D" uid="uid://bd6lhe52cdoki" path="res://assets/npc/npc_black.png" id="2_utcp3"]
 [ext_resource type="Texture2D" uid="uid://conce6bunjbfq" path="res://assets/npc/npc_gray.png" id="3_o741e"]
 [ext_resource type="Texture2D" uid="uid://d3b5bl42hb5im" path="res://assets/npc/npc_tabby.png" id="4_3neiv"]
@@ -396,6 +397,9 @@ height = 88.0
 [node name="NPC" type="Area2D" groups=["npc_group"]]
 collision_layer = 4
 script = ExtResource("1_587je")
+
+[node name="TerritoryCircle" parent="." instance=ExtResource("2_a6slc")]
+visible = false
 
 [node name="TerritoryArea" type="Area2D" parent="."]
 collision_layer = 0

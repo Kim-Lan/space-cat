@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlnloh38qsoch"]
+
+[ext_resource type="Script" path="res://objects/npc_territory.gd" id="1_06xeq"]
+
+[node name="NPCTerritory" type="Node2D"]
+script = ExtResource("1_06xeq")

@@ -37,16 +37,22 @@ enum STATES { EEPY, ANGY, BAP }
 
 var color = 0
 var state = 0
-var speed = 50
+var territory_radius: int
+var speed: int
 
 var velocity: Vector2 = Vector2.ZERO
-var angy: bool = false
 var target: Area2D
 
 func _ready():
 	select_color()
 	state = STATES.EEPY
 	$AnimationPlayer.play("eepy")
+
+func _process(delta):
+	if Input.is_action_pressed("space"):
+		$TerritoryCircle.set_visible(true)
+	else:
+		$TerritoryCircle.set_visible(false)
 
 func select_color():
 	color = randi() % COLORS.size()
@@ -61,11 +67,12 @@ func select_sprite(color):
 			sprite.show()
 
 func set_stats(color):
-	var radius = STATS[color]['territory_radius']
-	var circle = CircleShape2D.new()
-	circle.set_radius(radius)
-	$TerritoryArea/TerritoryCollisionShape.set_shape(circle)
 	speed = STATS[color]['speed']
+	territory_radius = STATS[color]['territory_radius']
+	var circle = CircleShape2D.new()
+	circle.set_radius(territory_radius)
+	$TerritoryArea/TerritoryCollisionShape.set_shape(circle)
+	$TerritoryCircle.radius = territory_radius
 
 func _physics_process(delta):
 	if state == STATES.ANGY:
@@ -109,6 +116,8 @@ func _on_freeze_timer_timeout():
 func stop_timer():
 	$FreezeTimer.paused = true
 
-# delete itself once offscreen
+func draw_territory():
+	$TerritoryCircle.visible = true
+
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
