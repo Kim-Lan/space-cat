@@ -28,6 +28,11 @@ wait_time = 2.0
 
 [node name="TreatTimer" type="Timer" parent="."]
 
+[node name="FreezeTimer" type="Timer" parent="."]
+process_mode = 2
+wait_time = 0.35
+one_shot = true
+
 [node name="BapCooldown" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
@@ -50,6 +55,7 @@ metadata/_edit_lock_ = true
 [connection signal="health_depleted" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="NPCTimer" to="." method="_on_npc_timer_timeout"]
 [connection signal="timeout" from="TreatTimer" to="." method="_on_treat_timer_timeout"]
+[connection signal="timeout" from="FreezeTimer" to="." method="_on_freeze_timer_timeout"]
 [connection signal="timeout" from="BapCooldown" to="." method="_on_bap_cooldown_timeout"]
 [connection signal="return_title" from="UI" to="." method="clear_screen"]
 [connection signal="start_game" from="UI" to="." method="new_game"]

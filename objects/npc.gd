@@ -1,5 +1,7 @@
 extends Area2D
 
+signal bapped
+
 @export var autoscroll: Vector2
 
 enum COLORS { BLACK, GRAY, TABBY, SIAMESE, AEGEAN }
@@ -35,12 +37,12 @@ const STATS = {
 
 enum STATES { EEPY, ANGY, BAP }
 
-var color = 0
-var state = 0
+var color: int
+var state: int
 var territory_radius: int
 var speed: int
 
-var velocity: Vector2 = Vector2.ZERO
+var velocity: Vector2
 var target: Area2D
 
 func _ready():
@@ -103,18 +105,8 @@ func _on_area_entered(area):
 	$HitSound.play()
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "bap":
-		freeze_frame(0.35)
-
-func freeze_frame(duration):
-	get_tree().paused = true
-	$FreezeTimer.start(duration)
-
-func _on_freeze_timer_timeout():
-	get_tree().paused = false
-
-func stop_timer():
-	$FreezeTimer.paused = true
+	if state == STATES.BAP:
+		bapped.emit()
 
 func draw_territory():
 	$TerritoryCircle.visible = true

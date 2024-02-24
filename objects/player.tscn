@@ -10,6 +10,9 @@ size = Vector2(48.5, 94)
 radius = 16.0
 height = 80.0
 
+[sub_resource type="Animation" id="Animation_ofk5p"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_i0t0u"]
 length = 0.8
 loop_mode = 1
@@ -65,9 +68,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_ofk5p"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3n5qt"]
 _data = {
@@ -129,7 +129,7 @@ shape = SubResource("RectangleShape2D_wplpl")
 [node name="Sprite2D" type="Sprite2D" parent="Sprite"]
 texture = ExtResource("3_se1pk")
 region_enabled = true
-region_rect = Rect2(0, 100, 100, 100)
+region_rect = Rect2(100, 0, 100, 100)
 
 [node name="DamageArea" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_f0qym")

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://y3pgtv2hw7ib" path="res://assets/npc/npc_aegean.png" id="6_jnjtp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvhx0"]
-radius = 212.681
+radius = 200.0
 
 [sub_resource type="Animation" id="Animation_uhmqc"]
 length = 0.8
@@ -423,39 +423,35 @@ libraries = {
 rotation = 1.5708
 texture = ExtResource("2_utcp3")
 region_enabled = true
-region_rect = Rect2(0, 0, 100, 100)
+region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Gray" type="Sprite2D" parent="ColorSprites"]
 rotation = 1.5708
 texture = ExtResource("3_o741e")
 region_enabled = true
-region_rect = Rect2(0, 0, 100, 100)
+region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Tabby" type="Sprite2D" parent="ColorSprites"]
 rotation = 1.5708
 texture = ExtResource("4_3neiv")
 region_enabled = true
-region_rect = Rect2(0, 0, 100, 100)
+region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Siamese" type="Sprite2D" parent="ColorSprites"]
 rotation = 1.5708
 texture = ExtResource("5_ef1me")
 region_enabled = true
-region_rect = Rect2(0, 0, 100, 100)
+region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Aegean" type="Sprite2D" parent="ColorSprites"]
 rotation = 1.5708
 texture = ExtResource("6_jnjtp")
 region_enabled = true
-region_rect = Rect2(0, 0, 100, 100)
+region_rect = Rect2(0, 204, 100, 100)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_hinns")
-
-[node name="FreezeTimer" type="Timer" parent="."]
-process_mode = 2
-one_shot = true
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -467,4 +463,3 @@ volume_db = -2.5
 [connection signal="area_exited" from="TerritoryArea" to="." method="_on_territory_area_exited"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="timeout" from="FreezeTimer" to="." method="_on_freeze_timer_timeout"]

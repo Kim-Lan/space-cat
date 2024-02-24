@@ -1,12 +1,13 @@
 extends Node
 
 const AUTOSCROLL = Vector2(0.0, 50.0) # 50 pixels/sec downwards
+const FREEZE_DURATION = 0.35
 
 @export var npc_scene: PackedScene
 @export var treat_scene: PackedScene
-var score
-var max_health = 3
-var current_health = 3
+var score: int
+var max_health: int = 3
+var current_health: int
 
 func _ready():
 	$Player.hide()
@@ -28,11 +29,9 @@ func new_game():
 	$Player.disable_input = false
 
 func game_over():
-	get_tree().call_group("npc_group", "stop_timer")
-	#get_tree().paused = true
-	$Player/DamagedAnimationPlayer.stop()
 	$Player.disable_input = true
-	$BapCooldown.stop()
+	$Player/DamagedAnimationPlayer.stop()
+	
 	$NPCTimer.stop()
 	$TreatTimer.stop()
 	$UI.show_game_over()
@@ -62,6 +61,7 @@ func spawn(scene):
 
 func _on_npc_timer_timeout():
 	var npc = spawn(npc_scene)
+	npc.bapped.connect(_on_npc_bapped)
 
 func _on_treat_timer_timeout():
 	var treat = spawn(treat_scene)
@@ -71,13 +71,25 @@ func _on_treat_collected():
 	score += 1
 	$UI/InGameHUD.update_score(score)
 
+func _on_npc_bapped():
+	freeze_frame(FREEZE_DURATION)
+
+func freeze_frame(duration):
+	get_tree().paused = true
+	if current_health > 0:
+		$FreezeTimer.start(duration)
+
+func _on_freeze_timer_timeout():
+	get_tree().paused = false
+
 func _on_player_damaged():
 	current_health -= 1
-	$UI/InGameHUD.minus_health()
-	$BapCooldown.start()
 	
 	if current_health <= 0:
 		game_over()
+	else:
+		$UI/InGameHUD.minus_health()
+		$BapCooldown.start()
 
 func _on_bap_cooldown_timeout():
 	$Player/DamagedAnimationPlayer.stop()
