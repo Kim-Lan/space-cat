@@ -8,6 +8,20 @@ const ANIMATIONS = {
 	COLORS.GRAY: 'gray',
 	COLORS.TABBY: 'tabby'
 }
+const STATS = {
+	COLORS.BLACK: {
+		'territory_radius': 200,
+		'speed': 50
+	},
+	COLORS.GRAY: {
+		'territory_radius': 300,
+		'speed': 75
+	},
+	COLORS.TABBY: {
+		'territory_radius': 200,
+		'speed': 50
+	}
+}
 
 enum STATES { EEPY, ANGY, BAP }
 
@@ -26,11 +40,22 @@ func _ready():
 
 func select_color():
 	color = randi() % COLORS.size()
+	select_sprite(color)
+	set_stats(color)
+
+func select_sprite(color):
 	for sprite in $ColorSprites.get_children():
 		if sprite.name.to_lower() != ANIMATIONS[color]:
 			sprite.hide()
 		else:
 			sprite.show()
+
+func set_stats(color):
+	var radius = STATS[color]['territory_radius']
+	var circle = CircleShape2D.new()
+	circle.set_radius(radius)
+	$TerritoryArea/TerritoryCollisionShape.set_shape(circle)
+	speed = STATS[color]['speed']
 
 func _physics_process(delta):
 	if state == STATES.ANGY:

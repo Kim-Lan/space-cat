@@ -1,5 +1,5 @@
 { "frames": {
-   "player #idle 0.aseprite": {
+   "player #idle 0.ase": {
     "frame": { "x": 0, "y": 0, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
@@ -7,7 +7,7 @@
     "sourceSize": { "w": 100, "h": 100 },
     "duration": 200
    },
-   "player #idle 1.aseprite": {
+   "player #idle 1.ase": {
     "frame": { "x": 100, "y": 0, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
@@ -15,7 +15,7 @@
     "sourceSize": { "w": 100, "h": 100 },
     "duration": 200
    },
-   "player #idle 2.aseprite": {
+   "player #idle 2.ase": {
     "frame": { "x": 200, "y": 0, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
@@ -23,7 +23,7 @@
     "sourceSize": { "w": 100, "h": 100 },
     "duration": 200
    },
-   "player #idle 3.aseprite": {
+   "player #idle 3.ase": {
     "frame": { "x": 300, "y": 0, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
@@ -31,31 +31,31 @@
     "sourceSize": { "w": 100, "h": 100 },
     "duration": 200
    },
-   "player #swim 0.aseprite": {
-    "frame": { "x": 400, "y": 0, "w": 100, "h": 100 },
+   "player #swim 0.ase": {
+    "frame": { "x": 0, "y": 100, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
     "sourceSize": { "w": 100, "h": 100 },
     "duration": 200
    },
-   "player #swim 1.aseprite": {
-    "frame": { "x": 500, "y": 0, "w": 100, "h": 100 },
+   "player #swim 1.ase": {
+    "frame": { "x": 100, "y": 100, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
     "sourceSize": { "w": 100, "h": 100 },
     "duration": 200
    },
-   "player #swim 2.aseprite": {
-    "frame": { "x": 600, "y": 0, "w": 100, "h": 100 },
+   "player #swim 2.ase": {
+    "frame": { "x": 200, "y": 100, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
     "sourceSize": { "w": 100, "h": 100 },
     "duration": 200
    },
-   "player #swim 3.aseprite": {
+   "player #swim 3.ase": {
     "frame": { "x": 300, "y": 0, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
@@ -66,14 +66,14 @@
  },
  "meta": {
   "app": "https://www.aseprite.org/",
-  "version": "1.3.2-x64",
+  "version": "1.x-dev",
   "image": "player.png",
   "format": "RGBA8888",
-  "size": { "w": 700, "h": 100 },
+  "size": { "w": 400, "h": 200 },
   "scale": "1",
   "frameTags": [
-   { "name": "idle", "from": 0, "to": 3, "direction": "forward", "color": "#000000ff" },
-   { "name": "swim", "from": 4, "to": 7, "direction": "forward", "color": "#000000ff" }
+   { "name": "idle", "from": 0, "to": 3, "direction": "forward" },
+   { "name": "swim", "from": 4, "to": 7, "direction": "forward" }
   ],
   "layers": [
    { "name": "cat" },

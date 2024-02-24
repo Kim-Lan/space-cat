@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwpu8fmfefy1a"]
+
+[ext_resource type="Texture2D" uid="uid://dw2ccthpfjttu" path="res://assets/background/backstars.png" id="1_73304"]
+[ext_resource type="Script" path="res://background.gd" id="1_xh0vf"]
+[ext_resource type="Texture2D" uid="uid://b5yprj84nn3wy" path="res://assets/background/frontstars.png" id="2_cjscb"]
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_xh0vf")
+
+[node name="Gradient" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BackLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.25, 0.25)
+motion_mirroring = Vector2(0, 1536)
+
+[node name="BackStars" type="Sprite2D" parent="BackLayer"]
+position = Vector2(512, 768)
+texture = ExtResource("1_73304")
+
+[node name="FrontLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(0, 1536)
+
+[node name="FrontStars" type="Sprite2D" parent="FrontLayer"]
+position = Vector2(512, 768)
+texture = ExtResource("2_cjscb")

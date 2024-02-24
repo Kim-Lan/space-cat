@@ -19,6 +19,7 @@ func new_game():
 	get_tree().paused = false	
 	
 	$Player.autoscroll = AUTOSCROLL
+	$Background.camera_velocity = AUTOSCROLL
 	$NPCTimer.start()
 	$TreatTimer.start()
 
