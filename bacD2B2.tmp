@@ -1,45 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwpu8fmfefy1a"]
+[gd_scene load_steps=6 format=3 uid="uid://dwpu8fmfefy1a"]
 
 [ext_resource type="Texture2D" uid="uid://dw2ccthpfjttu" path="res://assets/background/backstars.png" id="1_73304"]
 [ext_resource type="Script" path="res://background.gd" id="1_xh0vf"]
-[ext_resource type="Texture2D" uid="uid://ddew8682np4w6" path="res://assets/background/gradient.png" id="2_2br8p"]
 [ext_resource type="Texture2D" uid="uid://b5yprj84nn3wy" path="res://assets/background/frontstars.png" id="2_cjscb"]
 
 [sub_resource type="Gradient" id="Gradient_rwuaq"]
-interpolation_mode = 2
-colors = PackedColorArray(0.231373, 0.45098, 1, 1, 0.113725, 0.164706, 0.568627, 1)
+colors = PackedColorArray(0.232955, 0.450245, 1, 1, 0.0444657, 2.16588e-07, 0.313328, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_kpc2i"]
 gradient = SubResource("Gradient_rwuaq")
 width = 1024
-height = 768
+height = 1536
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
 [node name="Background" type="ParallaxBackground"]
 script = ExtResource("1_xh0vf")
 
-[node name="GradientLayer" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0, 0)
-
-[node name="ColorRect" type="ColorRect" parent="GradientLayer"]
-offset_right = 1024.0
-offset_bottom = 768.0
-color = Color(0.0431373, 0, 0.313726, 1)
-
-[node name="Gradient" type="TextureRect" parent="GradientLayer"]
+[node name="Gradient" type="TextureRect" parent="."]
+offset_top = -768.0
 offset_right = 1024.0
 offset_bottom = 768.0
 texture = SubResource("GradientTexture2D_kpc2i")
 
-[node name="Gradient2" type="TextureRect" parent="GradientLayer"]
-visible = false
-offset_right = 1024.0
-offset_bottom = 768.0
-texture = ExtResource("2_2br8p")
-
 [node name="BackLayer" type="ParallaxLayer" parent="."]
-visible = false
 motion_scale = Vector2(0.25, 0.25)
 motion_mirroring = Vector2(0, 1536)
 
@@ -48,7 +32,6 @@ position = Vector2(512, 768)
 texture = ExtResource("1_73304")
 
 [node name="FrontLayer" type="ParallaxLayer" parent="."]
-visible = false
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(0, 1536)
 

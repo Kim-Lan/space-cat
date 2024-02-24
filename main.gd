@@ -16,10 +16,11 @@ func new_game():
 	$UI/InGameHUD.update_health($Player.health)
 	get_tree().call_group("npc_group", "queue_free")
 	get_tree().call_group("treat_group", "queue_free")
-	get_tree().paused = false	
+	get_tree().paused = false
 	
 	$Player.autoscroll = AUTOSCROLL
 	$Background.camera_velocity = AUTOSCROLL
+	$Background.reset()
 	$NPCTimer.start()
 	$TreatTimer.start()
 
