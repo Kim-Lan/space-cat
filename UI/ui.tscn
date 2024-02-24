@@ -12,6 +12,7 @@ script = ExtResource("1_mfp3s")
 [node name="TitleScreen" parent="." instance=ExtResource("2_jab8u")]
 
 [node name="InGameHUD" parent="." instance=ExtResource("3_gnf21")]
+visible = false
 
 [node name="GameOverScreen" parent="." instance=ExtResource("2_cw34c")]
 visible = false

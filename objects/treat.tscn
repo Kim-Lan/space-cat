@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqyowsh0kubut"]
 
-[ext_resource type="Script" path="res://treat.gd" id="1_0l278"]
+[ext_resource type="Script" path="res://objects/treat.gd" id="1_0l278"]
 [ext_resource type="Texture2D" uid="uid://b63ddx1lw7p62" path="res://assets/treat/treat_1.png" id="2_urp5d"]
 [ext_resource type="AudioStream" uid="uid://diefm2rsny7rh" path="res://assets/audio/cronch1.wav" id="3_iurks"]
 

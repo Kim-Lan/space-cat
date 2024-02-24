@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bueoer6l0n5wf"]
 
-[ext_resource type="PackedScene" uid="uid://dqwxoo7jos214" path="res://player.tscn" id="1_1wr41"]
+[ext_resource type="PackedScene" uid="uid://dqwxoo7jos214" path="res://objects/player.tscn" id="1_1wr41"]
 [ext_resource type="Script" path="res://main.gd" id="1_4nttm"]
-[ext_resource type="PackedScene" uid="uid://c1hb3s3wqw7ms" path="res://npc.tscn" id="2_akmrm"]
-[ext_resource type="PackedScene" uid="uid://dqyowsh0kubut" path="res://treat.tscn" id="3_p38tt"]
+[ext_resource type="PackedScene" uid="uid://c1hb3s3wqw7ms" path="res://objects/npc.tscn" id="2_akmrm"]
+[ext_resource type="PackedScene" uid="uid://dqyowsh0kubut" path="res://objects/treat.tscn" id="3_p38tt"]
 [ext_resource type="PackedScene" uid="uid://3ug1t30kx5j4" path="res://UI/ui.tscn" id="4_5gj3v"]
 [ext_resource type="PackedScene" uid="uid://dwpu8fmfefy1a" path="res://background.tscn" id="4_h3cc0"]
 
@@ -21,7 +21,6 @@ treat_scene = ExtResource("3_p38tt")
 [node name="Background" parent="." instance=ExtResource("4_h3cc0")]
 
 [node name="Player" parent="." instance=ExtResource("1_1wr41")]
-visible = false
 position = Vector2(512, 420)
 
 [node name="NPCTimer" type="Timer" parent="."]
