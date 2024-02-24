@@ -83,6 +83,7 @@ func _on_territory_area_exited(area):
 func _on_area_entered(area):
 	state = STATES.BAP
 	$AnimationPlayer.play("bap")
+	$HitSound.play()
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "bap":

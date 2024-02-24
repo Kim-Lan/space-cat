@@ -5,15 +5,19 @@ const AUTOSCROLL = Vector2(0.0, 50.0) # 50 pixels/sec downwards
 @export var npc_scene: PackedScene
 @export var treat_scene: PackedScene
 var score
+var max_health = 3
+var current_health = 3
 
 func _ready():
 	pass
 
 func new_game():
 	score = 0
+	current_health = max_health
 	$Player.start($StartPosition.position)
 	$UI/InGameHUD.update_score(score)
-	$UI/InGameHUD.update_health($Player.health)
+	#$UI/InGameHUD.update_health(current_health)
+	$UI/InGameHUD.draw_health(current_health)
 	get_tree().call_group("npc_group", "queue_free")
 	get_tree().call_group("treat_group", "queue_free")
 	get_tree().paused = false
@@ -25,11 +29,13 @@ func new_game():
 	$TreatTimer.start()
 
 func game_over():
-	$UI.show_game_over()
+	get_tree().call_group("npc_group", "stop_timer")
+	#get_tree().paused = true
+	$Player/DamagedAnimationPlayer.stop()
+	$BapCooldown.stop()
 	$NPCTimer.stop()
 	$TreatTimer.stop()
-	
-	get_tree().call_group("npc_group", "stop_timer")
+	$UI.show_game_over()
 
 func spawn(scene):
 	# create new instance of given scene
@@ -60,5 +66,15 @@ func _on_treat_collected():
 	score += 1
 	$UI/InGameHUD.update_score(score)
 
-func _on_player_damaged(health: int):
-	$UI/InGameHUD.update_health(health)
+func _on_player_damaged():
+	current_health -= 1
+	$UI/InGameHUD.minus_health()
+	$BapCooldown.start()
+	
+	if current_health <= 0:
+		game_over()
+
+func _on_bap_cooldown_timeout():
+	$Player/DamagedAnimationPlayer.stop()
+	if current_health > 0:
+		$Player/DamageArea.disabled = false

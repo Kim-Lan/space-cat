@@ -13,7 +13,7 @@ func starting_game():
 
 func show_game_over():
 	$InGameHUD.hide()
-	$GameOverScreen.set_score_label($InGameHUD/ScoreLabel.text)
+	$GameOverScreen.set_score_label($InGameHUD/HUD/Score/ScoreLabel.text)
 	$GameOverScreen/PlayAgainButton.grab_focus()
 	$GameOverScreen.show()
 

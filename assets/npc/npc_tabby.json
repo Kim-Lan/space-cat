@@ -8,7 +8,7 @@
     "duration": 200
    },
    "npc_tabby #eepy 1.aseprite": {
-    "frame": { "x": 100, "y": 0, "w": 100, "h": 100 },
+    "frame": { "x": 102, "y": 0, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
@@ -16,7 +16,7 @@
     "duration": 200
    },
    "npc_tabby #eepy 2.aseprite": {
-    "frame": { "x": 200, "y": 0, "w": 100, "h": 100 },
+    "frame": { "x": 204, "y": 0, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
@@ -24,7 +24,7 @@
     "duration": 200
    },
    "npc_tabby #eepy 3.aseprite": {
-    "frame": { "x": 300, "y": 0, "w": 100, "h": 100 },
+    "frame": { "x": 306, "y": 0, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
@@ -32,7 +32,7 @@
     "duration": 200
    },
    "npc_tabby #eepy 4.aseprite": {
-    "frame": { "x": 400, "y": 0, "w": 100, "h": 100 },
+    "frame": { "x": 408, "y": 0, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
@@ -40,7 +40,7 @@
     "duration": 200
    },
    "npc_tabby #eepy 5.aseprite": {
-    "frame": { "x": 100, "y": 0, "w": 100, "h": 100 },
+    "frame": { "x": 102, "y": 0, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
@@ -48,7 +48,7 @@
     "duration": 200
    },
    "npc_tabby #eepy 6.aseprite": {
-    "frame": { "x": 200, "y": 0, "w": 100, "h": 100 },
+    "frame": { "x": 204, "y": 0, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
@@ -56,7 +56,7 @@
     "duration": 200
    },
    "npc_tabby #eepy 7.aseprite": {
-    "frame": { "x": 500, "y": 0, "w": 100, "h": 100 },
+    "frame": { "x": 510, "y": 0, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
@@ -64,7 +64,7 @@
     "duration": 200
    },
    "npc_tabby #angy 0.aseprite": {
-    "frame": { "x": 600, "y": 0, "w": 100, "h": 100 },
+    "frame": { "x": 0, "y": 102, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
@@ -72,7 +72,7 @@
     "duration": 200
    },
    "npc_tabby #angy 1.aseprite": {
-    "frame": { "x": 700, "y": 0, "w": 100, "h": 100 },
+    "frame": { "x": 102, "y": 102, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
@@ -80,7 +80,7 @@
     "duration": 200
    },
    "npc_tabby #angy 2.aseprite": {
-    "frame": { "x": 800, "y": 0, "w": 100, "h": 100 },
+    "frame": { "x": 204, "y": 102, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
@@ -88,7 +88,7 @@
     "duration": 200
    },
    "npc_tabby #angy 3.aseprite": {
-    "frame": { "x": 900, "y": 0, "w": 100, "h": 100 },
+    "frame": { "x": 306, "y": 102, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
@@ -96,7 +96,7 @@
     "duration": 200
    },
    "npc_tabby #bap 0.aseprite": {
-    "frame": { "x": 1000, "y": 0, "w": 100, "h": 100 },
+    "frame": { "x": 0, "y": 204, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
@@ -104,7 +104,7 @@
     "duration": 200
    },
    "npc_tabby #bap 1.aseprite": {
-    "frame": { "x": 1100, "y": 0, "w": 100, "h": 100 },
+    "frame": { "x": 102, "y": 204, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
@@ -112,7 +112,7 @@
     "duration": 200
    },
    "npc_tabby #bap 2.aseprite": {
-    "frame": { "x": 1200, "y": 0, "w": 100, "h": 100 },
+    "frame": { "x": 204, "y": 204, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
@@ -120,7 +120,7 @@
     "duration": 200
    },
    "npc_tabby #bap 3.aseprite": {
-    "frame": { "x": 1300, "y": 0, "w": 100, "h": 100 },
+    "frame": { "x": 306, "y": 204, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
@@ -133,7 +133,7 @@
   "version": "1.3.2-x64",
   "image": "npc_tabby.png",
   "format": "RGBA8888",
-  "size": { "w": 1400, "h": 100 },
+  "size": { "w": 610, "h": 304 },
   "scale": "1",
   "frameTags": [
    { "name": "eepy", "from": 0, "to": 7, "direction": "forward", "color": "#000000ff" },

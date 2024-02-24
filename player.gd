@@ -4,12 +4,11 @@ signal health_depleted
 signal damaged
 
 @export var autoscroll: Vector2
+@export var max_health: int
 
 const ACCELERATION = 400
 const MAX_SPEED = 400
 const FRICTION = 100
-
-const MAX_HEALTH = 3
 
 var screen_size
 var velocity: Vector2
@@ -24,9 +23,10 @@ func start(pos):
 	position = pos
 	show()
 	velocity = autoscroll
-	health = MAX_HEALTH
+	health = max_health
 	$DamageArea.disabled = false
 	$AnimationPlayer.play("idle")
+	$DamagedAnimationPlayer.stop()
 
 func _physics_process(delta):
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -64,23 +64,12 @@ func _physics_process(delta):
 	if (position.y <= player_bounds.y / 2) or (position.y >= screen_size.y - player_bounds.y / 2):
 		velocity.y = 0
 
-func take_damage(dmg: int):
-	health -= dmg
-	damaged.emit(health)
-	
-	$DamagedAnimationPlayer.play("damaged")
-	$BapCooldown.start()
-	$DamageArea.set_deferred("disabled", true)
-	
-	if health <= 0:
-		health_depleted.emit()
-		$BapCooldown.stop()
-		$DamagedAnimationPlayer.stop()
-
 func _on_area_entered(_area):
-	take_damage(1)
+	damaged.emit()
+	$DamagedAnimationPlayer.play("damaged")
+	$DamageArea.set_deferred("disabled", true)
 
-func _on_bap_cooldown_timeout():
-	$DamagedAnimationPlayer.stop()
-	if health > 0:
-		$DamageArea.disabled = false
+#func _on_bap_cooldown_timeout():
+	#$DamagedAnimationPlayer.stop()
+	#if health > 0:
+		#$DamageArea.disabled = false

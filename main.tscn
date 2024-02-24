@@ -28,6 +28,10 @@ wait_time = 2.0
 
 [node name="TreatTimer" type="Timer" parent="."]
 
+[node name="BapCooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [node name="SpawnPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_kuycc")
 metadata/_edit_lock_ = true
@@ -44,4 +48,5 @@ metadata/_edit_lock_ = true
 [connection signal="health_depleted" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="NPCTimer" to="." method="_on_npc_timer_timeout"]
 [connection signal="timeout" from="TreatTimer" to="." method="_on_treat_timer_timeout"]
+[connection signal="timeout" from="BapCooldown" to="." method="_on_bap_cooldown_timeout"]
 [connection signal="start_game" from="UI" to="." method="new_game"]
