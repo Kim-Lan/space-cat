@@ -72,16 +72,16 @@ script = ExtResource("1_uxitw")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -386.0
-offset_bottom = 382.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ksqkb")
 
 [node name="Frontstars" type="TextureRect" parent="."]
-offset_top = -386.0
-offset_right = 1024.0
-offset_bottom = 1150.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_2e47x")
 
 [node name="Cat" type="Sprite2D" parent="."]
