@@ -9,7 +9,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_kuycc"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -50, 0, 0, 0, 0, 1024, -50)
+"points": PackedVector2Array(0, 0, 0, 0, 50, -49, 0, 0, 0, 0, 974, -50)
 }
 point_count = 2
 
@@ -37,7 +37,8 @@ curve = SubResource("Curve2D_kuycc")
 metadata/_edit_lock_ = true
 
 [node name="SpawnLocation" type="PathFollow2D" parent="SpawnPath"]
-position = Vector2(0, -50)
+position = Vector2(50, -49)
+rotation = -0.00108225
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(512, 420)
