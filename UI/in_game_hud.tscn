@@ -4,13 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://cwle3fcwllmhr" path="res://UI/heart.tscn" id="2_ulxxs"]
 [ext_resource type="Texture2D" uid="uid://n1jotwa2d5o" path="res://assets/icon_treat.png" id="3_mve4d"]
 
+[sub_resource type="Animation" id="Animation_xklq2"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_fqupt"]
 resource_name = "damage"
 length = 0.4
 loop_mode = 1
-
-[sub_resource type="Animation" id="Animation_xklq2"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yfvqs"]
 _data = {
@@ -22,51 +22,40 @@ _data = {
 script = ExtResource("1_5yvre")
 heart_scene = ExtResource("2_ulxxs")
 
-[node name="ScoreLabel" type="Label" parent="."]
-visible = false
-offset_left = 88.0
-offset_top = 589.0
-offset_right = 225.0
-offset_bottom = 649.0
-theme_override_font_sizes/font_size = 24
-text = "score: 0"
-vertical_alignment = 1
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -110.0
+offset_right = 89.0
+grow_vertical = 0
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_bottom = 35
 
-[node name="HealthLabel" type="Label" parent="."]
-visible = false
-offset_left = 88.0
-offset_top = 636.0
-offset_right = 225.0
-offset_bottom = 696.0
-theme_override_font_sizes/font_size = 24
-text = "health: 3"
-vertical_alignment = 1
-
-[node name="HUD" type="VBoxContainer" parent="."]
-offset_left = 32.0
-offset_top = 620.0
-offset_right = 190.0
-offset_bottom = 711.0
-theme_override_constants/separation = 10
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 2
 metadata/_edit_group_ = true
 
-[node name="Score" type="HBoxContainer" parent="HUD"]
+[node name="Score" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="ScoreIcon" type="TextureRect" parent="HUD/Score"]
+[node name="ScoreIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/Score"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_mve4d")
 stretch_mode = 2
 
-[node name="ScoreLabel" type="Label" parent="HUD/Score"]
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/Score"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 42
 text = "0"
 
-[node name="HealthBar" type="HBoxContainer" parent="HUD"]
+[node name="HealthBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_constants/separation = 10
 metadata/_edit_group_ = true

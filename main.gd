@@ -9,17 +9,15 @@ var max_health = 3
 var current_health = 3
 
 func _ready():
-	pass
+	$Player.hide()
 
 func new_game():
+	clear_screen()
 	score = 0
 	current_health = max_health
 	$Player.start($StartPosition.position)
 	$UI/InGameHUD.update_score(score)
-	#$UI/InGameHUD.update_health(current_health)
 	$UI/InGameHUD.draw_health(current_health)
-	get_tree().call_group("npc_group", "queue_free")
-	get_tree().call_group("treat_group", "queue_free")
 	get_tree().paused = false
 	
 	$Player.autoscroll = AUTOSCROLL
@@ -27,15 +25,22 @@ func new_game():
 	$Background.reset()
 	$NPCTimer.start()
 	$TreatTimer.start()
+	$Player.disable_input = false
 
 func game_over():
 	get_tree().call_group("npc_group", "stop_timer")
 	#get_tree().paused = true
 	$Player/DamagedAnimationPlayer.stop()
+	$Player.disable_input = true
 	$BapCooldown.stop()
 	$NPCTimer.stop()
 	$TreatTimer.stop()
 	$UI.show_game_over()
+
+func clear_screen():
+	get_tree().call_group("npc_group", "queue_free")
+	get_tree().call_group("treat_group", "queue_free")
+	$Player.hide()
 
 func spawn(scene):
 	# create new instance of given scene

@@ -1,8 +1,10 @@
 extends CanvasLayer
 
 signal start_game
+signal return_title
 
 func _ready():
+	$TitleScreen.show()
 	$GameOverScreen.hide()
 	$InGameHUD.hide()
 
@@ -13,14 +15,18 @@ func starting_game():
 
 func show_game_over():
 	$InGameHUD.hide()
-	$GameOverScreen.set_score_label($InGameHUD/HUD/Score/ScoreLabel.text)
-	$GameOverScreen/PlayAgainButton.grab_focus()
+	$GameOverScreen.set_score_label(find_child("ScoreLabel").text)
 	$GameOverScreen.show()
 
 func _on_start_button_pressed():
-	$StartScreen.hide()
+	$TitleScreen.hide()
 	starting_game()
 
 func _on_play_again_button_pressed():
 	$GameOverScreen.hide()
 	starting_game()
+
+func _on_return_title_button_pressed():
+	$GameOverScreen.hide()
+	$TitleScreen.show()
+	return_title.emit()

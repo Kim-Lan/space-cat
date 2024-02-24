@@ -21,7 +21,8 @@ treat_scene = ExtResource("3_p38tt")
 [node name="Background" parent="." instance=ExtResource("4_h3cc0")]
 
 [node name="Player" parent="." instance=ExtResource("1_1wr41")]
-position = Vector2(480, 360)
+visible = false
+position = Vector2(512, 420)
 
 [node name="NPCTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -39,7 +40,7 @@ metadata/_edit_lock_ = true
 [node name="SpawnLocation" type="PathFollow2D" parent="SpawnPath"]
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(480, 360)
+position = Vector2(512, 420)
 metadata/_edit_lock_ = true
 
 [node name="UI" parent="." instance=ExtResource("4_5gj3v")]
@@ -49,4 +50,5 @@ metadata/_edit_lock_ = true
 [connection signal="timeout" from="NPCTimer" to="." method="_on_npc_timer_timeout"]
 [connection signal="timeout" from="TreatTimer" to="." method="_on_treat_timer_timeout"]
 [connection signal="timeout" from="BapCooldown" to="." method="_on_bap_cooldown_timeout"]
+[connection signal="return_title" from="UI" to="." method="clear_screen"]
 [connection signal="start_game" from="UI" to="." method="new_game"]

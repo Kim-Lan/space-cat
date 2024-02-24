@@ -2,11 +2,13 @@ extends Area2D
 
 @export var autoscroll: Vector2
 
-enum COLORS { BLACK, GRAY, TABBY }
+enum COLORS { BLACK, GRAY, TABBY, SIAMESE, AEGEAN }
 const ANIMATIONS = {
-	COLORS.BLACK: 'black',
-	COLORS.GRAY: 'gray',
-	COLORS.TABBY: 'tabby'
+	COLORS.BLACK: 'Black',
+	COLORS.GRAY: 'Gray',
+	COLORS.TABBY: 'Tabby',
+	COLORS.SIAMESE: 'Siamese',
+	COLORS.AEGEAN: 'Aegean'
 }
 const STATS = {
 	COLORS.BLACK: {
@@ -18,6 +20,14 @@ const STATS = {
 		'speed': 75
 	},
 	COLORS.TABBY: {
+		'territory_radius': 200,
+		'speed': 50
+	},
+	COLORS.SIAMESE: {
+		'territory_radius': 200,
+		'speed': 50
+	},
+	COLORS.AEGEAN: {
 		'territory_radius': 200,
 		'speed': 50
 	}
@@ -45,7 +55,7 @@ func select_color():
 
 func select_sprite(color):
 	for sprite in $ColorSprites.get_children():
-		if sprite.name.to_lower() != ANIMATIONS[color]:
+		if sprite.name != ANIMATIONS[color]:
 			sprite.hide()
 		else:
 			sprite.show()

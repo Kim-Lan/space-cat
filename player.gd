@@ -5,6 +5,7 @@ signal damaged
 
 @export var autoscroll: Vector2
 @export var max_health: int
+@export var disable_input: bool
 
 const ACCELERATION = 400
 const MAX_SPEED = 400
@@ -15,9 +16,7 @@ var velocity: Vector2
 var health: int
 
 func _ready():
-	hide()
 	screen_size = get_viewport_rect().size
-	$AnimationPlayer.play("idle")
 
 func start(pos):
 	position = pos
@@ -29,25 +28,28 @@ func start(pos):
 	$DamagedAnimationPlayer.stop()
 
 func _physics_process(delta):
-	var input_direction = Input.get_vector("left", "right", "up", "down")
+	var input_direction = Vector2(0, 0)
+	if !disable_input:
+		input_direction = Input.get_vector("left", "right", "up", "down")
+		
+		var input_x = Input.get_axis("left", "right")
+		var input_y = Input.get_axis("up", "down")
+		if !input_x:
+			rotation = 0
+			velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
+		if !input_y:
+			velocity.y = move_toward(velocity.y, autoscroll.y, FRICTION * delta)
+		if input_x == -1:
+			rotation = - PI / 8
+		elif input_x == 1:
+			rotation = PI / 8
+		
 	if input_direction.length() > 0:
 		velocity += ACCELERATION * input_direction * delta
 		velocity = velocity.limit_length(MAX_SPEED)
 		$AnimationPlayer.play("swim")
 	else:
 		$AnimationPlayer.play("idle")
-	
-	var input_x = Input.get_axis("left", "right")
-	var input_y = Input.get_axis("up", "down")
-	if !input_x:
-		rotation = 0
-		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
-	if !input_y:
-		velocity.y = move_toward(velocity.y, autoscroll.y, FRICTION * delta)
-	if input_x == -1:
-		rotation = - PI / 8
-	elif input_x == 1:
-		rotation = PI / 8
 	
 	position += velocity * delta
 	
@@ -68,8 +70,3 @@ func _on_area_entered(_area):
 	damaged.emit()
 	$DamagedAnimationPlayer.play("damaged")
 	$DamageArea.set_deferred("disabled", true)
-
-#func _on_bap_cooldown_timeout():
-	#$DamagedAnimationPlayer.stop()
-	#if health > 0:
-		#$DamageArea.disabled = false

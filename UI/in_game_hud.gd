@@ -4,12 +4,17 @@ extends CanvasLayer
 
 var current_health: int
 
+var health_bar
+
+func _ready():
+	health_bar = find_child("HealthBar")
+
 func update_score(value):
-	$HUD/Score/ScoreLabel.text = str(value)
+	find_child("ScoreLabel").text = str(value)
 
 func update_health(value):
-	for i in $HUD/HealthBar.get_child_count():
-		$HUD/HealthBar.get_child(i).visible = value > i
+	for i in health_bar.get_child_count():
+		health_bar.get_child(i).visible = value > i
 	#$HealthLabel.text = HEALTH_LABEL + str(value)
 
 func draw_health(value):
@@ -17,9 +22,9 @@ func draw_health(value):
 	current_health = value
 	for i in value:
 		var heart = heart_scene.instantiate()
-		$HUD/HealthBar.add_child(heart)
+		health_bar.add_child(heart)
 
 func minus_health():
 	current_health -= 1
-	var last_heart = $HUD/HealthBar.get_child(current_health)
+	var last_heart = health_bar.get_child(current_health)
 	last_heart.flash()

@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=3 uid="uid://blgxkiiadrh4k"]
+
+[ext_resource type="Script" path="res://UI/title_screen.gd" id="1_sll7u"]
+[ext_resource type="Texture2D" uid="uid://dw2ccthpfjttu" path="res://assets/background/backstars.png" id="2_3qnxe"]
+[ext_resource type="Texture2D" uid="uid://1let0jtuydd4" path="res://assets/title.png" id="2_dhbp5"]
+[ext_resource type="Texture2D" uid="uid://b5yprj84nn3wy" path="res://assets/background/frontstars.png" id="3_1af36"]
+[ext_resource type="PackedScene" uid="uid://dqwxoo7jos214" path="res://player.tscn" id="3_dhym5"]
+
+[sub_resource type="Animation" id="Animation_bsbq7"]
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 900, 300), Rect2(0, 302, 900, 300), Rect2(0, 604, 900, 300), Rect2(0, 906, 900, 300), Rect2(0, 1208, 900, 300), Rect2(0, 1510, 900, 300), Rect2(0, 1812, 900, 300), Rect2(0, 2114, 900, 300), Rect2(0, 2416, 900, 300), Rect2(0, 2718, 900, 300), Rect2(0, 3020, 900, 300), Rect2(0, 3322, 900, 300), Rect2(0, 3624, 900, 300), Rect2(0, 3926, 900, 300), Rect2(0, 4228, 900, 300), Rect2(0, 3926, 900, 300), Rect2(0, 0, 900, 300), Rect2(0, 3926, 900, 300), Rect2(0, 4228, 900, 300), Rect2(0, 3926, 900, 300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_27nih"]
+_data = {
+"title": SubResource("Animation_bsbq7")
+}
+
+[node name="TitleScreen" type="CanvasLayer"]
+script = ExtResource("1_sll7u")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -386.0
+offset_bottom = 382.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3qnxe")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_1af36")
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(512, 255)
+texture = ExtResource("2_dhbp5")
+region_enabled = true
+region_rect = Rect2(0, 0, 900, 300)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Title"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_27nih")
+}
+
+[node name="Player" parent="." instance=ExtResource("3_dhym5")]
+position = Vector2(512, 450)
+collision_layer = 0
+collision_mask = 0
+input_pickable = false
+disable_input = true
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -195.0
+offset_right = 100.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_group_ = true
+
+[node name="StartButton" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "start"
+
+[node name="SettingsButton" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "settings"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 795.0
+offset_top = 716.0
+offset_right = 1005.0
+offset_bottom = 756.0
+metadata/_edit_group_ = true
+
+[node name="AnimationToggle" type="CheckButton" parent="HBoxContainer"]
+layout_mode = 2
+button_pressed = true
+
+[node name="AnimationToggleLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Toggle Animation
+"
+
+[connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="toggled" from="HBoxContainer/AnimationToggle" to="." method="_on_animation_toggled"]
