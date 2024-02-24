@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dw2ccthpfjttu" path="res://assets/background/backstars.png" id="2_3qnxe"]
 [ext_resource type="Texture2D" uid="uid://1let0jtuydd4" path="res://assets/title.png" id="2_dhbp5"]
 [ext_resource type="Texture2D" uid="uid://b5yprj84nn3wy" path="res://assets/background/frontstars.png" id="3_1af36"]
-[ext_resource type="PackedScene" uid="uid://dqwxoo7jos214" path="res://player.tscn" id="3_dhym5"]
+[ext_resource type="PackedScene" uid="uid://dqwxoo7jos214" path="res://objects/player.tscn" id="3_dhym5"]
 
 [sub_resource type="Animation" id="Animation_bsbq7"]
 length = 2.0
