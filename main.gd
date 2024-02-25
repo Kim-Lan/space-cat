@@ -5,6 +5,9 @@ const FREEZE_DURATION = 0.35
 
 @export var npc_scene: PackedScene
 @export var treat_scene: PackedScene
+
+var highscore: int = 0
+
 var score: int
 var max_health: int = 3
 var current_health: int
@@ -29,7 +32,7 @@ func new_game():
 	$Player.disable_input = false
 
 func game_over():
-	$Player.disable_input = true
+	#$Player.disable_input = true
 	$Player/DamagedAnimationPlayer.stop()
 	
 	$NPCTimer.stop()
@@ -61,7 +64,6 @@ func spawn(scene):
 
 func _on_npc_timer_timeout():
 	var npc = spawn(npc_scene)
-	npc.bapped.connect(_on_npc_bapped)
 
 func _on_treat_timer_timeout():
 	var treat = spawn(treat_scene)
@@ -71,9 +73,6 @@ func _on_treat_collected():
 	score += 1
 	$UI/InGameHUD.update_score(score)
 
-func _on_npc_bapped():
-	freeze_frame(FREEZE_DURATION)
-
 func freeze_frame(duration):
 	get_tree().paused = true
 	if current_health > 0:
@@ -82,12 +81,16 @@ func freeze_frame(duration):
 func _on_freeze_timer_timeout():
 	get_tree().paused = false
 
-func _on_player_damaged():
+func _on_player_hit(npc_area):
 	current_health -= 1
+	npc_area.bap()
+	freeze_frame(FREEZE_DURATION)
 	
 	if current_health <= 0:
 		game_over()
 	else:
+		$Player/DamagedAnimationPlayer.play("damaged")
+		$Player/DamageArea.set_deferred("disabled", true)
 		$UI/InGameHUD.minus_health()
 		$BapCooldown.start()
 
@@ -95,3 +98,13 @@ func _on_bap_cooldown_timeout():
 	$Player/DamagedAnimationPlayer.stop()
 	if current_health > 0:
 		$Player/DamageArea.disabled = false
+
+func save_highscore():
+	var file = FileAccess.open("user://highscore.txt", FileAccess.WRITE)
+	if score > highscore:
+		highscore = score
+		file.store_string(str(highscore))
+
+func load_highscore():
+	var file = FileAccess.open("user://highscore.txt", FileAccess.READ)
+	highscore = int(file.get_as_text())

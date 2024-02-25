@@ -1,7 +1,5 @@
 extends Area2D
 
-signal bapped
-
 @export var autoscroll: Vector2
 
 enum COLORS { BLACK, GRAY, TABBY, SIAMESE, AEGEAN }
@@ -10,7 +8,7 @@ const ANIMATIONS = {
 	COLORS.GRAY: 'Gray',
 	COLORS.TABBY: 'Tabby',
 	COLORS.SIAMESE: 'Siamese',
-	COLORS.AEGEAN: 'Aegean'
+	COLORS.AEGEAN: 'Aegean',
 }
 const STATS = {
 	COLORS.BLACK: {
@@ -32,7 +30,7 @@ const STATS = {
 	COLORS.AEGEAN: {
 		'territory_radius': 200,
 		'speed': 50
-	}
+	},
 }
 
 enum STATES { EEPY, ANGY, BAP }
@@ -99,14 +97,10 @@ func _on_territory_area_exited(area):
 	await get_tree().create_timer(0.01).timeout
 	get_eepy()
 
-func _on_area_entered(area):
+func bap():
 	state = STATES.BAP
-	$AnimationPlayer.play("bap")
+	$BapAnimationPlayer.play("bap")
 	$HitSound.play()
-
-func _on_animation_player_animation_finished(anim_name):
-	if state == STATES.BAP:
-		bapped.emit()
 
 func draw_territory():
 	$TerritoryCircle.visible = true

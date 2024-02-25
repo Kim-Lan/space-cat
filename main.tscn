@@ -51,8 +51,7 @@ metadata/_edit_lock_ = true
 
 [node name="UI" parent="." instance=ExtResource("4_5gj3v")]
 
-[connection signal="damaged" from="Player" to="." method="_on_player_damaged"]
-[connection signal="health_depleted" from="Player" to="." method="game_over"]
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="NPCTimer" to="." method="_on_npc_timer_timeout"]
 [connection signal="timeout" from="TreatTimer" to="." method="_on_treat_timer_timeout"]
 [connection signal="timeout" from="FreezeTimer" to="." method="_on_freeze_timer_timeout"]
