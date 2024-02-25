@@ -125,7 +125,7 @@ libraries = {
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(512, 442)
 sprite_frames = SubResource("SpriteFrames_2d2wj")
-frame_progress = 0.616996
+frame_progress = 0.132211
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 anchors_preset = 7
@@ -144,9 +144,9 @@ metadata/_edit_group_ = true
 [node name="StartButton" type="Button" parent="Buttons"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../../FooterMarginContainer/HBoxContainer/ToggleAnimationContainer/AnimationToggle")
-focus_neighbor_right = NodePath("../../FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton")
-focus_neighbor_bottom = NodePath("../../FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton")
-focus_next = NodePath("../../FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton")
+focus_neighbor_right = NodePath("../ExitButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../../FooterMarginContainer/HBoxContainer/ToggleAnimationContainer/AnimationToggle")
 theme_override_font_sizes/font_size = 32
 text = "start"
@@ -155,6 +155,15 @@ text = "start"
 visible = false
 layout_mode = 2
 text = "settings"
+
+[node name="ExitButton" type="Button" parent="Buttons"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../StartButton")
+focus_neighbor_top = NodePath("../StartButton")
+focus_neighbor_right = NodePath("../../FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton")
+focus_next = NodePath("../../FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton")
+theme_override_font_sizes/font_size = 24
+text = "exit"
 
 [node name="FooterMarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 12
@@ -191,11 +200,10 @@ text = "0"
 
 [node name="ResetHighscoreButton" type="Button" parent="FooterMarginContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../../../Buttons/StartButton")
-focus_neighbor_top = NodePath("../../../../Buttons/StartButton")
+focus_neighbor_left = NodePath("../../../../Buttons/ExitButton")
 focus_neighbor_right = NodePath("../../ToggleAnimationContainer/AnimationToggle")
 focus_next = NodePath("../../ToggleAnimationContainer/AnimationToggle")
-focus_previous = NodePath("../../../../Buttons/StartButton")
+focus_previous = NodePath("../../../../Buttons/ExitButton")
 theme_override_font_sizes/font_size = 24
 text = " reset "
 
@@ -210,7 +218,6 @@ metadata/_edit_group_ = true
 [node name="AnimationToggle" type="CheckButton" parent="FooterMarginContainer/HBoxContainer/ToggleAnimationContainer"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../../HBoxContainer/ResetHighscoreButton")
-focus_neighbor_top = NodePath("../../../../Buttons/StartButton")
 focus_neighbor_right = NodePath("../../../../Buttons/StartButton")
 focus_next = NodePath("../../../../Buttons/StartButton")
 focus_previous = NodePath("../../HBoxContainer/ResetHighscoreButton")
@@ -222,6 +229,8 @@ theme_override_font_sizes/font_size = 24
 text = "toggle animation
 "
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton" to="." method="_on_reset_highscore_button_pressed"]
 [connection signal="toggled" from="FooterMarginContainer/HBoxContainer/ToggleAnimationContainer/AnimationToggle" to="." method="_on_animation_toggled"]

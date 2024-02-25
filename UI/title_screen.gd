@@ -24,3 +24,10 @@ func _on_animation_toggled(toggled_on):
 	else:
 		$Title/AnimationPlayer.stop()
 		$PlayerSprite.stop()
+
+func _on_visibility_changed():
+	if visible:
+		find_child("StartButton").grab_focus()
+
+func _on_exit_button_pressed():
+	get_tree().quit()
