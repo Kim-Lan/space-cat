@@ -62,5 +62,6 @@ metadata/_edit_lock_ = true
 [connection signal="timeout" from="TreatTimer" to="." method="_on_treat_timer_timeout"]
 [connection signal="timeout" from="FreezeTimer" to="." method="_on_freeze_timer_timeout"]
 [connection signal="timeout" from="BapCooldown" to="." method="_on_bap_cooldown_timeout"]
+[connection signal="reset_highscore" from="UI" to="." method="_on_reset_highscore"]
 [connection signal="return_title" from="UI" to="." method="clear_screen"]
 [connection signal="start_game" from="UI" to="." method="new_game"]

@@ -13,6 +13,7 @@ var max_health: int = 3
 var current_health: int
 
 func _ready():
+	load_highscore()
 	$Player.hide()
 
 func new_game():
@@ -32,9 +33,8 @@ func new_game():
 	$Player.disable_input = false
 
 func game_over():
-	#$Player.disable_input = true
+	save_highscore()
 	$Player/DamagedAnimationPlayer.stop()
-	
 	$NPCTimer.stop()
 	$TreatTimer.stop()
 	$UI.show_game_over()
@@ -103,7 +103,18 @@ func save_highscore():
 	if score > highscore:
 		highscore = score
 		file.store_string(str(highscore))
+		$UI/TitleScreen.update_highscore(highscore)
 
 func load_highscore():
 	var file = FileAccess.open("user://highscore.txt", FileAccess.READ)
-	highscore = int(file.get_as_text())
+	if file != null:
+		highscore = int(file.get_as_text())
+	else:
+		highscore = 0
+	$UI/TitleScreen.update_highscore(highscore)
+
+func _on_reset_highscore():
+	highscore = 0
+	var file = FileAccess.open("user://highscore.txt", FileAccess.WRITE)
+	file.store_string(str(highscore))
+	$UI/TitleScreen.update_highscore(highscore)

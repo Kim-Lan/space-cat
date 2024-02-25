@@ -2,6 +2,7 @@ extends CanvasLayer
 
 signal start_game
 signal return_title
+signal reset_highscore
 
 func _ready():
 	$TitleScreen.show()
@@ -30,3 +31,6 @@ func _on_return_title_button_pressed():
 	$GameOverScreen.hide()
 	$TitleScreen.show()
 	return_title.emit()
+
+func _on_reset_highscore_pressed():
+	reset_highscore.emit()

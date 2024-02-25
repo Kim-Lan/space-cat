@@ -111,7 +111,7 @@ libraries = {
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(512, 442)
 sprite_frames = SubResource("SpriteFrames_2d2wj")
-frame_progress = 0.899627
+frame_progress = 0.0694804
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 anchors_preset = 7
@@ -136,22 +136,62 @@ text = "start"
 layout_mode = 2
 text = "settings"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = 795.0
-offset_top = 716.0
-offset_right = 1005.0
-offset_bottom = 756.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HighScoreContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HighScoreLabel" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/HighScoreContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "highscore:"
+
+[node name="HighScoreValue" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/HighScoreContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="ResetHighscoreButton" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = " reset "
+
+[node name="HSpace" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ToggleAnimationContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
 metadata/_edit_group_ = true
 
-[node name="AnimationToggle" type="CheckButton" parent="HBoxContainer"]
+[node name="AnimationToggle" type="CheckButton" parent="MarginContainer/HBoxContainer/ToggleAnimationContainer"]
 layout_mode = 2
 button_pressed = true
 
-[node name="AnimationToggleLabel" type="Label" parent="HBoxContainer"]
+[node name="AnimationToggleLabel" type="Label" parent="MarginContainer/HBoxContainer/ToggleAnimationContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Toggle Animation
+theme_override_font_sizes/font_size = 24
+text = "toggle animation
 "
 
 [connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="toggled" from="HBoxContainer/AnimationToggle" to="." method="_on_animation_toggled"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton" to="." method="_on_reset_highscore_button_pressed"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/ToggleAnimationContainer/AnimationToggle" to="." method="_on_animation_toggled"]

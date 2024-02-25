@@ -17,6 +17,7 @@ visible = false
 [node name="GameOverScreen" parent="." instance=ExtResource("2_cw34c")]
 visible = false
 
+[connection signal="reset_highscore_pressed" from="TitleScreen" to="." method="_on_reset_highscore_pressed"]
 [connection signal="start_button_pressed" from="TitleScreen" to="." method="_on_start_button_pressed"]
 [connection signal="play_again_button_pressed" from="GameOverScreen" to="." method="_on_play_again_button_pressed"]
 [connection signal="return_title_button_pressed" from="GameOverScreen" to="." method="_on_return_title_button_pressed"]
