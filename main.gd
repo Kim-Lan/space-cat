@@ -70,8 +70,8 @@ func _on_treat_timer_timeout():
 	$Treats.add_child(treat)
 	treat.collected.connect(_on_treat_collected)
 
-func _on_treat_collected():
-	score += 1
+func _on_treat_collected(value):
+	score += value
 	$UI/InGameHUD.update_score(score)
 
 func freeze_frame(duration):

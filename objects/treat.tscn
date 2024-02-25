@@ -1,26 +1,56 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqyowsh0kubut"]
+[gd_scene load_steps=9 format=3 uid="uid://dqyowsh0kubut"]
 
 [ext_resource type="Script" path="res://objects/treat.gd" id="1_0l278"]
 [ext_resource type="Texture2D" uid="uid://b63ddx1lw7p62" path="res://assets/treat/treat_1.png" id="2_urp5d"]
+[ext_resource type="Texture2D" uid="uid://cl6b1kpsgimk6" path="res://assets/treat/treat_2.png" id="3_aaf63"]
 [ext_resource type="AudioStream" uid="uid://diefm2rsny7rh" path="res://assets/audio/cronch1.wav" id="3_iurks"]
+[ext_resource type="Texture2D" uid="uid://b18mdccabirs4" path="res://assets/treat/treat_3.png" id="4_1juih"]
+[ext_resource type="Texture2D" uid="uid://blar0wdidrb3j" path="res://assets/treat/treat_4.png" id="5_a44vv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t1d1s"]
+radius = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5g6x2"]
-radius = 19.0
+radius = 28.0
 
 [node name="Treat" type="Area2D" groups=["treat_group"]]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_0l278")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="1" type="Sprite2D" parent="Sprites"]
+visible = false
+position = Vector2(-1, 0)
 texture = ExtResource("2_urp5d")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="2" type="Sprite2D" parent="Sprites"]
+visible = false
+position = Vector2(-1, -1)
+texture = ExtResource("3_aaf63")
+
+[node name="3" type="Sprite2D" parent="Sprites"]
+position = Vector2(-2, -1)
+texture = ExtResource("4_1juih")
+
+[node name="4" type="Sprite2D" parent="Sprites"]
+visible = false
+position = Vector2(-1, -1)
+texture = ExtResource("5_a44vv")
+
+[node name="CollisionShapeSmall" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_t1d1s")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShapeBig" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5g6x2")
+metadata/_edit_lock_ = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0, -7.10543e-15)
-scale = Vector2(1.5, 1.5)
+position = Vector2(-2, -1)
+scale = Vector2(2.5, 2.5)
 
 [node name="CollectSound" type="AudioStreamPlayer" parent="."]
 process_mode = 3
