@@ -15,8 +15,11 @@ var current_health: int
 func _ready():
 	load_highscore()
 	$Player.hide()
+	$Audio/TitleMusic.play()
 
 func new_game():
+	$Audio/TitleMusic.stop()
+	$Audio/EndMusic.stop()
 	clear_screen()
 	score = 0
 	current_health = max_health
@@ -31,6 +34,7 @@ func new_game():
 	$NPCTimer.start()
 	$TreatTimer.start()
 	$Player.disable_input = false
+	$Audio/InGameMusic.play()
 
 func game_over():
 	get_tree().paused = true
@@ -40,6 +44,8 @@ func game_over():
 	$NPCTimer.stop()
 	$TreatTimer.stop()
 	$UI.show_game_over(score)
+	$Audio/InGameMusic.stop()
+	$Audio/EndMusic.play()
 
 func clear_screen():
 	get_tree().call_group("npc_group", "queue_free")
@@ -123,3 +129,8 @@ func _on_reset_highscore():
 	var file = FileAccess.open("user://highscore.txt", FileAccess.WRITE)
 	file.store_string(str(highscore))
 	$UI.update_highscore(highscore)
+
+func _on_return_title():
+	clear_screen()
+	$Audio/EndMusic.stop()
+	$Audio/TitleMusic.play()
