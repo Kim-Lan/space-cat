@@ -79,20 +79,34 @@ animations = [{
 script = ExtResource("1_sll7u")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -386.0
-offset_bottom = 382.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -768.0
+offset_right = 512.0
+offset_bottom = 768.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_3qnxe")
 metadata/_edit_lock_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-offset_top = -386.0
-offset_right = 1024.0
-offset_bottom = 1150.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -768.0
+offset_right = 512.0
+offset_bottom = 768.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("3_1af36")
 metadata/_edit_lock_ = true
 
@@ -111,7 +125,7 @@ libraries = {
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(512, 442)
 sprite_frames = SubResource("SpriteFrames_2d2wj")
-frame_progress = 0.506389
+frame_progress = 0.209607
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 anchors_preset = 7
@@ -137,7 +151,7 @@ visible = false
 layout_mode = 2
 text = "settings"
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="FooterMarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -150,49 +164,49 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="FooterMarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="FooterMarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="HighScoreContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+[node name="HighScoreContainer" type="HBoxContainer" parent="FooterMarginContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="HighScoreLabel" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/HighScoreContainer"]
+[node name="HighScoreLabel" type="Label" parent="FooterMarginContainer/HBoxContainer/HBoxContainer/HighScoreContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "highscore:"
 
-[node name="HighScoreValue" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer/HighScoreContainer"]
+[node name="HighScoreValue" type="Label" parent="FooterMarginContainer/HBoxContainer/HBoxContainer/HighScoreContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "0"
 
-[node name="ResetHighscoreButton" type="Button" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+[node name="ResetHighscoreButton" type="Button" parent="FooterMarginContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = " reset "
 
-[node name="HSpace" type="Control" parent="MarginContainer/HBoxContainer"]
+[node name="HSpace" type="Control" parent="FooterMarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ToggleAnimationContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="ToggleAnimationContainer" type="HBoxContainer" parent="FooterMarginContainer/HBoxContainer"]
 layout_mode = 2
 metadata/_edit_group_ = true
 
-[node name="AnimationToggle" type="CheckButton" parent="MarginContainer/HBoxContainer/ToggleAnimationContainer"]
+[node name="AnimationToggle" type="CheckButton" parent="FooterMarginContainer/HBoxContainer/ToggleAnimationContainer"]
 layout_mode = 2
 button_pressed = true
 
-[node name="AnimationToggleLabel" type="Label" parent="MarginContainer/HBoxContainer/ToggleAnimationContainer"]
+[node name="AnimationToggleLabel" type="Label" parent="FooterMarginContainer/HBoxContainer/ToggleAnimationContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "toggle animation
 "
 
 [connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton" to="." method="_on_reset_highscore_button_pressed"]
-[connection signal="toggled" from="MarginContainer/HBoxContainer/ToggleAnimationContainer/AnimationToggle" to="." method="_on_animation_toggled"]
+[connection signal="pressed" from="FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton" to="." method="_on_reset_highscore_button_pressed"]
+[connection signal="toggled" from="FooterMarginContainer/HBoxContainer/ToggleAnimationContainer/AnimationToggle" to="." method="_on_animation_toggled"]
