@@ -14,13 +14,22 @@ var current_health: int
 
 func _ready():
 	load_highscore()
-	$Player.hide()
-	$Audio/TitleMusic.play()
+	#$Player.hide()
+	$Player.start($StartPosition.position)
+	$Player.disable_input = true
+	$Music/TitleMusic.play()
 
-func new_game():
+func _on_start_button_pressed():
 	$StartDelay.start()
-	$Audio/TitleMusic.stop()
-	$Audio/EndMusic.stop()
+	reset_game()
+	$AnimationPlayer.play("start_from_title")
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "start_from_title":
+		$Music/TitleMusic.stop()
+		$TitleBackground.hide()
+
+func reset_game():
 	clear_screen()
 	score = 0
 	current_health = max_health
@@ -36,7 +45,7 @@ func _on_start_delay_timeout():
 	$NPCTimer.start()
 	$TreatTimer.start()
 	$Player.disable_input = false
-	$Audio/InGameMusic.play()
+	$Music/InGameMusic.play()
 
 func game_over():
 	get_tree().paused = true
@@ -46,8 +55,8 @@ func game_over():
 	$NPCTimer.stop()
 	$TreatTimer.stop()
 	$UI.show_game_over(score)
-	$Audio/InGameMusic.stop()
-	$Audio/EndMusic.play()
+	$Music/InGameMusic.stop()
+	$Music/EndMusic.play()
 
 func clear_screen():
 	get_tree().call_group("npc_group", "queue_free")
@@ -79,7 +88,7 @@ func _on_treat_timer_timeout():
 	treat.collected.connect(_on_treat_collected)
 
 func _on_treat_collected(value):
-	$Audio/TreatSound.play()
+	$SoundEffects/TreatSound.play()
 	score += value
 	$UI/InGameHUD.update_score(score)
 
@@ -95,7 +104,7 @@ func _on_player_hit(npc_area):
 	if $BapCooldown.is_stopped() and current_health > 0:
 		current_health -= 1
 		npc_area.bap()
-		$Audio/HitSound.play()
+		$SoundEffects/HitSound.play()
 		freeze_frame(FREEZE_DURATION)
 		
 		if current_health <= 0:

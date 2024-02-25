@@ -9,8 +9,8 @@ var screen_height: int
 
 func _ready():
 	screen_height = get_viewport().size.y
-	front_layer_limit = screen_height
-	back_layer_limit = 2 * screen_height
+	front_layer_limit = 2 * screen_height
+	back_layer_limit = 3 * screen_height
 	reset()
 	$BackLayer.set_visible(false)
 	$FrontLayer.set_visible(false)

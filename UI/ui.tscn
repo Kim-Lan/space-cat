@@ -1,13 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://3ug1t30kx5j4"]
+[gd_scene load_steps=9 format=3 uid="uid://3ug1t30kx5j4"]
 
 [ext_resource type="Script" path="res://UI/ui.gd" id="1_mfp3s"]
 [ext_resource type="PackedScene" uid="uid://cimgwhgbt41ci" path="res://UI/game_over_screen.tscn" id="2_cw34c"]
 [ext_resource type="PackedScene" uid="uid://blgxkiiadrh4k" path="res://UI/title_screen.tscn" id="2_jab8u"]
 [ext_resource type="PackedScene" uid="uid://30y4r8nnjlcx" path="res://UI/in_game_hud.tscn" id="3_gnf21"]
+[ext_resource type="AudioStream" uid="uid://bdf88yyxqnpuu" path="res://assets/audio/start-sound.wav" id="5_3vfr4"]
+
+[sub_resource type="Animation" id="Animation_rrblr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleScreen:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_afqco"]
 resource_name = "title_fade_out"
-length = 1.5
+length = 1.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -20,26 +36,47 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_rrblr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TitleScreen:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TitleScreen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
 "transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InGameHUD:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("InGameHUD:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5, 1.7),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k3syd"]
 _data = {
 "RESET": SubResource("Animation_rrblr"),
-"title_fade_out": SubResource("Animation_afqco")
+"start_from_title": SubResource("Animation_afqco")
 }
 
 [node name="UI" type="CanvasLayer"]
@@ -47,9 +84,10 @@ process_mode = 3
 script = ExtResource("1_mfp3s")
 
 [node name="TitleScreen" parent="." instance=ExtResource("2_jab8u")]
+visible = false
 
 [node name="InGameHUD" parent="." instance=ExtResource("3_gnf21")]
-visible = false
+modulate = Color(1, 1, 1, 0)
 
 [node name="GameOverScreen" parent="." instance=ExtResource("2_cw34c")]
 visible = false
@@ -58,6 +96,10 @@ visible = false
 libraries = {
 "": SubResource("AnimationLibrary_k3syd")
 }
+
+[node name="StartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3vfr4")
+volume_db = -5.647
 
 [connection signal="reset_highscore_pressed" from="TitleScreen" to="." method="_on_reset_highscore_pressed"]
 [connection signal="start_button_pressed" from="TitleScreen" to="." method="_on_start_button_pressed"]
