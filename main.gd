@@ -18,6 +18,7 @@ func _ready():
 	$Audio/TitleMusic.play()
 
 func new_game():
+	$StartDelay.start()
 	$Audio/TitleMusic.stop()
 	$Audio/EndMusic.stop()
 	clear_screen()
@@ -27,10 +28,11 @@ func new_game():
 	$UI/InGameHUD.update_score(score)
 	$UI/InGameHUD.draw_health(current_health)
 	get_tree().paused = false
-	
+	$Background.reset()
+
+func _on_start_delay_timeout():
 	$Player.autoscroll = AUTOSCROLL
 	$Background.camera_velocity = AUTOSCROLL
-	$Background.reset()
 	$NPCTimer.start()
 	$TreatTimer.start()
 	$Player.disable_input = false

@@ -34,6 +34,10 @@ position = Vector2(512, 442)
 [node name="NPCs" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="StartDelay" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [node name="NPCTimer" type="Timer" parent="."]
 wait_time = 2.0
 
@@ -87,6 +91,7 @@ stream = ExtResource("10_gxxui")
 volume_db = -5.622
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="timeout" from="StartDelay" to="." method="_on_start_delay_timeout"]
 [connection signal="timeout" from="NPCTimer" to="." method="_on_npc_timer_timeout"]
 [connection signal="timeout" from="TreatTimer" to="." method="_on_treat_timer_timeout"]
 [connection signal="timeout" from="FreezeTimer" to="." method="_on_freeze_timer_timeout"]

@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 signal start_button_pressed
 signal reset_highscore_pressed

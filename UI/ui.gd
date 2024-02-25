@@ -25,7 +25,7 @@ func update_highscore(value):
 	$GameOverScreen.set_highscore(value)
 
 func _on_start_button_pressed():
-	$TitleScreen.hide()
+	$AnimationPlayer.play("title_fade_out")
 	starting_game()
 
 func _on_play_again_button_pressed():
@@ -39,3 +39,7 @@ func _on_return_title_button_pressed():
 
 func _on_reset_highscore_pressed():
 	reset_highscore.emit()
+
+func _on_animation_player_animation_finished(anim_name):
+	if (anim_name == "title_fade_out"):
+		$TitleScreen.hide()
