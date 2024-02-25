@@ -30,6 +30,7 @@ alignment = 1
 
 [node name="GameOverLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 6
 theme_override_font_sizes/font_size = 54
 text = "game over!"
 horizontal_alignment = 1
@@ -72,6 +73,7 @@ size_flags_vertical = 3
 
 [node name="Buttons" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="PlayAgainButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
 layout_mode = 2
