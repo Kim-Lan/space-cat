@@ -397,6 +397,7 @@ height = 88.0
 [node name="NPC" type="Area2D" groups=["npc_group"]]
 collision_layer = 4
 collision_mask = 0
+monitoring = false
 script = ExtResource("1_587je")
 
 [node name="TerritoryCircle" parent="." instance=ExtResource("2_a6slc")]

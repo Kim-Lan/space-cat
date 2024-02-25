@@ -57,16 +57,15 @@ func spawn(scene):
 	instance.rotation = randf_range(0, 2 * PI)
 	instance.autoscroll = randf_range(0.60, 1.4) * AUTOSCROLL
 	
-	# spawn instance
-	add_child(instance)
-	
 	return instance
 
 func _on_npc_timer_timeout():
 	var npc = spawn(npc_scene)
+	$NPCs.add_child(npc)
 
 func _on_treat_timer_timeout():
 	var treat = spawn(treat_scene)
+	$Treats.add_child(treat)
 	treat.collected.connect(_on_treat_collected)
 
 func _on_treat_collected():

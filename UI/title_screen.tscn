@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://blgxkiiadrh4k"]
+[gd_scene load_steps=13 format=3 uid="uid://blgxkiiadrh4k"]
 
 [ext_resource type="Script" path="res://UI/title_screen.gd" id="1_sll7u"]
 [ext_resource type="Texture2D" uid="uid://dw2ccthpfjttu" path="res://assets/background/backstars.png" id="2_3qnxe"]
 [ext_resource type="Texture2D" uid="uid://1let0jtuydd4" path="res://assets/title.png" id="2_dhbp5"]
 [ext_resource type="Texture2D" uid="uid://b5yprj84nn3wy" path="res://assets/background/frontstars.png" id="3_1af36"]
-[ext_resource type="PackedScene" uid="uid://dqwxoo7jos214" path="res://objects/player.tscn" id="3_dhym5"]
+[ext_resource type="Texture2D" uid="uid://bnfjffy0den5i" path="res://assets/player/player.png" id="5_a5er3"]
 
 [sub_resource type="Animation" id="Animation_bsbq7"]
 length = 2.0
@@ -39,6 +39,42 @@ _data = {
 "title": SubResource("Animation_bsbq7")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_stq3m"]
+atlas = ExtResource("5_a5er3")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2nq4"]
+atlas = ExtResource("5_a5er3")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh7lw"]
+atlas = ExtResource("5_a5er3")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nnvs"]
+atlas = ExtResource("5_a5er3")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2d2wj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stq3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2nq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mh7lw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nnvs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="TitleScreen" type="CanvasLayer"]
 script = ExtResource("1_sll7u")
 
@@ -72,12 +108,10 @@ libraries = {
 "": SubResource("AnimationLibrary_27nih")
 }
 
-[node name="Player" parent="." instance=ExtResource("3_dhym5")]
-position = Vector2(512, 450)
-collision_layer = 0
-collision_mask = 0
-input_pickable = false
-disable_input = true
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(512, 442)
+sprite_frames = SubResource("SpriteFrames_2d2wj")
+frame_progress = 0.899627
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 anchors_preset = 7
