@@ -71,6 +71,7 @@ func _on_treat_timer_timeout():
 	treat.collected.connect(_on_treat_collected)
 
 func _on_treat_collected(value):
+	$Audio/TreatSound.play()
 	score += value
 	$UI/InGameHUD.update_score(score)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bueoer6l0n5wf"]
+[gd_scene load_steps=10 format=3 uid="uid://bueoer6l0n5wf"]
 
 [ext_resource type="PackedScene" uid="uid://dqwxoo7jos214" path="res://objects/player.tscn" id="1_1wr41"]
 [ext_resource type="Script" path="res://main.gd" id="1_4nttm"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://3ug1t30kx5j4" path="res://UI/ui.tscn" id="4_5gj3v"]
 [ext_resource type="PackedScene" uid="uid://dwpu8fmfefy1a" path="res://background.tscn" id="4_h3cc0"]
 [ext_resource type="AudioStream" uid="uid://dbpp8w4cgcytg" path="res://assets/audio/hit-sound.wav" id="7_6qyov"]
+[ext_resource type="AudioStream" uid="uid://g4uaxj12ceok" path="res://assets/audio/effects/nemocronch_short_fast.wav" id="8_7ht27"]
 
 [sub_resource type="Curve2D" id="Curve2D_kuycc"]
 _data = {
@@ -59,11 +60,16 @@ metadata/_edit_lock_ = true
 [node name="UI" parent="." instance=ExtResource("4_5gj3v")]
 
 [node name="Audio" type="Node" parent="."]
+process_mode = 3
 
 [node name="HitSound" type="AudioStreamPlayer" parent="Audio"]
-process_mode = 3
 stream = ExtResource("7_6qyov")
 volume_db = -2.5
+
+[node name="TreatSound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("8_7ht27")
+volume_db = -10.306
+max_polyphony = 5
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="NPCTimer" to="." method="_on_npc_timer_timeout"]

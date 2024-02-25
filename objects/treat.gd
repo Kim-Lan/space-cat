@@ -29,13 +29,9 @@ func select_sprite(type):
 func _physics_process(delta):
 	position += (velocity + autoscroll) * delta
 
-# delete itself once offscreen
-func _on_visible_on_screen_notifier_2d_screen_exited():
+func _on_area_entered(_area):
+	collected.emit(value)
 	queue_free()
 
-func _on_area_entered(_area):
-	$CollectSound.play()
-	collected.emit(value)
-
-func _on_collect_sound_finished():
+func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
