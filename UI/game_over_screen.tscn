@@ -20,7 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 200
+theme_override_constants/margin_top = 250
 theme_override_constants/margin_right = 300
 theme_override_constants/margin_bottom = 200
 
@@ -30,17 +30,41 @@ alignment = 1
 
 [node name="GameOverLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 54
 text = "game over!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="FinalScoreContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="FinalScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/FinalScoreContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "score: 0"
+text = "final score:"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="FinalScoreValue" type="Label" parent="MarginContainer/VBoxContainer/FinalScoreContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="HighScoreContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/HighScoreContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "highscore: "
+
+[node name="HighScoreValue" type="Label" parent="MarginContainer/VBoxContainer/HighScoreContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0"
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -56,6 +80,7 @@ text = "play again"
 
 [node name="ReturnTitleButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "return to title"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/PlayAgainButton" to="." method="_on_play_again_button_pressed"]

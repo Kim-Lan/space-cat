@@ -111,7 +111,7 @@ libraries = {
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(512, 442)
 sprite_frames = SubResource("SpriteFrames_2d2wj")
-frame_progress = 0.0694804
+frame_progress = 0.400714
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 anchors_preset = 7
@@ -133,6 +133,7 @@ theme_override_font_sizes/font_size = 32
 text = "start"
 
 [node name="SettingsButton" type="Button" parent="Buttons"]
+visible = false
 layout_mode = 2
 text = "settings"
 

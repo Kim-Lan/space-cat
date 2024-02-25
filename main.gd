@@ -33,11 +33,13 @@ func new_game():
 	$Player.disable_input = false
 
 func game_over():
+	get_tree().paused = true
+	$FreezeTimer.stop()
 	save_highscore()
 	$Player/DamagedAnimationPlayer.stop()
 	$NPCTimer.stop()
 	$TreatTimer.stop()
-	$UI.show_game_over()
+	$UI.show_game_over(score, highscore)
 
 func clear_screen():
 	get_tree().call_group("npc_group", "queue_free")
@@ -81,17 +83,18 @@ func _on_freeze_timer_timeout():
 	get_tree().paused = false
 
 func _on_player_hit(npc_area):
-	current_health -= 1
-	npc_area.bap()
-	freeze_frame(FREEZE_DURATION)
-	
-	if current_health <= 0:
-		game_over()
-	else:
-		$Player/DamagedAnimationPlayer.play("damaged")
-		$Player/DamageArea.set_deferred("disabled", true)
-		$UI/InGameHUD.minus_health()
-		$BapCooldown.start()
+	if $BapCooldown.is_stopped() and current_health > 0:
+		current_health -= 1
+		npc_area.bap()
+		freeze_frame(FREEZE_DURATION)
+		
+		if current_health <= 0:
+			game_over()
+		else:
+			$Player/DamagedAnimationPlayer.play("damaged")
+			$Player/DamageArea.set_deferred("disabled", true)
+			$UI/InGameHUD.minus_health()
+			$BapCooldown.start()
 
 func _on_bap_cooldown_timeout():
 	$Player/DamagedAnimationPlayer.stop()
@@ -103,7 +106,7 @@ func save_highscore():
 	if score > highscore:
 		highscore = score
 		file.store_string(str(highscore))
-		$UI/TitleScreen.update_highscore(highscore)
+		$UI.update_highscore(highscore)
 
 func load_highscore():
 	var file = FileAccess.open("user://highscore.txt", FileAccess.READ)
@@ -111,10 +114,10 @@ func load_highscore():
 		highscore = int(file.get_as_text())
 	else:
 		highscore = 0
-	$UI/TitleScreen.update_highscore(highscore)
+	$UI.update_highscore(highscore)
 
 func _on_reset_highscore():
 	highscore = 0
 	var file = FileAccess.open("user://highscore.txt", FileAccess.WRITE)
 	file.store_string(str(highscore))
-	$UI/TitleScreen.update_highscore(highscore)
+	$UI.update_highscore(highscore)

@@ -11,7 +11,7 @@ func _ready():
 func _on_start_button_pressed():
 	start_button_pressed.emit()
 
-func update_highscore(value):
+func set_highscore(value):
 	find_child("HighScoreValue").text = str(value)
 
 func _on_reset_highscore_button_pressed():

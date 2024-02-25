@@ -6,8 +6,11 @@ signal return_title_button_pressed
 func _ready():
 	pass
 
-func set_score_label(text):
-	find_child("ScoreLabel").text = "score: " + text
+func set_final_score(value):
+	find_child("FinalScoreValue").text = str(value)
+
+func set_highscore(value):
+	find_child("HighScoreValue").text = str(value)
 
 func _on_play_again_button_pressed():
 	play_again_button_pressed.emit()

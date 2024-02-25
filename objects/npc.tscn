@@ -431,31 +431,31 @@ libraries = {
 rotation = 1.5708
 texture = ExtResource("2_utcp3")
 region_enabled = true
-region_rect = Rect2(0, 204, 100, 100)
+region_rect = Rect2(306, 102, 100, 100)
 
 [node name="Gray" type="Sprite2D" parent="ColorSprites"]
 rotation = 1.5708
 texture = ExtResource("3_o741e")
 region_enabled = true
-region_rect = Rect2(0, 204, 100, 100)
+region_rect = Rect2(306, 102, 100, 100)
 
 [node name="Tabby" type="Sprite2D" parent="ColorSprites"]
 rotation = 1.5708
 texture = ExtResource("4_3neiv")
 region_enabled = true
-region_rect = Rect2(0, 204, 100, 100)
+region_rect = Rect2(306, 102, 100, 100)
 
 [node name="Siamese" type="Sprite2D" parent="ColorSprites"]
 rotation = 1.5708
 texture = ExtResource("5_ef1me")
 region_enabled = true
-region_rect = Rect2(0, 204, 100, 100)
+region_rect = Rect2(306, 102, 100, 100)
 
 [node name="Aegean" type="Sprite2D" parent="ColorSprites"]
 rotation = 1.5708
 texture = ExtResource("6_jnjtp")
 region_enabled = true
-region_rect = Rect2(0, 204, 100, 100)
+region_rect = Rect2(306, 102, 100, 100)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 rotation = 1.5708

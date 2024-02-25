@@ -12,7 +12,7 @@ const ANIMATIONS = {
 }
 const STATS = {
 	COLORS.BLACK: {
-		'territory_radius': 200,
+		'territory_radius': 75,
 		'speed': 50
 	},
 	COLORS.GRAY: {
@@ -48,7 +48,7 @@ func _ready():
 	state = STATES.EEPY
 	$AnimationPlayer.play("eepy")
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("space"):
 		$TerritoryCircle.set_visible(true)
 	else:
@@ -59,16 +59,16 @@ func select_color():
 	select_sprite(color)
 	set_stats(color)
 
-func select_sprite(color):
+func select_sprite(selected):
 	for sprite in $ColorSprites.get_children():
-		if sprite.name != ANIMATIONS[color]:
+		if sprite.name != ANIMATIONS[selected]:
 			sprite.hide()
 		else:
 			sprite.show()
 
-func set_stats(color):
-	speed = STATS[color]['speed']
-	territory_radius = STATS[color]['territory_radius']
+func set_stats(selected):
+	speed = STATS[selected]['speed']
+	territory_radius = STATS[selected]['territory_radius']
 	var circle = CircleShape2D.new()
 	circle.set_radius(territory_radius)
 	$TerritoryArea/TerritoryCollisionShape.set_shape(circle)
@@ -93,7 +93,7 @@ func get_eepy():
 	state = STATES.EEPY
 	$AnimationPlayer.play("eepy")
 
-func _on_territory_area_exited(area):
+func _on_territory_area_exited(_area):
 	await get_tree().create_timer(0.01).timeout
 	get_eepy()
 

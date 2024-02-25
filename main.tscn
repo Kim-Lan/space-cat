@@ -20,11 +20,11 @@ treat_scene = ExtResource("3_p38tt")
 
 [node name="Background" parent="." instance=ExtResource("4_h3cc0")]
 
-[node name="Player" parent="." instance=ExtResource("1_1wr41")]
-position = Vector2(512, 442)
-
 [node name="Treats" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_1wr41")]
+position = Vector2(512, 442)
 
 [node name="NPCs" type="Node2D" parent="."]
 y_sort_enabled = true
