@@ -33,8 +33,6 @@ const STATS = {
 	},
 }
 
-enum STATES { EEPY, ANGY, BAP }
-
 var color: int
 var state: int
 var territory_radius: int
@@ -42,11 +40,11 @@ var speed: int
 
 var velocity: Vector2
 var target: Area2D
+var angy: bool
 
 func _ready():
 	select_color()
-	state = STATES.EEPY
-	$AnimationPlayer.play("eepy")
+	get_eepy()
 
 func _process(_delta):
 	if Input.is_action_pressed("space"):
@@ -75,7 +73,7 @@ func set_stats(selected):
 	$TerritoryCircle.radius = territory_radius
 
 func _physics_process(delta):
-	if state == STATES.ANGY:
+	if angy:
 		var target_direction = target.position
 		look_at(target_direction)
 		velocity = transform.x * speed
@@ -84,23 +82,21 @@ func _physics_process(delta):
 	position += (velocity + autoscroll) * delta
 
 func get_angy(area):
-	state = STATES.ANGY
+	angy = true
 	target = area
 	$AnimationPlayer.play("angy")
 
 func get_eepy():
+	angy = false
 	target = null
-	state = STATES.EEPY
 	$AnimationPlayer.play("eepy")
 
 func _on_territory_area_exited(_area):
-	await get_tree().create_timer(0.01).timeout
+	await get_tree().create_timer(0.1).timeout
 	get_eepy()
 
 func bap():
-	state = STATES.BAP
 	$BapAnimationPlayer.play("bap")
-	$HitSound.play()
 
 func draw_territory():
 	$TerritoryCircle.visible = true

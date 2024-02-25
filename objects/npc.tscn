@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1hb3s3wqw7ms"]
+[gd_scene load_steps=14 format=3 uid="uid://c1hb3s3wqw7ms"]
 
 [ext_resource type="Script" path="res://objects/npc.gd" id="1_587je"]
 [ext_resource type="PackedScene" uid="uid://dlnloh38qsoch" path="res://objects/npc_territory.tscn" id="2_a6slc"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://conce6bunjbfq" path="res://assets/npc/npc_gray.png" id="3_o741e"]
 [ext_resource type="Texture2D" uid="uid://d3b5bl42hb5im" path="res://assets/npc/npc_tabby.png" id="4_3neiv"]
 [ext_resource type="Texture2D" uid="uid://c61s4ni506goo" path="res://assets/npc/npc_siamese.png" id="5_ef1me"]
-[ext_resource type="AudioStream" uid="uid://dbpp8w4cgcytg" path="res://assets/audio/hit-sound.wav" id="5_r65ba"]
 [ext_resource type="Texture2D" uid="uid://y3pgtv2hw7ib" path="res://assets/npc/npc_aegean.png" id="6_jnjtp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvhx0"]
@@ -431,40 +430,35 @@ libraries = {
 rotation = 1.5708
 texture = ExtResource("2_utcp3")
 region_enabled = true
-region_rect = Rect2(306, 102, 100, 100)
+region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Gray" type="Sprite2D" parent="ColorSprites"]
 rotation = 1.5708
 texture = ExtResource("3_o741e")
 region_enabled = true
-region_rect = Rect2(306, 102, 100, 100)
+region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Tabby" type="Sprite2D" parent="ColorSprites"]
 rotation = 1.5708
 texture = ExtResource("4_3neiv")
 region_enabled = true
-region_rect = Rect2(306, 102, 100, 100)
+region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Siamese" type="Sprite2D" parent="ColorSprites"]
 rotation = 1.5708
 texture = ExtResource("5_ef1me")
 region_enabled = true
-region_rect = Rect2(306, 102, 100, 100)
+region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Aegean" type="Sprite2D" parent="ColorSprites"]
 rotation = 1.5708
 texture = ExtResource("6_jnjtp")
 region_enabled = true
-region_rect = Rect2(306, 102, 100, 100)
+region_rect = Rect2(0, 204, 100, 100)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_hinns")
-
-[node name="HitSound" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("5_r65ba")
-volume_db = -2.5
 
 [connection signal="area_entered" from="TerritoryArea" to="." method="get_angy"]
 [connection signal="area_exited" from="TerritoryArea" to="." method="_on_territory_area_exited"]

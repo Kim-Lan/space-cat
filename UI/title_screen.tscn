@@ -111,7 +111,7 @@ libraries = {
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(512, 442)
 sprite_frames = SubResource("SpriteFrames_2d2wj")
-frame_progress = 0.400714
+frame_progress = 0.123286
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 anchors_preset = 7

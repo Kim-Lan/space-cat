@@ -39,7 +39,7 @@ func game_over():
 	$Player/DamagedAnimationPlayer.stop()
 	$NPCTimer.stop()
 	$TreatTimer.stop()
-	$UI.show_game_over(score, highscore)
+	$UI.show_game_over(score)
 
 func clear_screen():
 	get_tree().call_group("npc_group", "queue_free")
@@ -86,6 +86,7 @@ func _on_player_hit(npc_area):
 	if $BapCooldown.is_stopped() and current_health > 0:
 		current_health -= 1
 		npc_area.bap()
+		$Audio/HitSound.play()
 		freeze_frame(FREEZE_DURATION)
 		
 		if current_health <= 0:

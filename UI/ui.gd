@@ -14,7 +14,7 @@ func starting_game():
 	$InGameHUD.show()
 	start_game.emit()
 
-func show_game_over(score, highscore):
+func show_game_over(score):
 	$InGameHUD.hide()
 	$GameOverScreen.set_final_score(score)
 	$GameOverScreen.find_child("PlayAgainButton").grab_focus()
