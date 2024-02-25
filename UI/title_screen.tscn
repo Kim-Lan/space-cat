@@ -125,7 +125,7 @@ libraries = {
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(512, 442)
 sprite_frames = SubResource("SpriteFrames_2d2wj")
-frame_progress = 0.209607
+frame_progress = 0.616996
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 anchors_preset = 7
@@ -143,6 +143,11 @@ metadata/_edit_group_ = true
 
 [node name="StartButton" type="Button" parent="Buttons"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../FooterMarginContainer/HBoxContainer/ToggleAnimationContainer/AnimationToggle")
+focus_neighbor_right = NodePath("../../FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton")
+focus_neighbor_bottom = NodePath("../../FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton")
+focus_next = NodePath("../../FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton")
+focus_previous = NodePath("../../FooterMarginContainer/HBoxContainer/ToggleAnimationContainer/AnimationToggle")
 theme_override_font_sizes/font_size = 32
 text = "start"
 
@@ -186,6 +191,11 @@ text = "0"
 
 [node name="ResetHighscoreButton" type="Button" parent="FooterMarginContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../../Buttons/StartButton")
+focus_neighbor_top = NodePath("../../../../Buttons/StartButton")
+focus_neighbor_right = NodePath("../../ToggleAnimationContainer/AnimationToggle")
+focus_next = NodePath("../../ToggleAnimationContainer/AnimationToggle")
+focus_previous = NodePath("../../../../Buttons/StartButton")
 theme_override_font_sizes/font_size = 24
 text = " reset "
 
@@ -199,6 +209,11 @@ metadata/_edit_group_ = true
 
 [node name="AnimationToggle" type="CheckButton" parent="FooterMarginContainer/HBoxContainer/ToggleAnimationContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../HBoxContainer/ResetHighscoreButton")
+focus_neighbor_top = NodePath("../../../../Buttons/StartButton")
+focus_neighbor_right = NodePath("../../../../Buttons/StartButton")
+focus_next = NodePath("../../../../Buttons/StartButton")
+focus_previous = NodePath("../../HBoxContainer/ResetHighscoreButton")
 button_pressed = true
 
 [node name="AnimationToggleLabel" type="Label" parent="FooterMarginContainer/HBoxContainer/ToggleAnimationContainer"]
