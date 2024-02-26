@@ -16,6 +16,7 @@ func _ready():
 	load_highscore()
 	$Player.position = $StartPosition.position
 	$Player.disable_input = true
+	await get_tree().create_timer(0.5).timeout
 	$Music/TitleMusic.play()
 
 func _on_start_from_title():
