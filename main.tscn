@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bueoer6l0n5wf"]
+[gd_scene load_steps=21 format=3 uid="uid://bueoer6l0n5wf"]
 
 [ext_resource type="PackedScene" uid="uid://dqwxoo7jos214" path="res://objects/player.tscn" id="1_1wr41"]
 [ext_resource type="Script" path="res://main.gd" id="1_4nttm"]
@@ -8,10 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://dwpu8fmfefy1a" path="res://background.tscn" id="4_h3cc0"]
 [ext_resource type="Texture2D" uid="uid://jcnh6brdlsia" path="res://assets/background/title_background.png" id="5_65nee"]
 [ext_resource type="AudioStream" uid="uid://dbpp8w4cgcytg" path="res://assets/audio/hit-sound.wav" id="7_6qyov"]
-[ext_resource type="AudioStream" uid="uid://g4uaxj12ceok" path="res://assets/audio/effects/nemocronch_short_fast.wav" id="8_7ht27"]
+[ext_resource type="AudioStream" uid="uid://bpamomqsbvfnd" path="res://assets/audio/effects/treat_sound_small.wav" id="9_e188c"]
 [ext_resource type="AudioStream" uid="uid://da7weg66md858" path="res://assets/audio/bgm/title-music.ogg" id="9_kfsh4"]
 [ext_resource type="AudioStream" uid="uid://rrv2x8qbrow8" path="res://assets/audio/bgm/in-game-music.ogg" id="9_teogm"]
 [ext_resource type="AudioStream" uid="uid://d31qjxthhwnil" path="res://assets/audio/bgm/end-music.ogg" id="10_gxxui"]
+[ext_resource type="AudioStream" uid="uid://tn0pd218xesx" path="res://assets/audio/effects/treat_sound_big.wav" id="10_hecww"]
 
 [sub_resource type="Curve2D" id="Curve2D_kuycc"]
 _data = {
@@ -45,6 +46,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Music/EndMusic:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.622]
+}
 
 [sub_resource type="Animation" id="Animation_wsgjp"]
 resource_name = "title_bg_fade_out"
@@ -74,9 +87,72 @@ tracks/1/keys = {
 "values": [-5.647, -39.494]
 }
 
+[sub_resource type="Animation" id="Animation_so7mb"]
+resource_name = "play_again"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Music/EndMusic:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-5.622, -35.18]
+}
+
+[sub_resource type="Animation" id="Animation_t4t3t"]
+resource_name = "game_over"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Music/EndMusic:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.622]
+}
+
+[sub_resource type="Animation" id="Animation_8484m"]
+resource_name = "return_to_title"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleBackground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Music/TitleMusic:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.647]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kkyvb"]
 _data = {
 "RESET": SubResource("Animation_ldow1"),
+"game_over": SubResource("Animation_t4t3t"),
+"play_again": SubResource("Animation_so7mb"),
+"return_to_title": SubResource("Animation_8484m"),
 "start_from_title": SubResource("Animation_wsgjp")
 }
 
@@ -101,7 +177,7 @@ position = Vector2(512, 442)
 y_sort_enabled = true
 
 [node name="StartDelay" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.5
 one_shot = true
 
 [node name="NPCTimer" type="Timer" parent="."]
@@ -139,12 +215,18 @@ process_mode = 3
 stream = ExtResource("7_6qyov")
 volume_db = -2.5
 
-[node name="TreatSound" type="AudioStreamPlayer" parent="SoundEffects"]
-stream = ExtResource("8_7ht27")
+[node name="TreatSoundSmall" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource("9_e188c")
+volume_db = -5.621
+max_polyphony = 5
+
+[node name="TreatSoundBig" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource("10_hecww")
 volume_db = -5.621
 max_polyphony = 5
 
 [node name="Music" type="Node" parent="."]
+process_mode = 3
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("9_kfsh4")
@@ -159,6 +241,7 @@ stream = ExtResource("10_gxxui")
 volume_db = -5.622
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
 libraries = {
 "": SubResource("AnimationLibrary_kkyvb")
 }
@@ -169,7 +252,8 @@ libraries = {
 [connection signal="timeout" from="TreatTimer" to="." method="_on_treat_timer_timeout"]
 [connection signal="timeout" from="FreezeTimer" to="." method="_on_freeze_timer_timeout"]
 [connection signal="timeout" from="BapCooldown" to="." method="_on_bap_cooldown_timeout"]
+[connection signal="play_again" from="UI" to="." method="_on_play_again"]
 [connection signal="reset_highscore" from="UI" to="." method="_on_reset_highscore"]
 [connection signal="return_title" from="UI" to="." method="_on_return_title"]
-[connection signal="start_button_pressed" from="UI" to="." method="_on_start_button_pressed"]
+[connection signal="start_from_title" from="UI" to="." method="_on_start_from_title"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

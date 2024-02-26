@@ -12,19 +12,16 @@ const FRICTION = 100
 
 var screen_size
 var velocity: Vector2
-var health: int
 
 func _ready():
 	screen_size = get_viewport_rect().size
 
-func start(pos):
-	position = pos
-	show()
+func start():
 	velocity = autoscroll
-	health = max_health
 	$DamageArea.disabled = false
 	$AnimationPlayer.play("idle")
 	$DamagedAnimationPlayer.stop()
+	disable_input = false
 
 func _physics_process(delta):
 	var input_direction = Vector2(0, 0)

@@ -9,6 +9,7 @@ func _ready():
 	$PlayerSprite.play()
 
 func _on_start_button_pressed():
+	$FocusControl.grab_focus()
 	start_button_pressed.emit()
 
 func set_highscore(value):

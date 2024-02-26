@@ -2,6 +2,8 @@ extends Area2D
 
 signal collected
 
+var treat_sound_small = preload("res://assets/audio/effects/treat_sound_small.wav")
+
 @export var autoscroll: Vector2
 
 var velocity: Vector2 = Vector2.ZERO

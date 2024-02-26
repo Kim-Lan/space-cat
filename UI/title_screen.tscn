@@ -121,6 +121,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sll7u")
 
+[node name="FocusControl" type="Control" parent="."]
+process_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+focus_mode = 2
+
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
 layout_mode = 1
@@ -193,6 +206,7 @@ metadata/_edit_group_ = true
 [node name="StartButton" type="Button" parent="Buttons"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../../FooterMarginContainer/HBoxContainer/ToggleAnimationContainer/AnimationToggle")
+focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../ExitButton")
 focus_neighbor_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
@@ -210,6 +224,7 @@ layout_mode = 2
 focus_neighbor_left = NodePath("../StartButton")
 focus_neighbor_top = NodePath("../StartButton")
 focus_neighbor_right = NodePath("../../FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton")
+focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath("../../FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton")
 theme_override_font_sizes/font_size = 24
 text = "exit"

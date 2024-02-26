@@ -1,7 +1,8 @@
 extends CanvasLayer
 
 #signal start_game
-signal start_button_pressed
+signal start_from_title
+signal play_again
 signal return_title
 signal reset_highscore
 
@@ -10,13 +11,9 @@ func _ready():
 	$GameOverScreen.hide()
 	$InGameHUD.hide()
 
-func starting_game():
-	$InGameHUD.update_score(0)
-	$InGameHUD.show()
-	#start_game.emit()
-
 func show_game_over(score):
 	$InGameHUD.hide()
+	$GameOverScreen.process_mode = Node.PROCESS_MODE_INHERIT
 	$GameOverScreen.set_final_score(score)
 	$GameOverScreen.find_child("PlayAgainButton").grab_focus()
 	$GameOverScreen.show()
@@ -28,15 +25,20 @@ func update_highscore(value):
 func _on_start_button_pressed():
 	$StartSound.play()
 	$AnimationPlayer.play("start_from_title")
-	start_button_pressed.emit()
-	#starting_game()
+	start_from_title.emit()
 
 func _on_play_again_button_pressed():
+	$StartSound.play()
+	$GameOverScreen.process_mode = Node.PROCESS_MODE_DISABLED
 	$GameOverScreen.hide()
-	starting_game()
+	$InGameHUD.show()
+	play_again.emit()
 
 func _on_return_title_button_pressed():
+	$AnimationPlayer.play("return_to_title")
 	$GameOverScreen.hide()
+	$GameOverScreen.process_mode = Node.PROCESS_MODE_DISABLED
+	$TitleScreen.process_mode = Node.PROCESS_MODE_INHERIT
 	$TitleScreen.show()
 	$TitleScreen.find_child("StartButton").grab_focus()
 	return_title.emit()

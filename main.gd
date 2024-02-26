@@ -14,54 +14,76 @@ var current_health: int
 
 func _ready():
 	load_highscore()
-	#$Player.hide()
-	$Player.start($StartPosition.position)
+	$Player.position = $StartPosition.position
 	$Player.disable_input = true
 	$Music/TitleMusic.play()
 
-func _on_start_button_pressed():
-	$StartDelay.start()
-	reset_game()
+func _on_start_from_title():
+	starting_game()
 	$AnimationPlayer.play("start_from_title")
+
+func _on_play_again():
+	starting_game()
+	$AnimationPlayer.play("play_again")
+
+func _on_return_title():
+	$SoundEffects/TreatSoundBig.play()
+	reset_screen()
+	$Player.disable_input = true
+	$AnimationPlayer.play("return_to_title")
+	$Music/EndMusic.stop()
+	$TitleBackground.show()
+	await get_tree().create_timer(1.0).timeout
+	$Music/TitleMusic.play()
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "start_from_title":
 		$Music/TitleMusic.stop()
 		$TitleBackground.hide()
+	elif anim_name == "play_again":
+		$Music/EndMusic.stop()
 
-func reset_game():
-	clear_screen()
+func starting_game():
+	$StartDelay.start()
+	reset_screen()
 	score = 0
 	current_health = max_health
-	$Player.start($StartPosition.position)
 	$UI/InGameHUD.update_score(score)
 	$UI/InGameHUD.draw_health(current_health)
-	get_tree().paused = false
 	$Background.reset()
 
+func reset_screen():
+	get_tree().call_group("npc_group", "queue_free")
+	get_tree().call_group("treat_group", "queue_free")
+	$Player.position = $StartPosition.position
+	$Player.velocity = Vector2(0, 0)
+	$Player.autoscroll = Vector2(0, 0)
+	get_tree().paused = false
+
 func _on_start_delay_timeout():
+	$Music/InGameMusic.play()
+	start_game()
+
+func start_game():
 	$Player.autoscroll = AUTOSCROLL
 	$Background.camera_velocity = AUTOSCROLL
 	$NPCTimer.start()
 	$TreatTimer.start()
-	$Player.disable_input = false
-	$Music/InGameMusic.play()
+	$Player.start()
 
 func game_over():
+	$AnimationPlayer.play("game_over")
 	get_tree().paused = true
 	$FreezeTimer.stop()
 	save_highscore()
 	$Player/DamagedAnimationPlayer.stop()
+	$Player.velocity = Vector2(0, 0)
 	$NPCTimer.stop()
 	$TreatTimer.stop()
 	$UI.show_game_over(score)
 	$Music/InGameMusic.stop()
 	$Music/EndMusic.play()
 
-func clear_screen():
-	get_tree().call_group("npc_group", "queue_free")
-	get_tree().call_group("treat_group", "queue_free")
-	$Player.hide()
 
 func spawn(scene):
 	# create new instance of given scene
@@ -88,7 +110,10 @@ func _on_treat_timer_timeout():
 	treat.collected.connect(_on_treat_collected)
 
 func _on_treat_collected(value):
-	$SoundEffects/TreatSound.play()
+	if value == 1:
+		$SoundEffects/TreatSoundSmall.play()
+	else:
+		$SoundEffects/TreatSoundBig.play()
 	score += value
 	$UI/InGameHUD.update_score(score)
 
@@ -140,8 +165,3 @@ func _on_reset_highscore():
 	var file = FileAccess.open("user://highscore.txt", FileAccess.WRITE)
 	file.store_string(str(highscore))
 	$UI.update_highscore(highscore)
-
-func _on_return_title():
-	clear_screen()
-	$Audio/EndMusic.stop()
-	$Audio/TitleMusic.play()
