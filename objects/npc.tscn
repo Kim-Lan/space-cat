@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1hb3s3wqw7ms"]
+[gd_scene load_steps=19 format=3 uid="uid://c1hb3s3wqw7ms"]
 
 [ext_resource type="Script" path="res://objects/npc.gd" id="1_587je"]
 [ext_resource type="PackedScene" uid="uid://dlnloh38qsoch" path="res://objects/npc_territory.tscn" id="2_a6slc"]
@@ -7,9 +7,233 @@
 [ext_resource type="Texture2D" uid="uid://d3b5bl42hb5im" path="res://assets/npc/npc_tabby.png" id="4_3neiv"]
 [ext_resource type="Texture2D" uid="uid://c61s4ni506goo" path="res://assets/npc/npc_siamese.png" id="5_ef1me"]
 [ext_resource type="Texture2D" uid="uid://y3pgtv2hw7ib" path="res://assets/npc/npc_aegean.png" id="6_jnjtp"]
+[ext_resource type="Texture2D" uid="uid://bmiq2an6qb0pb" path="res://assets/npc/npc_cow.png" id="8_gsvvj"]
+[ext_resource type="Texture2D" uid="uid://d1gbku12ue21o" path="res://assets/npc/npc_ragdoll.png" id="9_tpiem"]
+[ext_resource type="Texture2D" uid="uid://dfa2s66wpalqr" path="res://assets/npc/npc_tortoise.png" id="10_g06ou"]
+[ext_resource type="Texture2D" uid="uid://cyj1t3y8is7m6" path="res://assets/npc/npc_white.png" id="11_02bjo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvhx0"]
 radius = 200.0
+
+[sub_resource type="Animation" id="Animation_npx2x"]
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TypeSprites/Black:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TypeSprites/Black:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TypeSprites/Gray:region_rect")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TypeSprites/Gray:offset")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TypeSprites/Tabby:region_rect")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TypeSprites/Tabby:offset")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TypeSprites/Siamese:region_rect")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TypeSprites/Siamese:offset")
+tracks/7/interp = 0
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TypeSprites/Aegean:region_rect")
+tracks/8/interp = 0
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TypeSprites/Aegean:offset")
+tracks/9/interp = 0
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TypeSprites/Cow:region_rect")
+tracks/10/interp = 0
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TypeSprites/Cow:offset")
+tracks/11/interp = 0
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TypeSprites/Ragdoll:region_rect")
+tracks/12/interp = 0
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("TypeSprites/Ragdoll:offset")
+tracks/13/interp = 0
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("TypeSprites/Tortoise:region_rect")
+tracks/14/interp = 0
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("TypeSprites/Tortoise:offset")
+tracks/15/interp = 0
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("TypeSprites/White:region_rect")
+tracks/16/interp = 0
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("TypeSprites/White:offset")
+tracks/17/interp = 0
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_uhmqc"]
 length = 0.8
@@ -17,7 +241,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorSprites/Black:region_rect")
+tracks/0/path = NodePath("TypeSprites/Black:region_rect")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -29,7 +253,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorSprites/Black:offset")
+tracks/1/path = NodePath("TypeSprites/Black:offset")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -41,7 +265,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ColorSprites/Gray:region_rect")
+tracks/2/path = NodePath("TypeSprites/Gray:region_rect")
 tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -53,7 +277,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ColorSprites/Gray:offset")
+tracks/3/path = NodePath("TypeSprites/Gray:offset")
 tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -65,7 +289,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ColorSprites/Tabby:region_rect")
+tracks/4/path = NodePath("TypeSprites/Tabby:region_rect")
 tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -77,7 +301,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("ColorSprites/Tabby:offset")
+tracks/5/path = NodePath("TypeSprites/Tabby:offset")
 tracks/5/interp = 0
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -89,7 +313,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("ColorSprites/Siamese:region_rect")
+tracks/6/path = NodePath("TypeSprites/Siamese:region_rect")
 tracks/6/interp = 0
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -101,7 +325,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("ColorSprites/Siamese:offset")
+tracks/7/path = NodePath("TypeSprites/Siamese:offset")
 tracks/7/interp = 0
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -113,7 +337,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("ColorSprites/Aegean:region_rect")
+tracks/8/path = NodePath("TypeSprites/Aegean:region_rect")
 tracks/8/interp = 0
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -125,10 +349,106 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("ColorSprites/Aegean:offset")
+tracks/9/path = NodePath("TypeSprites/Aegean:offset")
 tracks/9/interp = 0
 tracks/9/loop_wrap = true
 tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TypeSprites/Cow:region_rect")
+tracks/10/interp = 0
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 102, 100, 100), Rect2(102, 102, 100, 100), Rect2(204, 102, 100, 100), Rect2(306, 102, 100, 100)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TypeSprites/Cow:offset")
+tracks/11/interp = 0
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TypeSprites/Ragdoll:region_rect")
+tracks/12/interp = 0
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 102, 100, 100), Rect2(102, 102, 100, 100), Rect2(204, 102, 100, 100), Rect2(306, 102, 100, 100)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("TypeSprites/Ragdoll:offset")
+tracks/13/interp = 0
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("TypeSprites/Tortoise:region_rect")
+tracks/14/interp = 0
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 102, 100, 100), Rect2(102, 102, 100, 100), Rect2(204, 102, 100, 100), Rect2(306, 102, 100, 100)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("TypeSprites/Tortoise:offset")
+tracks/15/interp = 0
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("TypeSprites/White:region_rect")
+tracks/16/interp = 0
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 102, 100, 100), Rect2(102, 102, 100, 100), Rect2(204, 102, 100, 100), Rect2(306, 102, 100, 100)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("TypeSprites/White:offset")
+tracks/17/interp = 0
+tracks/17/loop_wrap = true
+tracks/17/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
@@ -140,7 +460,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorSprites/Black:region_rect")
+tracks/0/path = NodePath("TypeSprites/Black:region_rect")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -152,7 +472,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorSprites/Black:offset")
+tracks/1/path = NodePath("TypeSprites/Black:offset")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -164,7 +484,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ColorSprites/Gray:region_rect")
+tracks/2/path = NodePath("TypeSprites/Gray:region_rect")
 tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -176,7 +496,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ColorSprites/Gray:offset")
+tracks/3/path = NodePath("TypeSprites/Gray:offset")
 tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -188,7 +508,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ColorSprites/Tabby:region_rect")
+tracks/4/path = NodePath("TypeSprites/Tabby:region_rect")
 tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -200,7 +520,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("ColorSprites/Tabby:offset")
+tracks/5/path = NodePath("TypeSprites/Tabby:offset")
 tracks/5/interp = 0
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -212,7 +532,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("ColorSprites/Siamese:region_rect")
+tracks/6/path = NodePath("TypeSprites/Siamese:region_rect")
 tracks/6/interp = 0
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -224,7 +544,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("ColorSprites/Siamese:offset")
+tracks/7/path = NodePath("TypeSprites/Siamese:offset")
 tracks/7/interp = 0
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -236,7 +556,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("ColorSprites/Aegean:region_rect")
+tracks/8/path = NodePath("TypeSprites/Aegean:region_rect")
 tracks/8/interp = 0
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -248,150 +568,125 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("ColorSprites/Aegean:offset")
+tracks/9/path = NodePath("TypeSprites/Aegean:offset")
 tracks/9/interp = 0
 tracks/9/loop_wrap = true
 tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TypeSprites/Cow:region_rect")
+tracks/10/interp = 0
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 204, 100, 100)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TypeSprites/Cow:offset")
+tracks/11/interp = 0
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TypeSprites/Ragdoll:region_rect")
+tracks/12/interp = 0
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 204, 100, 100)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("TypeSprites/Ragdoll:offset")
+tracks/13/interp = 0
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("TypeSprites/Tortoise:region_rect")
+tracks/14/interp = 0
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 204, 100, 100)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("TypeSprites/Tortoise:offset")
+tracks/15/interp = 0
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("TypeSprites/White:region_rect")
+tracks/16/interp = 0
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 204, 100, 100)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("TypeSprites/White:offset")
+tracks/17/interp = 0
+tracks/17/loop_wrap = true
+tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_npx2x"]
-length = 1.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorSprites/Black:region_rect")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorSprites/Black:offset")
-tracks/1/interp = 0
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ColorSprites/Gray:region_rect")
-tracks/2/interp = 0
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ColorSprites/Gray:offset")
-tracks/3/interp = 0
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("ColorSprites/Tabby:region_rect")
-tracks/4/interp = 0
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("ColorSprites/Tabby:offset")
-tracks/5/interp = 0
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("ColorSprites/Siamese:region_rect")
-tracks/6/interp = 0
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("ColorSprites/Siamese:offset")
-tracks/7/interp = 0
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("ColorSprites/Aegean:region_rect")
-tracks/8/interp = 0
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("ColorSprites/Aegean:offset")
-tracks/9/interp = 0
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
-}
+[sub_resource type="Animation" id="Animation_xfsqc"]
+length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xwcgq"]
 _data = {
+"RESET": SubResource("Animation_xfsqc"),
 "angy": SubResource("Animation_uhmqc"),
 "bap": SubResource("Animation_olgjt"),
 "eepy": SubResource("Animation_npx2x")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hinns"]
-radius = 16.0
-height = 88.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_olcs4"]
+radius = 20.025
 
 [node name="NPC" type="Area2D" groups=["npc_group"]]
 collision_layer = 4
@@ -424,41 +719,65 @@ libraries = {
 "": SubResource("AnimationLibrary_xwcgq")
 }
 
-[node name="ColorSprites" type="Node2D" parent="."]
+[node name="TypeSprites" type="Node2D" parent="."]
 
-[node name="Black" type="Sprite2D" parent="ColorSprites"]
+[node name="Black" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("2_utcp3")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
-[node name="Gray" type="Sprite2D" parent="ColorSprites"]
+[node name="Gray" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("3_o741e")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
-[node name="Tabby" type="Sprite2D" parent="ColorSprites"]
+[node name="Tabby" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("4_3neiv")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
-[node name="Siamese" type="Sprite2D" parent="ColorSprites"]
+[node name="Siamese" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("5_ef1me")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
-[node name="Aegean" type="Sprite2D" parent="ColorSprites"]
+[node name="Aegean" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("6_jnjtp")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
-[node name="CollisionShape" type="CollisionShape2D" parent="."]
+[node name="Cow" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_hinns")
+texture = ExtResource("8_gsvvj")
+region_enabled = true
+region_rect = Rect2(0, 204, 100, 100)
+
+[node name="Ragdoll" type="Sprite2D" parent="TypeSprites"]
+rotation = 1.5708
+texture = ExtResource("9_tpiem")
+region_enabled = true
+region_rect = Rect2(0, 204, 100, 100)
+
+[node name="Tortoise" type="Sprite2D" parent="TypeSprites"]
+rotation = 1.5708
+texture = ExtResource("10_g06ou")
+region_enabled = true
+region_rect = Rect2(0, 204, 100, 100)
+
+[node name="White" type="Sprite2D" parent="TypeSprites"]
+rotation = 1.5708
+texture = ExtResource("11_02bjo")
+region_enabled = true
+region_rect = Rect2(0, 204, 100, 100)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(20, 0)
+shape = SubResource("CircleShape2D_olcs4")
 
 [connection signal="area_entered" from="TerritoryArea" to="." method="get_angy"]
 [connection signal="area_exited" from="TerritoryArea" to="." method="_on_territory_area_exited"]

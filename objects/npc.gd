@@ -2,38 +2,58 @@ extends Area2D
 
 @export var autoscroll: Vector2
 
-enum COLORS { BLACK, GRAY, TABBY, SIAMESE, AEGEAN }
-const ANIMATIONS = {
-	COLORS.BLACK: 'Black',
-	COLORS.GRAY: 'Gray',
-	COLORS.TABBY: 'Tabby',
-	COLORS.SIAMESE: 'Siamese',
-	COLORS.AEGEAN: 'Aegean',
+enum TYPES { BLACK, GRAY, TABBY, SIAMESE, AEGEAN, COW, RAGDOLL, TORTOISE, WHITE }
+const SPRITES = {
+	TYPES.BLACK: 'Black',
+	TYPES.GRAY: 'Gray',
+	TYPES.TABBY: 'Tabby',
+	TYPES.SIAMESE: 'Siamese',
+	TYPES.AEGEAN: 'Aegean',
+	TYPES.COW: 'Cow',
+	TYPES.RAGDOLL: 'Ragdoll',
+	TYPES.TORTOISE: 'Tortoise',
+	TYPES.WHITE: 'White',
 }
 const STATS = {
-	COLORS.BLACK: {
+	TYPES.BLACK: {
 		'territory_radius': 75,
-		'speed': 50
+		'speed': 40
 	},
-	COLORS.GRAY: {
+	TYPES.TORTOISE: {
+		'territory_radius': 100,
+		'speed': 40
+	},
+	TYPES.GRAY: {
+		'territory_radius': 250,
+		'speed': 60
+	},
+	TYPES.WHITE: {
 		'territory_radius': 300,
 		'speed': 75
 	},
-	COLORS.TABBY: {
+	TYPES.TABBY: {
+		'territory_radius': 150,
+		'speed': 60
+	},
+	TYPES.RAGDOLL: {
+		'territory_radius': 150,
+		'speed': 50
+	},
+	TYPES.SIAMESE: {
+		'territory_radius': 200,
+		'speed': 60
+	},
+	TYPES.AEGEAN: {
 		'territory_radius': 200,
 		'speed': 50
 	},
-	COLORS.SIAMESE: {
+	TYPES.COW: {
 		'territory_radius': 200,
-		'speed': 50
-	},
-	COLORS.AEGEAN: {
-		'territory_radius': 200,
-		'speed': 50
+		'speed': 40
 	},
 }
 
-var color: int
+var type: int
 var state: int
 var territory_radius: int
 var speed: int
@@ -43,7 +63,7 @@ var target: Area2D
 var angy: bool
 
 func _ready():
-	select_color()
+	select_type()
 	get_eepy()
 
 func _process(_delta):
@@ -52,14 +72,14 @@ func _process(_delta):
 	else:
 		$TerritoryCircle.set_visible(false)
 
-func select_color():
-	color = randi() % COLORS.size()
-	select_sprite(color)
-	set_stats(color)
+func select_type():
+	type = randi() % TYPES.size()
+	select_sprite(type)
+	set_stats(type)
 
 func select_sprite(selected):
-	for sprite in $ColorSprites.get_children():
-		if sprite.name != ANIMATIONS[selected]:
+	for sprite in $TypeSprites.get_children():
+		if sprite.name != SPRITES[selected]:
 			sprite.hide()
 		else:
 			sprite.show()

@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://3ug1t30kx5j4"]
+[gd_scene load_steps=16 format=3 uid="uid://3ug1t30kx5j4"]
 
 [ext_resource type="Script" path="res://UI/ui.gd" id="1_mfp3s"]
 [ext_resource type="PackedScene" uid="uid://cimgwhgbt41ci" path="res://UI/game_over_screen.tscn" id="2_cw34c"]
 [ext_resource type="PackedScene" uid="uid://blgxkiiadrh4k" path="res://UI/title_screen.tscn" id="2_jab8u"]
 [ext_resource type="PackedScene" uid="uid://30y4r8nnjlcx" path="res://UI/in_game_hud.tscn" id="3_gnf21"]
+[ext_resource type="PackedScene" uid="uid://uyc4bfmugxl0" path="res://UI/pause_screen.tscn" id="4_n52jd"]
 [ext_resource type="AudioStream" uid="uid://bdf88yyxqnpuu" path="res://assets/audio/start-sound.wav" id="5_3vfr4"]
+[ext_resource type="AudioStream" uid="uid://da7weg66md858" path="res://assets/audio/bgm/title-music.ogg" id="7_41dff"]
+[ext_resource type="AudioStream" uid="uid://rrv2x8qbrow8" path="res://assets/audio/bgm/in-game-music.ogg" id="8_3uwnm"]
+[ext_resource type="AudioStream" uid="uid://d31qjxthhwnil" path="res://assets/audio/bgm/end-music.ogg" id="9_wm7dh"]
 
 [sub_resource type="Animation" id="Animation_rrblr"]
 length = 0.001
@@ -84,9 +88,33 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Music/TitleMusic:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-5.6, -35.0]
+}
 
 [sub_resource type="Animation" id="Animation_bqmr0"]
 resource_name = "play_again"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Music/EndMusic:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-5.6, -35.0]
+}
 
 [sub_resource type="Animation" id="Animation_1wsw4"]
 resource_name = "return_to_title"
@@ -102,10 +130,38 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Music/TitleMusic:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.6]
+}
+
+[sub_resource type="Animation" id="Animation_omcii"]
+resource_name = "game_over"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Music/EndMusic:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.6]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k3syd"]
 _data = {
 "RESET": SubResource("Animation_rrblr"),
+"game_over": SubResource("Animation_omcii"),
 "play_again": SubResource("Animation_bqmr0"),
 "return_to_title": SubResource("Animation_1wsw4"),
 "start_from_title": SubResource("Animation_afqco")
@@ -119,6 +175,9 @@ script = ExtResource("1_mfp3s")
 visible = false
 
 [node name="InGameHUD" parent="." instance=ExtResource("3_gnf21")]
+modulate = Color(1, 1, 1, 0)
+
+[node name="PauseScreen" parent="." instance=ExtResource("4_n52jd")]
 
 [node name="GameOverScreen" parent="." instance=ExtResource("2_cw34c")]
 visible = false
@@ -132,8 +191,26 @@ libraries = {
 stream = ExtResource("5_3vfr4")
 volume_db = -5.647
 
+[node name="Music" type="Node" parent="."]
+process_mode = 3
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("7_41dff")
+volume_db = -5.6
+
+[node name="InGameMusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("8_3uwnm")
+volume_db = -6.0
+
+[node name="EndMusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("9_wm7dh")
+volume_db = -5.6
+
 [connection signal="reset_highscore_pressed" from="TitleScreen" to="." method="_on_reset_highscore_pressed"]
 [connection signal="start_button_pressed" from="TitleScreen" to="." method="_on_start_button_pressed"]
+[connection signal="restart_confirmed" from="PauseScreen" to="." method="_on_pause_screen_restart_confirmed"]
+[connection signal="return_title_confirmed" from="PauseScreen" to="." method="_on_pause_screen_return_title_confirmed"]
+[connection signal="unpause" from="PauseScreen" to="." method="toggle_pause"]
 [connection signal="play_again_button_pressed" from="GameOverScreen" to="." method="_on_play_again_button_pressed"]
 [connection signal="return_title_button_pressed" from="GameOverScreen" to="." method="_on_return_title_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

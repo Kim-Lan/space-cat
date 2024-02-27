@@ -1,0 +1,143 @@
+[gd_scene load_steps=2 format=3 uid="uid://uyc4bfmugxl0"]
+
+[ext_resource type="Script" path="res://UI/pause_screen.gd" id="1_aofik"]
+
+[node name="PauseScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aofik")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.75)
+
+[node name="PauseMenu" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+offset_left = 262.0
+offset_top = 250.0
+offset_right = 762.0
+offset_bottom = 518.0
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="PauseLabel" type="Label" parent="PauseMenu"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 54
+text = "paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSpace" type="Control" parent="PauseMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="PauseMenu"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ContinueButton" type="Button" parent="PauseMenu/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "continue"
+
+[node name="RestartButton" type="Button" parent="PauseMenu/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "restart"
+
+[node name="ReturnTitleButton" type="Button" parent="PauseMenu/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "return to title"
+
+[node name="ConfirmRestart" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_top = 250.0
+offset_right = 1024.0
+offset_bottom = 518.0
+alignment = 1
+
+[node name="ConfirmRestartLabel" type="Label" parent="ConfirmRestart"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 44
+text = "are you sure you want to restart?"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="ConfirmRestart"]
+custom_minimum_size = Vector2(0, 27)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfirmRestart"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="YesButton" type="Button" parent="ConfirmRestart/HBoxContainer"]
+custom_minimum_size = Vector2(100, 55)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "yes
+"
+
+[node name="NoButton" type="Button" parent="ConfirmRestart/HBoxContainer"]
+custom_minimum_size = Vector2(100, 55)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "no"
+
+[node name="ConfirmTitleReturn" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_top = 250.0
+offset_right = 1024.0
+offset_bottom = 518.0
+alignment = 1
+
+[node name="ConfirmTitleReturnLabel" type="Label" parent="ConfirmTitleReturn"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 44
+text = "are you sure you want to return
+to the title screen?"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="ConfirmTitleReturn"]
+custom_minimum_size = Vector2(0, 27)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfirmTitleReturn"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="YesButton" type="Button" parent="ConfirmTitleReturn/HBoxContainer"]
+custom_minimum_size = Vector2(100, 55)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "yes
+"
+
+[node name="NoButton" type="Button" parent="ConfirmTitleReturn/HBoxContainer"]
+custom_minimum_size = Vector2(100, 55)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "no"
+
+[connection signal="pressed" from="PauseMenu/Buttons/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Buttons/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Buttons/ReturnTitleButton" to="." method="_on_return_title_button_pressed"]
+[connection signal="pressed" from="ConfirmRestart/HBoxContainer/YesButton" to="." method="_on_confirm_restart_yes_button_pressed"]
+[connection signal="pressed" from="ConfirmRestart/HBoxContainer/NoButton" to="." method="_on_confirm_restart_no_button_pressed"]
+[connection signal="pressed" from="ConfirmTitleReturn/HBoxContainer/YesButton" to="." method="_on_confirm_title_yes_button_pressed"]
+[connection signal="pressed" from="ConfirmTitleReturn/HBoxContainer/NoButton" to="." method="_on_confirm_title_no_button_pressed"]

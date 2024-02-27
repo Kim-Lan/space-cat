@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 signal play_again_button_pressed
 signal return_title_button_pressed

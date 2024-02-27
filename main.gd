@@ -12,12 +12,14 @@ var score: int
 var max_health: int = 3
 var current_health: int
 
+var paused: bool = false
+
 func _ready():
 	load_highscore()
 	$Player.position = $StartPosition.position
 	$Player.disable_input = true
 	await get_tree().create_timer(0.5).timeout
-	$Music/TitleMusic.play()
+	$UI/Music/TitleMusic.play()
 
 func _on_start_from_title():
 	starting_game()
@@ -25,24 +27,17 @@ func _on_start_from_title():
 
 func _on_play_again():
 	starting_game()
-	$AnimationPlayer.play("play_again")
 
 func _on_return_title():
 	$SoundEffects/TreatSoundBig.play()
 	reset_screen()
 	$Player.disable_input = true
-	$AnimationPlayer.play("return_to_title")
-	$Music/EndMusic.stop()
 	$TitleBackground.show()
-	await get_tree().create_timer(1.0).timeout
-	$Music/TitleMusic.play()
+	$AnimationPlayer.play("return_to_title")
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "start_from_title":
-		$Music/TitleMusic.stop()
 		$TitleBackground.hide()
-	elif anim_name == "play_again":
-		$Music/EndMusic.stop()
 
 func starting_game():
 	$StartDelay.start()
@@ -56,14 +51,16 @@ func starting_game():
 func reset_screen():
 	get_tree().call_group("npc_group", "queue_free")
 	get_tree().call_group("treat_group", "queue_free")
+	$Player/DamagedAnimationPlayer.stop()
 	$Player.position = $StartPosition.position
 	$Player.velocity = Vector2(0, 0)
 	$Player.autoscroll = Vector2(0, 0)
 	get_tree().paused = false
 
 func _on_start_delay_timeout():
-	$Music/InGameMusic.play()
+	$UI/Music/InGameMusic.play()
 	start_game()
+	$UI.set_ingame(true)
 
 func start_game():
 	$Player.autoscroll = AUTOSCROLL
@@ -72,19 +69,18 @@ func start_game():
 	$TreatTimer.start()
 	$Player.start()
 
-func game_over():
-	$AnimationPlayer.play("game_over")
-	get_tree().paused = true
+func stop_game():
 	$FreezeTimer.stop()
 	save_highscore()
 	$Player/DamagedAnimationPlayer.stop()
 	$Player.velocity = Vector2(0, 0)
 	$NPCTimer.stop()
 	$TreatTimer.stop()
-	$UI.show_game_over(score)
-	$Music/InGameMusic.stop()
-	$Music/EndMusic.play()
 
+func game_over():
+	get_tree().paused = true
+	stop_game()
+	$UI.show_game_over(score)
 
 func spawn(scene):
 	# create new instance of given scene
@@ -124,7 +120,8 @@ func freeze_frame(duration):
 		$FreezeTimer.start(duration)
 
 func _on_freeze_timer_timeout():
-	get_tree().paused = false
+	if not paused:
+		get_tree().paused = false
 
 func _on_player_hit(npc_area):
 	if $BapCooldown.is_stopped() and current_health > 0:
@@ -166,3 +163,9 @@ func _on_reset_highscore():
 	var file = FileAccess.open("user://highscore.txt", FileAccess.WRITE)
 	file.store_string(str(highscore))
 	$UI.update_highscore(highscore)
+
+func _on_pause_toggled():
+	paused = not paused
+
+func _on_pause_screen_return_title():
+	stop_game()
