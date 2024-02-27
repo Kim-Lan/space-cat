@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://3ug1t30kx5j4"]
+[gd_scene load_steps=17 format=3 uid="uid://3ug1t30kx5j4"]
 
 [ext_resource type="Script" path="res://UI/ui.gd" id="1_mfp3s"]
 [ext_resource type="PackedScene" uid="uid://cimgwhgbt41ci" path="res://UI/game_over_screen.tscn" id="2_cw34c"]
 [ext_resource type="PackedScene" uid="uid://blgxkiiadrh4k" path="res://UI/title_screen.tscn" id="2_jab8u"]
 [ext_resource type="PackedScene" uid="uid://30y4r8nnjlcx" path="res://UI/in_game_hud.tscn" id="3_gnf21"]
+[ext_resource type="PackedScene" uid="uid://k6jxab8qcxj" path="res://UI/timer.tscn" id="3_x88c0"]
 [ext_resource type="PackedScene" uid="uid://uyc4bfmugxl0" path="res://UI/pause_screen.tscn" id="4_n52jd"]
 [ext_resource type="AudioStream" uid="uid://bdf88yyxqnpuu" path="res://assets/audio/start-sound.wav" id="5_3vfr4"]
 [ext_resource type="AudioStream" uid="uid://da7weg66md858" path="res://assets/audio/bgm/title-music.ogg" id="7_41dff"]
@@ -175,7 +176,6 @@ script = ExtResource("1_mfp3s")
 visible = false
 
 [node name="InGameHUD" parent="." instance=ExtResource("3_gnf21")]
-visible = false
 modulate = Color(1, 1, 1, 0)
 
 [node name="PauseScreen" parent="." instance=ExtResource("4_n52jd")]
@@ -183,6 +183,13 @@ visible = false
 
 [node name="GameOverScreen" parent="." instance=ExtResource("2_cw34c")]
 visible = false
+
+[node name="Timer" parent="." instance=ExtResource("3_x88c0")]
+visible = false
+offset_left = -17.0
+offset_top = 15.0
+offset_right = -17.0
+offset_bottom = 15.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

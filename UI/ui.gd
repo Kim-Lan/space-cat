@@ -16,6 +16,7 @@ func _ready():
 	$GameOverScreen.hide()
 	$InGameHUD.hide()
 	$PauseScreen.hide()
+	$Timer.hide()
 	ingame = false
 	paused = false
 
@@ -33,15 +34,18 @@ func toggle_pause():
 		$PauseScreen.visible = true
 		$PauseScreen.show_pause()
 		$Music/InGameMusic.volume_db = -20
+		$Timer.pause()
 	else:
 		get_tree().paused = false
 		$PauseScreen.visible = false
 		$Music/InGameMusic.volume_db = -6
+		$Timer.unpause()
 	paused = not paused
 	pause_toggled.emit()
 
 func stop_game():
 	ingame = false
+	$Timer.stop()
 	$InGameHUD.hide()
 	$Music/InGameMusic.stop()
 
@@ -66,12 +70,14 @@ func _on_play_again_button_pressed():
 	$StartSound.play()
 	$GameOverScreen.hide()
 	$InGameHUD.show()
+	$Timer.reset()
 	$AnimationPlayer.play("play_again")
 	play_again.emit()
 
 func _on_return_title_button_pressed():
 	$AnimationPlayer.play("return_to_title")
 	$GameOverScreen.hide()
+	$Timer.hide()
 	$TitleScreen.show()
 	$TitleScreen.find_child("StartButton").grab_focus()
 	$Music/EndMusic.stop()
@@ -106,4 +112,5 @@ func _on_pause_screen_return_title_confirmed():
 func _on_pause_screen_restart_confirmed():
 	stop_game()
 	toggle_pause()
+	$Timer.reset()
 	_on_play_again_button_pressed()

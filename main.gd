@@ -68,6 +68,8 @@ func start_game():
 	$NPCTimer.start()
 	$TreatTimer.start()
 	$Player.start()
+	$UI/Timer.show()
+	$UI/Timer.start()
 
 func stop_game():
 	$FreezeTimer.stop()
