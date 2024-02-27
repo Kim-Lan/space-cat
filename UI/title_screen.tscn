@@ -39,36 +39,36 @@ _data = {
 "title": SubResource("Animation_bsbq7")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_stq3m"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyhs7"]
 atlas = ExtResource("5_a5er3")
 region = Rect2(0, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n2nq4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_d38fk"]
 atlas = ExtResource("5_a5er3")
-region = Rect2(100, 0, 100, 100)
+region = Rect2(102, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mh7lw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty5em"]
 atlas = ExtResource("5_a5er3")
-region = Rect2(200, 0, 100, 100)
+region = Rect2(204, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3nnvs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kynvn"]
 atlas = ExtResource("5_a5er3")
-region = Rect2(300, 0, 100, 100)
+region = Rect2(306, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2d2wj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_stq3m")
+"texture": SubResource("AtlasTexture_vyhs7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n2nq4")
+"texture": SubResource("AtlasTexture_d38fk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mh7lw")
+"texture": SubResource("AtlasTexture_ty5em")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3nnvs")
+"texture": SubResource("AtlasTexture_kynvn")
 }],
 "loop": true,
 "name": &"default",
@@ -183,10 +183,10 @@ libraries = {
 }
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(512, 442)
 sprite_frames = SubResource("SpriteFrames_2d2wj")
-frame_progress = 0.320572
+frame = 2
+frame_progress = 0.580846
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1

@@ -8,6 +8,11 @@ func _ready():
 
 func set_final_score(value):
 	find_child("FinalScoreValue").text = str(value)
+	if value > 1:
+		$DanceSprite.show()
+		$DanceSprite.play()
+	else:
+		$DanceSprite.hide()
 
 func set_highscore(value):
 	find_child("HighScoreValue").text = str(value)

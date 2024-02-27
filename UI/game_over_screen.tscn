@@ -1,6 +1,57 @@
-[gd_scene load_steps=2 format=3 uid="uid://cimgwhgbt41ci"]
+[gd_scene load_steps=10 format=3 uid="uid://cimgwhgbt41ci"]
 
 [ext_resource type="Script" path="res://UI/game_over_screen.gd" id="1_4whc3"]
+[ext_resource type="Texture2D" uid="uid://bnfjffy0den5i" path="res://assets/player/player.png" id="2_w2low"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkart"]
+atlas = ExtResource("2_w2low")
+region = Rect2(0, 204, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aalee"]
+atlas = ExtResource("2_w2low")
+region = Rect2(102, 204, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyxml"]
+atlas = ExtResource("2_w2low")
+region = Rect2(204, 204, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tovcv"]
+atlas = ExtResource("2_w2low")
+region = Rect2(306, 204, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8h1n"]
+atlas = ExtResource("2_w2low")
+region = Rect2(408, 204, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20c48"]
+atlas = ExtResource("2_w2low")
+region = Rect2(510, 204, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rpxk1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkart")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aalee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyxml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tovcv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8h1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20c48")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="GameOverScreen" type="Control"]
 layout_mode = 3
@@ -92,6 +143,11 @@ text = "play again"
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "return to title"
+
+[node name="DanceSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(309, 325)
+sprite_frames = SubResource("SpriteFrames_rpxk1")
+frame_progress = 0.325138
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/ReturnTitleButton" to="." method="_on_return_title_button_pressed"]
