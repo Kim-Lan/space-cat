@@ -145,7 +145,7 @@ theme_override_font_sizes/font_size = 32
 text = "return to title"
 
 [node name="DanceSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(309, 325)
+position = Vector2(290, 328)
 sprite_frames = SubResource("SpriteFrames_rpxk1")
 frame_progress = 0.325138
 

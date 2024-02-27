@@ -28,7 +28,8 @@ enabled=PackedStringArray("res://addons/aseprite_importer/plugin.cfg")
 
 [gui]
 
-theme/custom_font="res://assets/font/Comic_Neue/ComicNeue-Bold.ttf"
+theme/custom="res://UI/theme.tres"
+theme/custom_font="res://assets/font/videotype-modified/videotype-modified.ttf"
 
 [input]
 

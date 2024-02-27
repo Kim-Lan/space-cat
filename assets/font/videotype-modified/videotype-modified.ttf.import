@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://6fku8tb7ue4o"
-path="res://.godot/imported/ComicNeue-Bold.ttf-2f3dcc77e3f39776656dd51da29b2889.fontdata"
+uid="uid://bqe3xyqj4nyaj"
+path="res://.godot/imported/videotype-modified.ttf-cfbc29e0b81ce95b47738197b991cc62.fontdata"
 
 [deps]
 
-source_file="res://assets/font/Comic_Neue/ComicNeue-Bold.ttf"
-dest_files=["res://.godot/imported/ComicNeue-Bold.ttf-2f3dcc77e3f39776656dd51da29b2889.fontdata"]
+source_file="res://assets/font/videotype-modified/videotype-modified.ttf"
+dest_files=["res://.godot/imported/videotype-modified.ttf-cfbc29e0b81ce95b47738197b991cc62.fontdata"]
 
 [params]
 

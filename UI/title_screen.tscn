@@ -214,11 +214,6 @@ focus_previous = NodePath("../../FooterMarginContainer/HBoxContainer/ToggleAnima
 theme_override_font_sizes/font_size = 32
 text = "start"
 
-[node name="SettingsButton" type="Button" parent="Buttons"]
-visible = false
-layout_mode = 2
-text = "settings"
-
 [node name="ExitButton" type="Button" parent="Buttons"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../StartButton")
