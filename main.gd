@@ -146,12 +146,12 @@ func _on_bap_cooldown_timeout():
 		$Player/DamageArea.disabled = false
 
 func save_high_score():
-	var file = FileAccess.open("user://high_score.txt", FileAccess.WRITE)
 	if score > high_score:
+		var file = FileAccess.open("user://high_score.txt", FileAccess.WRITE)
 		high_score = score
 		file.store_string(str(high_score))
 		$UI.update_high_score(high_score)
-	file.close()
+		file.close()
 
 func load_high_score():
 	var file = FileAccess.open("user://high_score.txt", FileAccess.READ)

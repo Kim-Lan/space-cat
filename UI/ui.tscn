@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://3ug1t30kx5j4"]
+[gd_scene load_steps=18 format=3 uid="uid://3ug1t30kx5j4"]
 
 [ext_resource type="Script" path="res://UI/ui.gd" id="1_mfp3s"]
 [ext_resource type="PackedScene" uid="uid://cimgwhgbt41ci" path="res://UI/game_over_screen.tscn" id="2_cw34c"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bdf88yyxqnpuu" path="res://assets/audio/start-sound.wav" id="5_3vfr4"]
 [ext_resource type="AudioStream" uid="uid://da7weg66md858" path="res://assets/audio/bgm/title-music.ogg" id="7_41dff"]
 [ext_resource type="AudioStream" uid="uid://rrv2x8qbrow8" path="res://assets/audio/bgm/in-game-music.ogg" id="8_3uwnm"]
+[ext_resource type="AudioStream" uid="uid://oxiifx4lyl2i" path="res://assets/audio/nemo_purr_a_edited.wav" id="8_c3qck"]
 [ext_resource type="AudioStream" uid="uid://d31qjxthhwnil" path="res://assets/audio/bgm/end-music.ogg" id="9_wm7dh"]
 
 [sub_resource type="Animation" id="Animation_rrblr"]
@@ -195,9 +196,12 @@ libraries = {
 "": SubResource("AnimationLibrary_k3syd")
 }
 
-[node name="StartSound" type="AudioStreamPlayer" parent="."]
+[node name="StartSound_old" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_3vfr4")
 volume_db = -5.647
+
+[node name="StartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_c3qck")
 
 [node name="Music" type="Node" parent="."]
 process_mode = 3
