@@ -2,7 +2,7 @@ extends Area2D
 
 @export var autoscroll: Vector2
 
-enum TYPES { BLACK, GRAY, TABBY, SIAMESE, AEGEAN, COW, RAGDOLL, TORTOISE, WHITE, CALICO, CHIMERA, ORANGE, BROWN }
+enum TYPES { BLACK, GRAY, TABBY, SIAMESE, AEGEAN, COW, RAGDOLL, TORTOISE, WHITE, CALICO, CHIMERA, ORANGE }
 const SPRITES = {
 	TYPES.BLACK: 'Black',
 	TYPES.GRAY: 'Gray',
@@ -16,7 +16,6 @@ const SPRITES = {
 	TYPES.CALICO: 'Calico',
 	TYPES.CHIMERA: 'Chimera',
 	TYPES.ORANGE: 'Orange',
-	TYPES.BROWN: 'Brown'
 }
 const STATS = {
 	TYPES.BLACK: {
@@ -66,10 +65,6 @@ const STATS = {
 	TYPES.ORANGE: {
 		'territory_radius': 100,
 		'speed': 50
-	},
-	TYPES.BROWN: {
-		'territory_radius': 75,
-		'speed': 40
 	},
 }
 
