@@ -1,57 +1,88 @@
-[gd_scene load_steps=10 format=3 uid="uid://cimgwhgbt41ci"]
+[gd_scene load_steps=5 format=3 uid="uid://cimgwhgbt41ci"]
 
 [ext_resource type="Script" path="res://UI/game_over_screen.gd" id="1_4whc3"]
 [ext_resource type="Texture2D" uid="uid://bnfjffy0den5i" path="res://assets/player/player.png" id="2_w2low"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dkart"]
-atlas = ExtResource("2_w2low")
-region = Rect2(0, 204, 100, 100)
+[sub_resource type="Animation" id="Animation_l3ilj"]
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite1:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 204, 100, 100), Rect2(102, 204, 100, 100), Rect2(204, 204, 100, 100), Rect2(306, 204, 100, 100), Rect2(408, 204, 100, 100), Rect2(510, 204, 100, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite1:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2:region_rect")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 204, 100, 100), Rect2(102, 204, 100, 100), Rect2(204, 204, 100, 100), Rect2(306, 204, 100, 100), Rect2(408, 204, 100, 100), Rect2(510, 204, 100, 100)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2:offset")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3:region_rect")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 204, 100, 100), Rect2(102, 204, 100, 100), Rect2(204, 204, 100, 100), Rect2(306, 204, 100, 100), Rect2(408, 204, 100, 100), Rect2(510, 204, 100, 100)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite3:offset")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aalee"]
-atlas = ExtResource("2_w2low")
-region = Rect2(102, 204, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yyxml"]
-atlas = ExtResource("2_w2low")
-region = Rect2(204, 204, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tovcv"]
-atlas = ExtResource("2_w2low")
-region = Rect2(306, 204, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t8h1n"]
-atlas = ExtResource("2_w2low")
-region = Rect2(408, 204, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_20c48"]
-atlas = ExtResource("2_w2low")
-region = Rect2(510, 204, 100, 100)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_rpxk1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dkart")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aalee")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yyxml")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tovcv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t8h1n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_20c48")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7k6db"]
+_data = {
+"dance": SubResource("Animation_l3ilj")
+}
 
 [node name="GameOverScreen" type="Control"]
 layout_mode = 3
@@ -71,23 +102,23 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.25)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -159.0
+offset_right = 212.0
+offset_bottom = 159.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 250
-theme_override_constants/margin_right = 300
-theme_override_constants/margin_bottom = 200
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
 alignment = 1
+metadata/_edit_group_ = true
 
-[node name="GameOverLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="GameOverLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 54
@@ -95,59 +126,81 @@ text = "game over!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FinalScoreContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="FinalScoreContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="FinalScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/FinalScoreContainer"]
+[node name="FinalScoreLabel" type="Label" parent="VBoxContainer/FinalScoreContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "final score:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FinalScoreValue" type="Label" parent="MarginContainer/VBoxContainer/FinalScoreContainer"]
+[node name="FinalScoreValue" type="Label" parent="VBoxContainer/FinalScoreContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "0"
 
-[node name="HighScoreContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HighScoreContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 alignment = 1
 
-[node name="HighScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/HighScoreContainer"]
+[node name="HighScoreLabel" type="Label" parent="VBoxContainer/HighScoreContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "highscore: "
+text = "high score:"
 
-[node name="HighScoreValue" type="Label" parent="MarginContainer/VBoxContainer/HighScoreContainer"]
+[node name="HighScoreValue" type="Label" parent="VBoxContainer/HighScoreContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "0"
 
-[node name="VSpace" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="VSpace" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Buttons" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="PlayAgainButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
+[node name="PlayAgainButton" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "play again"
 
-[node name="ReturnTitleButton" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
+[node name="ReturnTitleButton" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "return to title"
 
-[node name="DanceSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(791, 324)
-sprite_frames = SubResource("SpriteFrames_rpxk1")
-frame_progress = 0.325138
+[node name="DanceAnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../DanceSprites")
+libraries = {
+"": SubResource("AnimationLibrary_7k6db")
+}
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/ReturnTitleButton" to="." method="_on_return_title_button_pressed"]
+[node name="DanceSprites" type="Node2D" parent="."]
+
+[node name="Sprite1" type="Sprite2D" parent="DanceSprites"]
+position = Vector2(272, 266)
+texture = ExtResource("2_w2low")
+region_enabled = true
+region_rect = Rect2(0, 204, 100, 100)
+
+[node name="Sprite2" type="Sprite2D" parent="DanceSprites"]
+position = Vector2(750, 266)
+texture = ExtResource("2_w2low")
+region_enabled = true
+region_rect = Rect2(0, 204, 100, 100)
+
+[node name="Sprite3" type="Sprite2D" parent="DanceSprites"]
+position = Vector2(512, 177)
+texture = ExtResource("2_w2low")
+region_enabled = true
+region_rect = Rect2(0, 204, 100, 100)
+
+[connection signal="pressed" from="VBoxContainer/Buttons/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/ReturnTitleButton" to="." method="_on_return_title_button_pressed"]

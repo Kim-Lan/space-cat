@@ -6,7 +6,7 @@ const FREEZE_DURATION = 0.35
 @export var npc_scene: PackedScene
 @export var treat_scene: PackedScene
 
-var highscore: int = 0
+var high_score: int = 0
 
 var score: int
 var max_health: int = 3
@@ -15,7 +15,7 @@ var current_health: int
 var paused: bool = false
 
 func _ready():
-	load_highscore()
+	load_high_score()
 	$Player.position = $StartPosition.position
 	$Player.disable_input = true
 	await get_tree().create_timer(0.5).timeout
@@ -44,7 +44,7 @@ func starting_game():
 	reset_screen()
 	score = 0
 	current_health = max_health
-	$UI/InGameHUD.update_score(score)
+	$UI.update_score(score)
 	$UI/InGameHUD.draw_health(current_health)
 	$Background.reset()
 
@@ -73,7 +73,7 @@ func start_game():
 
 func stop_game():
 	$FreezeTimer.stop()
-	save_highscore()
+	save_high_score()
 	$Player/DamagedAnimationPlayer.stop()
 	$Player.velocity = Vector2(0, 0)
 	$NPCTimer.stop()
@@ -114,7 +114,7 @@ func _on_treat_collected(value):
 	else:
 		$SoundEffects/TreatSoundBig.play()
 	score += value
-	$UI/InGameHUD.update_score(score)
+	$UI.update_score(score)
 
 func freeze_frame(duration):
 	get_tree().paused = true
@@ -145,26 +145,26 @@ func _on_bap_cooldown_timeout():
 	if current_health > 0:
 		$Player/DamageArea.disabled = false
 
-func save_highscore():
-	var file = FileAccess.open("user://highscore.txt", FileAccess.WRITE)
-	if score > highscore:
-		highscore = score
-		file.store_string(str(highscore))
-		$UI.update_highscore(highscore)
+func save_high_score():
+	var file = FileAccess.open("user://high_score.txt", FileAccess.WRITE)
+	if score > high_score:
+		high_score = score
+		file.store_string(str(high_score))
+		$UI.update_high_score(high_score)
 
-func load_highscore():
-	var file = FileAccess.open("user://highscore.txt", FileAccess.READ)
+func load_high_score():
+	var file = FileAccess.open("user://high_score.txt", FileAccess.READ)
 	if file != null:
-		highscore = int(file.get_as_text())
+		high_score = int(file.get_as_text())
 	else:
-		highscore = 0
-	$UI.update_highscore(highscore)
+		high_score = 0
+	$UI.update_high_score(high_score)
 
-func _on_reset_highscore():
-	highscore = 0
-	var file = FileAccess.open("user://highscore.txt", FileAccess.WRITE)
-	file.store_string(str(highscore))
-	$UI.update_highscore(highscore)
+func _on_reset_high_score():
+	high_score = 0
+	var file = FileAccess.open("user://high_score.txt", FileAccess.WRITE)
+	file.store_string(str(high_score))
+	$UI.update_high_score(high_score)
 
 func _on_pause_toggled():
 	paused = not paused

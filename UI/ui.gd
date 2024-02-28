@@ -4,7 +4,7 @@ extends CanvasLayer
 signal start_from_title
 signal play_again
 signal return_title
-signal reset_highscore
+signal reset_high_score
 signal pause_toggled
 signal pause_screen_return_title
 
@@ -27,6 +27,10 @@ func _input(event):
 
 func set_ingame(value):
 	ingame = value
+
+func update_score(value):
+	$InGameHUD.set_score(value)
+	$PauseScreen.set_current_score(value)
 
 func toggle_pause():
 	if not paused:
@@ -57,9 +61,10 @@ func show_game_over(score):
 	$AnimationPlayer.play("game_over")
 	$Music/EndMusic.play()
 
-func update_highscore(value):
-	$TitleScreen.set_highscore(value)
-	$GameOverScreen.set_highscore(value)
+func update_high_score(value):
+	$TitleScreen.set_high_score(value)
+	$PauseScreen.set_high_score(value)
+	$GameOverScreen.set_high_score(value)
 
 func _on_start_button_pressed():
 	$StartSound.play()
@@ -86,8 +91,8 @@ func _on_return_title_button_pressed():
 	await get_tree().create_timer(0.5).timeout
 	$Music/TitleMusic.play()
 
-func _on_reset_highscore_pressed():
-	reset_highscore.emit()
+func _on_reset_high_score_pressed():
+	reset_high_score.emit()
 
 func _on_animation_player_animation_finished(anim_name):
 	if (anim_name == "start_from_title"):

@@ -86,7 +86,7 @@ texture = ExtResource("5_65nee")
 y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_1wr41")]
-position = Vector2(512, 442)
+position = Vector2(512, 436)
 
 [node name="NPCs" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -118,7 +118,7 @@ position = Vector2(50, -49)
 rotation = -0.00108225
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(512, 442)
+position = Vector2(512, 436)
 metadata/_edit_lock_ = true
 
 [node name="UI" parent="." instance=ExtResource("4_5gj3v")]
@@ -155,7 +155,6 @@ libraries = {
 [connection signal="pause_screen_return_title" from="UI" to="." method="_on_pause_screen_return_title"]
 [connection signal="pause_toggled" from="UI" to="." method="_on_pause_toggled"]
 [connection signal="play_again" from="UI" to="." method="_on_play_again"]
-[connection signal="reset_highscore" from="UI" to="." method="_on_reset_highscore"]
 [connection signal="return_title" from="UI" to="." method="_on_return_title"]
 [connection signal="start_from_title" from="UI" to="." method="_on_start_from_title"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

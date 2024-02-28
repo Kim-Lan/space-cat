@@ -9,7 +9,7 @@ var health_bar
 func _ready():
 	health_bar = find_child("HealthBar")
 
-func update_score(value):
+func set_score(value):
 	find_child("ScoreLabel").text = str(value)
 
 func update_health(value):

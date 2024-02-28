@@ -17,6 +17,7 @@ func reset():
 	time_elapsed = 0
 	time_paused = 0
 	update_label()
+	$AnimationPlayer.stop()
 
 func start():
 	reset()
@@ -29,12 +30,14 @@ func pause():
 	if running:
 		time_pause_start = Time.get_ticks_msec()
 		paused = true
+		$AnimationPlayer.play("flash")
 
 func unpause():
 	if running:
 		time_pause_end = Time.get_ticks_msec()
 		time_paused += (time_pause_end - time_pause_start)
 		paused = false
+		$AnimationPlayer.stop()
 
 func stop():
 	running = false

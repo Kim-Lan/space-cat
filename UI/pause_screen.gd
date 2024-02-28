@@ -9,10 +9,21 @@ func _ready():
 	pass # Replace with function body.
 
 func show_pause():
+	var rand = randf()
+	if rand < 0.01:
+		$PauseMenu/PauseLabel.text = "pawsed"
+	else:
+		$PauseMenu/PauseLabel.text = "paused"
 	$PauseMenu.show()
 	$ConfirmRestart.hide()
 	$ConfirmTitleReturn.hide()
 	$PauseMenu.find_child("ContinueButton").grab_focus()
+
+func set_current_score(value):
+	find_child("CurrentScoreValue").text = str(value)
+
+func set_high_score(value):
+	find_child("HighScoreValue").text = str(value)
 
 func _on_continue_button_pressed():
 	unpause.emit()

@@ -1,7 +1,7 @@
 extends Control
 
 signal start_button_pressed
-signal reset_highscore_pressed
+signal reset_high_score_pressed
 
 func _ready():
 	find_child("StartButton").grab_focus()
@@ -12,11 +12,11 @@ func _on_start_button_pressed():
 	$FocusControl.grab_focus()
 	start_button_pressed.emit()
 
-func set_highscore(value):
+func set_high_score(value):
 	find_child("HighScoreValue").text = str(value)
 
-func _on_reset_highscore_button_pressed():
-	reset_highscore_pressed.emit()
+func _on_reset_high_score_button_pressed():
+	reset_high_score_pressed.emit()
 
 func _on_animation_toggled(toggled_on):
 	if toggled_on:

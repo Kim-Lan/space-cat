@@ -171,7 +171,7 @@ texture = ExtResource("3_1af36")
 metadata/_edit_lock_ = true
 
 [node name="Title" type="Sprite2D" parent="."]
-position = Vector2(512, 255)
+position = Vector2(512, 251)
 texture = ExtResource("2_dhbp5")
 region_enabled = true
 region_rect = Rect2(0, 3926, 900, 300)
@@ -183,7 +183,7 @@ libraries = {
 }
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(512, 442)
+position = Vector2(512, 436)
 sprite_frames = SubResource("SpriteFrames_2d2wj")
 frame = 2
 frame_progress = 0.580846
@@ -196,11 +196,12 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -100.0
-offset_top = -195.0
+offset_top = -233.0
 offset_right = 100.0
-offset_bottom = -101.0
+offset_bottom = -133.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 10
 metadata/_edit_group_ = true
 
 [node name="StartButton" type="Button" parent="Buttons"]
@@ -218,9 +219,9 @@ text = "start"
 layout_mode = 2
 focus_neighbor_left = NodePath("../StartButton")
 focus_neighbor_top = NodePath("../StartButton")
-focus_neighbor_right = NodePath("../../FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton")
+focus_neighbor_right = NodePath("../../FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighScoreButton")
 focus_neighbor_bottom = NodePath(".")
-focus_next = NodePath("../../FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton")
+focus_next = NodePath("../../FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighScoreButton")
 theme_override_font_sizes/font_size = 24
 text = "exit"
 
@@ -234,12 +235,13 @@ offset_top = -78.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_bottom = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="FooterMarginContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="FooterMarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -247,25 +249,26 @@ theme_override_constants/separation = 15
 
 [node name="HighScoreContainer" type="HBoxContainer" parent="FooterMarginContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 5
 
 [node name="HighScoreLabel" type="Label" parent="FooterMarginContainer/HBoxContainer/HBoxContainer/HighScoreContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "highscore:"
+text = "high score:"
 
 [node name="HighScoreValue" type="Label" parent="FooterMarginContainer/HBoxContainer/HBoxContainer/HighScoreContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "0"
 
-[node name="ResetHighscoreButton" type="Button" parent="FooterMarginContainer/HBoxContainer/HBoxContainer"]
+[node name="ResetHighScoreButton" type="Button" parent="FooterMarginContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../../../../Buttons/ExitButton")
 focus_neighbor_right = NodePath("../../ToggleAnimationContainer/AnimationToggle")
 focus_next = NodePath("../../ToggleAnimationContainer/AnimationToggle")
 focus_previous = NodePath("../../../../Buttons/ExitButton")
 theme_override_font_sizes/font_size = 24
-text = " reset "
+text = "reset"
 
 [node name="HSpace" type="Control" parent="FooterMarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -277,10 +280,10 @@ metadata/_edit_group_ = true
 
 [node name="AnimationToggle" type="CheckButton" parent="FooterMarginContainer/HBoxContainer/ToggleAnimationContainer"]
 layout_mode = 2
-focus_neighbor_left = NodePath("../../HBoxContainer/ResetHighscoreButton")
+focus_neighbor_left = NodePath("../../HBoxContainer/ResetHighScoreButton")
 focus_neighbor_right = NodePath("../../../../Buttons/StartButton")
 focus_next = NodePath("../../../../Buttons/StartButton")
-focus_previous = NodePath("../../HBoxContainer/ResetHighscoreButton")
+focus_previous = NodePath("../../HBoxContainer/ResetHighScoreButton")
 button_pressed = true
 
 [node name="AnimationToggleLabel" type="Label" parent="FooterMarginContainer/HBoxContainer/ToggleAnimationContainer"]
@@ -296,6 +299,6 @@ libraries = {
 
 [connection signal="pressed" from="Buttons/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighscoreButton" to="." method="_on_reset_highscore_button_pressed"]
+[connection signal="pressed" from="FooterMarginContainer/HBoxContainer/HBoxContainer/ResetHighScoreButton" to="." method="_on_reset_high_score_button_pressed"]
 [connection signal="toggled" from="FooterMarginContainer/HBoxContainer/ToggleAnimationContainer/AnimationToggle" to="." method="_on_animation_toggled"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
