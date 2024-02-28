@@ -196,11 +196,11 @@ libraries = {
 "": SubResource("AnimationLibrary_k3syd")
 }
 
-[node name="StartSound_old" type="AudioStreamPlayer" parent="."]
+[node name="StartSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_3vfr4")
 volume_db = -5.647
 
-[node name="StartSound" type="AudioStreamPlayer" parent="."]
+[node name="NemoStartSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_c3qck")
 
 [node name="Music" type="Node" parent="."]

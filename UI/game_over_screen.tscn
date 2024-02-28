@@ -202,5 +202,19 @@ texture = ExtResource("2_w2low")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
+[node name="Sprite4" type="Sprite2D" parent="DanceSprites"]
+visible = false
+position = Vector2(512, 177)
+texture = ExtResource("2_w2low")
+region_enabled = true
+region_rect = Rect2(0, 204, 100, 100)
+
+[node name="Sprite5" type="Sprite2D" parent="DanceSprites"]
+visible = false
+position = Vector2(512, 177)
+texture = ExtResource("2_w2low")
+region_enabled = true
+region_rect = Rect2(0, 204, 100, 100)
+
 [connection signal="pressed" from="VBoxContainer/Buttons/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/ReturnTitleButton" to="." method="_on_return_title_button_pressed"]

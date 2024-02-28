@@ -1017,79 +1017,79 @@ libraries = {
 rotation = 1.5708
 texture = ExtResource("2_utcp3")
 region_enabled = true
-region_rect = Rect2(204, 0, 100, 100)
+region_rect = Rect2(510, 0, 100, 100)
 
 [node name="Gray" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("3_o741e")
 region_enabled = true
-region_rect = Rect2(204, 0, 100, 100)
+region_rect = Rect2(510, 0, 100, 100)
 
 [node name="Tabby" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("4_3neiv")
 region_enabled = true
-region_rect = Rect2(204, 0, 100, 100)
+region_rect = Rect2(510, 0, 100, 100)
 
 [node name="Siamese" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("5_ef1me")
 region_enabled = true
-region_rect = Rect2(204, 0, 100, 100)
+region_rect = Rect2(510, 0, 100, 100)
 
 [node name="Aegean" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("6_jnjtp")
 region_enabled = true
-region_rect = Rect2(204, 0, 100, 100)
+region_rect = Rect2(510, 0, 100, 100)
 
 [node name="Cow" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("8_gsvvj")
 region_enabled = true
-region_rect = Rect2(204, 0, 100, 100)
+region_rect = Rect2(510, 0, 100, 100)
 
 [node name="Ragdoll" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("9_tpiem")
 region_enabled = true
-region_rect = Rect2(204, 0, 100, 100)
+region_rect = Rect2(510, 0, 100, 100)
 
 [node name="Tortoise" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("10_g06ou")
 region_enabled = true
-region_rect = Rect2(204, 0, 100, 100)
+region_rect = Rect2(510, 0, 100, 100)
 
 [node name="White" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("11_02bjo")
 region_enabled = true
-region_rect = Rect2(204, 0, 100, 100)
+region_rect = Rect2(510, 0, 100, 100)
 
 [node name="Calico" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("12_8gm4b")
 region_enabled = true
-region_rect = Rect2(204, 0, 100, 100)
+region_rect = Rect2(510, 0, 100, 100)
 
 [node name="Chimera" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("13_6hqcu")
 region_enabled = true
-region_rect = Rect2(204, 0, 100, 100)
+region_rect = Rect2(510, 0, 100, 100)
 
 [node name="Orange" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("14_tgkj8")
 region_enabled = true
-region_rect = Rect2(204, 0, 100, 100)
+region_rect = Rect2(510, 0, 100, 100)
 
 [node name="Brown" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("15_v7cet")
 region_enabled = true
-region_rect = Rect2(204, 0, 100, 100)
+region_rect = Rect2(510, 0, 100, 100)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(20, 0)
