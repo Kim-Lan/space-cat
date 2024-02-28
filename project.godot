@@ -14,7 +14,9 @@ config/name="Space Cats"
 run/main_scene="res://main.tscn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://nemoicon16.png"
+config/macos_native_icon="res://nemo.icns"
+config/windows_native_icon="res://nemo.ico"
 
 [display]
 
@@ -115,4 +117,5 @@ pause={
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
