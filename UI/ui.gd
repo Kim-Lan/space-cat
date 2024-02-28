@@ -23,6 +23,7 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("pause"):
 		if ingame:
+			$NemoPurrASound.play()
 			toggle_pause()
 
 func set_ingame(value):
@@ -121,3 +122,7 @@ func _on_pause_screen_restart_confirmed():
 	toggle_pause()
 	$Timer.reset()
 	_on_play_again_button_pressed()
+
+func _on_unpause():
+	$NemoPurrASound.play()
+	toggle_pause()
