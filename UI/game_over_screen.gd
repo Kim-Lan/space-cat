@@ -12,11 +12,10 @@ func set_final_score(value):
 	$DanceSprites/Sprite2.hide()
 	$DanceSprites/Sprite3.hide()
 	$DanceAnimationPlayer.play("dance")
-	if value > 1:
+	if value > 20:
 		$DanceSprites/Sprite1.show()
-	if value > 2:
 		$DanceSprites/Sprite2.show()
-	if value > 3:
+	if value > 40:
 		$DanceSprites/Sprite3.show()
 
 func set_high_score(value):

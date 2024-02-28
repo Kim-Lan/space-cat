@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c1hb3s3wqw7ms"]
+[gd_scene load_steps=23 format=3 uid="uid://c1hb3s3wqw7ms"]
 
 [ext_resource type="Script" path="res://objects/npc.gd" id="1_587je"]
 [ext_resource type="PackedScene" uid="uid://dlnloh38qsoch" path="res://objects/npc_territory.tscn" id="2_a6slc"]
@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://d1gbku12ue21o" path="res://assets/npc/npc_ragdoll.png" id="9_tpiem"]
 [ext_resource type="Texture2D" uid="uid://dfa2s66wpalqr" path="res://assets/npc/npc_tortoise.png" id="10_g06ou"]
 [ext_resource type="Texture2D" uid="uid://cyj1t3y8is7m6" path="res://assets/npc/npc_white.png" id="11_02bjo"]
+[ext_resource type="Texture2D" uid="uid://bxitabqf2hsi0" path="res://assets/npc/npc_calico.png" id="12_8gm4b"]
+[ext_resource type="Texture2D" uid="uid://de6d5p5jats2s" path="res://assets/npc/npc_chimera.png" id="13_6hqcu"]
+[ext_resource type="Texture2D" uid="uid://cxw6mcfe553" path="res://assets/npc/npc_orange.png" id="14_tgkj8"]
+[ext_resource type="Texture2D" uid="uid://bh3qgdvpqyly0" path="res://assets/npc/npc_brown.png" id="15_v7cet"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvhx0"]
 radius = 200.0
@@ -237,6 +241,102 @@ tracks/17/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
 }
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("TypeSprites/Calico:region_rect")
+tracks/18/interp = 0
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 102, 100, 100), Rect2(102, 102, 100, 100), Rect2(204, 102, 100, 100), Rect2(306, 102, 100, 100)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("TypeSprites/Calico:offset")
+tracks/19/interp = 0
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("TypeSprites/Chimera:region_rect")
+tracks/20/interp = 0
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 102, 100, 100), Rect2(102, 102, 100, 100), Rect2(204, 102, 100, 100), Rect2(306, 102, 100, 100)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("TypeSprites/Chimera:offset")
+tracks/21/interp = 0
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("TypeSprites/Orange:region_rect")
+tracks/22/interp = 0
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 102, 100, 100), Rect2(102, 102, 100, 100), Rect2(204, 102, 100, 100), Rect2(306, 102, 100, 100)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("TypeSprites/Orange:offset")
+tracks/23/interp = 0
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("TypeSprites/Brown:region_rect")
+tracks/24/interp = 0
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 102, 100, 100), Rect2(102, 102, 100, 100), Rect2(204, 102, 100, 100), Rect2(306, 102, 100, 100)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("TypeSprites/Brown:offset")
+tracks/25/interp = 0
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_olgjt"]
 length = 0.001
@@ -451,6 +551,102 @@ tracks/17/path = NodePath("TypeSprites/White:offset")
 tracks/17/interp = 0
 tracks/17/loop_wrap = true
 tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("TypeSprites/Calico:region_rect")
+tracks/18/interp = 0
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 204, 100, 100)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("TypeSprites/Calico:offset")
+tracks/19/interp = 0
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("TypeSprites/Chimera:region_rect")
+tracks/20/interp = 0
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 204, 100, 100)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("TypeSprites/Chimera:offset")
+tracks/21/interp = 0
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("TypeSprites/Orange:region_rect")
+tracks/22/interp = 0
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 204, 100, 100)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("TypeSprites/Orange:offset")
+tracks/23/interp = 0
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("TypeSprites/Brown:region_rect")
+tracks/24/interp = 0
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 204, 100, 100)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("TypeSprites/Brown:offset")
+tracks/25/interp = 0
+tracks/25/loop_wrap = true
+tracks/25/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -676,6 +872,102 @@ tracks/17/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
 }
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("TypeSprites/Calico:region_rect")
+tracks/18/interp = 0
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("TypeSprites/Calico:offset")
+tracks/19/interp = 0
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("TypeSprites/Chimera:region_rect")
+tracks/20/interp = 0
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("TypeSprites/Chimera:offset")
+tracks/21/interp = 0
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("TypeSprites/Orange:region_rect")
+tracks/22/interp = 0
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("TypeSprites/Orange:offset")
+tracks/23/interp = 0
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("TypeSprites/Brown:region_rect")
+tracks/24/interp = 0
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100), Rect2(408, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(510, 0, 100, 100)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("TypeSprites/Brown:offset")
+tracks/25/interp = 0
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xwcgq"]
 _data = {
@@ -725,55 +1017,79 @@ libraries = {
 rotation = 1.5708
 texture = ExtResource("2_utcp3")
 region_enabled = true
-region_rect = Rect2(0, 204, 100, 100)
+region_rect = Rect2(204, 0, 100, 100)
 
 [node name="Gray" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("3_o741e")
 region_enabled = true
-region_rect = Rect2(0, 204, 100, 100)
+region_rect = Rect2(204, 0, 100, 100)
 
 [node name="Tabby" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("4_3neiv")
 region_enabled = true
-region_rect = Rect2(0, 204, 100, 100)
+region_rect = Rect2(204, 0, 100, 100)
 
 [node name="Siamese" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("5_ef1me")
 region_enabled = true
-region_rect = Rect2(0, 204, 100, 100)
+region_rect = Rect2(204, 0, 100, 100)
 
 [node name="Aegean" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("6_jnjtp")
 region_enabled = true
-region_rect = Rect2(0, 204, 100, 100)
+region_rect = Rect2(204, 0, 100, 100)
 
 [node name="Cow" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("8_gsvvj")
 region_enabled = true
-region_rect = Rect2(0, 204, 100, 100)
+region_rect = Rect2(204, 0, 100, 100)
 
 [node name="Ragdoll" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("9_tpiem")
 region_enabled = true
-region_rect = Rect2(0, 204, 100, 100)
+region_rect = Rect2(204, 0, 100, 100)
 
 [node name="Tortoise" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("10_g06ou")
 region_enabled = true
-region_rect = Rect2(0, 204, 100, 100)
+region_rect = Rect2(204, 0, 100, 100)
 
 [node name="White" type="Sprite2D" parent="TypeSprites"]
 rotation = 1.5708
 texture = ExtResource("11_02bjo")
 region_enabled = true
-region_rect = Rect2(0, 204, 100, 100)
+region_rect = Rect2(204, 0, 100, 100)
+
+[node name="Calico" type="Sprite2D" parent="TypeSprites"]
+rotation = 1.5708
+texture = ExtResource("12_8gm4b")
+region_enabled = true
+region_rect = Rect2(204, 0, 100, 100)
+
+[node name="Chimera" type="Sprite2D" parent="TypeSprites"]
+rotation = 1.5708
+texture = ExtResource("13_6hqcu")
+region_enabled = true
+region_rect = Rect2(204, 0, 100, 100)
+
+[node name="Orange" type="Sprite2D" parent="TypeSprites"]
+rotation = 1.5708
+texture = ExtResource("14_tgkj8")
+region_enabled = true
+region_rect = Rect2(204, 0, 100, 100)
+
+[node name="Brown" type="Sprite2D" parent="TypeSprites"]
+rotation = 1.5708
+texture = ExtResource("15_v7cet")
+region_enabled = true
+region_rect = Rect2(204, 0, 100, 100)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(20, 0)
