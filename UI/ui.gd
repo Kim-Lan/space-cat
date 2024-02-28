@@ -68,6 +68,7 @@ func update_high_score(value):
 
 func _on_start_button_pressed():
 	$StartSound.play()
+	$TitleScreen.process_mode = Node.PROCESS_MODE_DISABLED
 	$AnimationPlayer.play("start_from_title")
 	start_from_title.emit()
 
@@ -84,6 +85,7 @@ func _on_return_title_button_pressed():
 	$GameOverScreen.hide()
 	$Timer.hide()
 	$TitleScreen.show()
+	$TitleScreen.process_mode = Node.PROCESS_MODE_INHERIT
 	$TitleScreen.find_child("StartButton").grab_focus()
 	$Music/EndMusic.stop()
 	return_title.emit()

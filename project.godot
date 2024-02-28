@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="Space Cats"
+config/description="Space Cats is an endless scrolling action game where you play as Nemo, a cat who loves eating space treats! Fly through outer space and monch space treats! Be careful not to intrude on other cats' personal space and disturb their naps; they will defend their territory with baps!"
 run/main_scene="res://main.tscn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://nemoicon16.png"
-config/macos_native_icon="res://nemo.icns"
-config/windows_native_icon="res://nemo.ico"
+config/icon="res://assets/icons/nemoicon64.png"
+config/macos_native_icon="res://assets/icons/nemo.icns"
+config/windows_native_icon="res://assets/icons/nemo.ico"
 
 [display]
 
