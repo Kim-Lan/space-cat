@@ -151,6 +151,7 @@ func save_high_score():
 		high_score = score
 		file.store_string(str(high_score))
 		$UI.update_high_score(high_score)
+	file.close()
 
 func load_high_score():
 	var file = FileAccess.open("user://high_score.txt", FileAccess.READ)
@@ -159,12 +160,14 @@ func load_high_score():
 	else:
 		high_score = 0
 	$UI.update_high_score(high_score)
+	file.close()
 
 func _on_reset_high_score():
 	high_score = 0
 	var file = FileAccess.open("user://high_score.txt", FileAccess.WRITE)
 	file.store_string(str(high_score))
 	$UI.update_high_score(high_score)
+	file.close()
 
 func _on_pause_toggled():
 	paused = not paused
