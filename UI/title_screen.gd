@@ -4,7 +4,7 @@ signal start_button_pressed
 signal reset_high_score_pressed
 
 func _ready():
-	find_child("StartButton").grab_focus()
+	find_child("FocusControl").grab_focus()
 	$Title/AnimationPlayer.play("title")
 	$PlayerSprite.play()
 

@@ -100,7 +100,9 @@ func _on_animation_player_animation_finished(anim_name):
 	if (anim_name == "title_fade_in"):
 		$TitleScreen/TitleBackground.show()
 		$TitleScreen/PlayerSprite.show()
+		$TitleScreen/Buttons/StartButton.grab_focus()
 		$IntroCutscene.queue_free()
+		$Music/TitleMusic.play()
 	elif (anim_name == "start_from_title"):
 		$TitleScreen.hide()
 		$Music/TitleMusic.stop()
@@ -131,7 +133,15 @@ func _on_unpause():
 	toggle_pause()
 
 func _on_intro_cutscene_animation_finished():
-	print("animation finished")
-	#$TitleScreen.modulate.a = 0
 	$TitleScreen.show()
 	$AnimationPlayer.play("title_fade_in")
+
+func _on_intro_cutscene_skip():
+	$TitleScreen.modulate.a = 1
+	$TitleScreen/TitleBackground.show()
+	$TitleScreen/PlayerSprite.show()
+	$TitleScreen.show()
+	$Music/TitleMusic.play()
+	await get_tree().create_timer(0.5).timeout
+	$TitleScreen/Buttons/StartButton.grab_focus()
+	$IntroCutscene.queue_free()

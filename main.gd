@@ -18,8 +18,8 @@ func _ready():
 	load_high_score()
 	$Player.position = $StartPosition.position
 	$Player.disable_input = true
-	await get_tree().create_timer(0.5).timeout
-	$UI/Music/TitleMusic.play()
+	#await get_tree().create_timer(0.5).timeout
+	#$UI/Music/TitleMusic.play()
 
 func _on_start_from_title():
 	starting_game()

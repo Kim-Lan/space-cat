@@ -42,7 +42,7 @@ func unpause():
 func stop():
 	running = false
 
-func _process(delta):
+func _process(_delta):
 	if running and not paused:
 		time_now = Time.get_ticks_msec()
 		time_elapsed = time_now - time_start - time_paused
@@ -51,7 +51,7 @@ func _process(delta):
 func format_time(time: int):
 	var minutes = time / 60 / 1000
 	var seconds = (time / 1000) % 60
-	var milliseconds = time % 1000
+	#var milliseconds = time % 1000
 	var format_string = "%02d:%02d"
 	return format_string % [minutes, seconds]
 
