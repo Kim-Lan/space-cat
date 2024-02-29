@@ -5,7 +5,7 @@ signal reset_high_score_pressed
 
 func _ready():
 	find_child("FocusControl").grab_focus()
-	$Title/AnimationPlayer.play("title")
+	$Title.play()
 	$PlayerSprite.play()
 
 func _on_start_button_pressed():
@@ -20,10 +20,10 @@ func _on_reset_high_score_button_pressed():
 
 func _on_animation_toggled(toggled_on):
 	if toggled_on:
-		$Title/AnimationPlayer.play("title")
+		$Title.play()
 		$PlayerSprite.play()
 	else:
-		$Title/AnimationPlayer.stop()
+		$Title.stop()
 		$PlayerSprite.stop()
 
 func _on_exit_button_pressed():
