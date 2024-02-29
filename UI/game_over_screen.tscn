@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cimgwhgbt41ci"]
+[gd_scene load_steps=6 format=3 uid="uid://cimgwhgbt41ci"]
 
 [ext_resource type="Script" path="res://UI/game_over_screen.gd" id="1_4whc3"]
 [ext_resource type="Texture2D" uid="uid://bnfjffy0den5i" path="res://assets/player/player.png" id="2_w2low"]
@@ -225,7 +225,7 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("Sprite10:region_rect")
+tracks/18/path = NodePath("Sprite14:region_rect")
 tracks/18/interp = 0
 tracks/18/loop_wrap = true
 tracks/18/keys = {
@@ -237,7 +237,7 @@ tracks/18/keys = {
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("Sprite10:offset")
+tracks/19/path = NodePath("Sprite14:offset")
 tracks/19/interp = 0
 tracks/19/loop_wrap = true
 tracks/19/keys = {
@@ -249,7 +249,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("Sprite11:region_rect")
+tracks/20/path = NodePath("Sprite12:region_rect")
 tracks/20/interp = 0
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -261,7 +261,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("Sprite11:offset")
+tracks/21/path = NodePath("Sprite12:offset")
 tracks/21/interp = 0
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -273,7 +273,7 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("Sprite12:region_rect")
+tracks/22/path = NodePath("Sprite13:region_rect")
 tracks/22/interp = 0
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -285,7 +285,7 @@ tracks/22/keys = {
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("Sprite12:offset")
+tracks/23/path = NodePath("Sprite13:offset")
 tracks/23/interp = 0
 tracks/23/loop_wrap = true
 tracks/23/keys = {
@@ -297,7 +297,7 @@ tracks/23/keys = {
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("Sprite13:region_rect")
+tracks/24/path = NodePath("Sprite10:region_rect")
 tracks/24/interp = 0
 tracks/24/loop_wrap = true
 tracks/24/keys = {
@@ -309,7 +309,7 @@ tracks/24/keys = {
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("Sprite13:offset")
+tracks/25/path = NodePath("Sprite10:offset")
 tracks/25/interp = 0
 tracks/25/loop_wrap = true
 tracks/25/keys = {
@@ -321,7 +321,7 @@ tracks/25/keys = {
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("Sprite14:region_rect")
+tracks/26/path = NodePath("Sprite11:region_rect")
 tracks/26/interp = 0
 tracks/26/loop_wrap = true
 tracks/26/keys = {
@@ -333,7 +333,7 @@ tracks/26/keys = {
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("Sprite14:offset")
+tracks/27/path = NodePath("Sprite11:offset")
 tracks/27/interp = 0
 tracks/27/loop_wrap = true
 tracks/27/keys = {
@@ -347,6 +347,9 @@ tracks/27/keys = {
 _data = {
 "dance": SubResource("Animation_l3ilj")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8eet1"]
+radius = 292.58
 
 [node name="GameOverScreen" type="Control"]
 layout_mode = 3
@@ -450,13 +453,13 @@ libraries = {
 [node name="DanceSprites" type="Node2D" parent="."]
 
 [node name="Sprite1" type="Sprite2D" parent="DanceSprites"]
-position = Vector2(272, 266)
+position = Vector2(275, 257)
 texture = ExtResource("2_w2low")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Sprite2" type="Sprite2D" parent="DanceSprites"]
-position = Vector2(750, 266)
+position = Vector2(749, 257)
 texture = ExtResource("2_w2low")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
@@ -474,64 +477,69 @@ region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Sprite5" type="Sprite2D" parent="DanceSprites"]
-position = Vector2(652, 177)
+position = Vector2(649, 177)
 texture = ExtResource("2_w2low")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Sprite6" type="Sprite2D" parent="DanceSprites"]
-position = Vector2(214, 382)
+position = Vector2(220, 371)
 texture = ExtResource("2_w2low")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Sprite7" type="Sprite2D" parent="DanceSprites"]
-position = Vector2(812, 382)
+position = Vector2(804, 371)
 texture = ExtResource("2_w2low")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Sprite8" type="Sprite2D" parent="DanceSprites"]
-position = Vector2(233, 515)
+position = Vector2(223, 500)
 texture = ExtResource("2_w2low")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Sprite9" type="Sprite2D" parent="DanceSprites"]
-position = Vector2(797, 515)
+position = Vector2(801, 500)
 texture = ExtResource("2_w2low")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Sprite10" type="Sprite2D" parent="DanceSprites"]
-position = Vector2(523, 617)
+position = Vector2(282, 613)
 texture = ExtResource("2_w2low")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Sprite11" type="Sprite2D" parent="DanceSprites"]
-position = Vector2(415, 617)
+position = Vector2(742, 613)
 texture = ExtResource("2_w2low")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Sprite12" type="Sprite2D" parent="DanceSprites"]
-position = Vector2(629, 617)
+position = Vector2(389, 657)
 texture = ExtResource("2_w2low")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Sprite13" type="Sprite2D" parent="DanceSprites"]
-position = Vector2(309, 617)
+position = Vector2(635, 657)
 texture = ExtResource("2_w2low")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
 [node name="Sprite14" type="Sprite2D" parent="DanceSprites"]
-position = Vector2(732, 617)
+position = Vector2(512, 674)
 texture = ExtResource("2_w2low")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(512, 384)
+shape = SubResource("CircleShape2D_8eet1")
 
 [connection signal="pressed" from="VBoxContainer/Buttons/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/ReturnTitleButton" to="." method="_on_return_title_button_pressed"]
