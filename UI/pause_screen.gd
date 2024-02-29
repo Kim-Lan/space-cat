@@ -26,11 +26,11 @@ func set_high_score(value):
 	find_child("HighScoreValue").text = str(value)
 
 func _on_continue_button_pressed():
-	$ConfirmSound.play()
+	$MenuSound.play()
 	unpause.emit()
 
 func _on_restart_button_pressed():
-	$ConfirmSound.play()
+	$MenuSound.play()
 	$PauseMenu.hide()
 	$ConfirmRestart.show()
 	$ConfirmRestart.find_child("NoButton").grab_focus()
@@ -39,10 +39,11 @@ func _on_confirm_restart_yes_button_pressed():
 	restart_confirmed.emit()
 
 func _on_confirm_restart_no_button_pressed():
+	$MenuSound.play()
 	show_pause()
 
 func _on_return_title_button_pressed():
-	$ConfirmSound.play()
+	$MenuSound.play()
 	$PauseMenu.hide()
 	$ConfirmTitleReturn.show()
 	$ConfirmTitleReturn.find_child("NoButton").grab_focus()
@@ -51,4 +52,5 @@ func _on_confirm_title_yes_button_pressed():
 	return_title_confirmed.emit()
 
 func _on_confirm_title_no_button_pressed():
+	$MenuSound.play()
 	show_pause()

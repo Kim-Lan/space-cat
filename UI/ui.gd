@@ -24,7 +24,17 @@ func _input(event):
 		if ingame:
 			if not paused:
 				$SoundEffects/NemoPurrASound.play()
+			else:
+				$SoundEffects/MenuSound.play()
 			toggle_pause()
+
+func _process(_delta):
+	if ingame and not paused and Input.is_action_pressed("space"):
+		if not $SoundEffects/NPCTerritorySound.playing:
+			$SoundEffects/NPCTerritorySound.play()
+	else:
+		if $SoundEffects/NPCTerritorySound.playing:
+			$SoundEffects/NPCTerritorySound.stop()
 
 func set_ingame(value):
 	ingame = value
@@ -138,7 +148,7 @@ func _on_intro_cutscene_animation_finished():
 	$AnimationPlayer.play("title_fade_in")
 
 func _on_intro_cutscene_skip():
-	$SoundEffects/ConfirmSound.play()
+	$SoundEffects/MenuSound.play()
 	$TitleScreen.modulate.a = 1
 	$TitleScreen/TitleBackground.show()
 	$TitleScreen/PlayerSprite.show()

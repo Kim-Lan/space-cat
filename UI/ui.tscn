@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://3ug1t30kx5j4"]
+[gd_scene load_steps=22 format=3 uid="uid://3ug1t30kx5j4"]
 
 [ext_resource type="Script" path="res://UI/ui.gd" id="1_mfp3s"]
 [ext_resource type="PackedScene" uid="uid://cxl7umrsfp8yd" path="res://cutscene/intro_cutscene.tscn" id="2_6t2ul"]
@@ -12,7 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://rrv2x8qbrow8" path="res://assets/audio/bgm/in-game-music.ogg" id="8_3uwnm"]
 [ext_resource type="AudioStream" uid="uid://oxiifx4lyl2i" path="res://assets/audio/nemo_purr_a_edited.wav" id="8_c3qck"]
 [ext_resource type="AudioStream" uid="uid://d31qjxthhwnil" path="res://assets/audio/bgm/end-music.ogg" id="9_wm7dh"]
-[ext_resource type="AudioStream" uid="uid://o5i2benlppbx" path="res://assets/audio/ui-confirm-sound.wav" id="10_x6huf"]
+[ext_resource type="AudioStream" uid="uid://i3dh6pytsbqq" path="res://assets/audio/purr-loop.ogg" id="11_gfdga"]
+[ext_resource type="AudioStream" uid="uid://clfnbaxmq2v18" path="res://assets/audio/ui-cancel-sound.wav" id="11_iwsox"]
 
 [sub_resource type="Animation" id="Animation_rrblr"]
 length = 0.001
@@ -213,11 +214,15 @@ volume_db = -5.647
 
 [node name="NemoPurrASound" type="AudioStreamPlayer" parent="SoundEffects"]
 stream = ExtResource("8_c3qck")
-volume_db = -6.559
+volume_db = -7.496
 
-[node name="ConfirmSound" type="AudioStreamPlayer" parent="SoundEffects"]
-stream = ExtResource("10_x6huf")
-volume_db = -6.559
+[node name="MenuSound" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource("11_iwsox")
+volume_db = -5.622
+
+[node name="NPCTerritorySound" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource("11_gfdga")
+volume_db = -7.496
 
 [node name="Music" type="Node" parent="."]
 process_mode = 3
