@@ -157,3 +157,9 @@ func _on_intro_cutscene_skip():
 	await get_tree().create_timer(0.5).timeout
 	$TitleScreen/Buttons/StartButton.grab_focus()
 	$IntroCutscene.queue_free()
+
+func _on_timer_area_entered(area):
+	$Timer.modulate.a = 0.5
+
+func _on_timer_area_exited(area):
+	$Timer.modulate.a = 1

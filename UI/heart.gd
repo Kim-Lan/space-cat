@@ -7,4 +7,5 @@ func _ready():
 	pass
 
 func flash():
+	$Heart_Empty.show()
 	$AnimationPlayer.play("flash")

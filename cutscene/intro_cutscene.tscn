@@ -533,7 +533,7 @@ visible = false
 position = Vector2(512, 436)
 texture = ExtResource("4_hbn02")
 region_enabled = true
-region_rect = Rect2(102, 102, 100, 100)
+region_rect = Rect2(204, 102, 100, 100)
 
 [node name="CatAnimationPlayer" type="AnimationPlayer" parent="Cat"]
 root_node = NodePath("../..")
