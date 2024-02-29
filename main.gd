@@ -30,6 +30,7 @@ func _on_play_again():
 func _on_return_title():
 	$SoundEffects/TreatSoundBig.play()
 	reset_screen()
+	$Player.hide()
 	$Player.disable_input = true
 
 func starting_game():

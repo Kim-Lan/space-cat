@@ -95,32 +95,8 @@
     "sourceSize": { "w": 100, "h": 100 },
     "duration": 200
    },
-   "npc_black #bap 0.aseprite": {
+   "npc_black #bap.aseprite": {
     "frame": { "x": 0, "y": 204, "w": 100, "h": 100 },
-    "rotated": false,
-    "trimmed": false,
-    "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
-    "sourceSize": { "w": 100, "h": 100 },
-    "duration": 200
-   },
-   "npc_black #bap 1.aseprite": {
-    "frame": { "x": 102, "y": 204, "w": 100, "h": 100 },
-    "rotated": false,
-    "trimmed": false,
-    "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
-    "sourceSize": { "w": 100, "h": 100 },
-    "duration": 200
-   },
-   "npc_black #bap 2.aseprite": {
-    "frame": { "x": 204, "y": 204, "w": 100, "h": 100 },
-    "rotated": false,
-    "trimmed": false,
-    "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
-    "sourceSize": { "w": 100, "h": 100 },
-    "duration": 200
-   },
-   "npc_black #bap 3.aseprite": {
-    "frame": { "x": 306, "y": 204, "w": 100, "h": 100 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 100, "h": 100 },
@@ -138,7 +114,7 @@
   "frameTags": [
    { "name": "eepy", "from": 0, "to": 7, "direction": "forward", "color": "#000000ff" },
    { "name": "angy", "from": 8, "to": 11, "direction": "forward", "color": "#000000ff" },
-   { "name": "bap", "from": 12, "to": 15, "direction": "forward", "color": "#000000ff" }
+   { "name": "bap", "from": 12, "to": 12, "direction": "forward", "color": "#000000ff" }
   ],
   "layers": [
    { "name": "cat" },

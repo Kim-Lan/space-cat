@@ -1012,6 +1012,8 @@ texture = ExtResource("14_tgkj8")
 region_enabled = true
 region_rect = Rect2(0, 204, 100, 100)
 
+[node name="Soupy" type="Sprite2D" parent="TypeSprites"]
+
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(20, 0)
 shape = SubResource("CircleShape2D_olcs4")
