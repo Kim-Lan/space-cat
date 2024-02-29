@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://uyc4bfmugxl0"]
+[gd_scene load_steps=3 format=3 uid="uid://uyc4bfmugxl0"]
 
 [ext_resource type="Script" path="res://UI/pause_screen.gd" id="1_aofik"]
+[ext_resource type="AudioStream" uid="uid://o5i2benlppbx" path="res://assets/audio/ui-confirm-sound.wav" id="2_o7ogl"]
 
 [node name="PauseScreen" type="Control"]
 layout_mode = 3
@@ -173,6 +174,10 @@ custom_minimum_size = Vector2(100, 55)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "no"
+
+[node name="ConfirmSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_o7ogl")
+volume_db = -6.559
 
 [connection signal="pressed" from="PauseMenu/Buttons/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Buttons/RestartButton" to="." method="_on_restart_button_pressed"]

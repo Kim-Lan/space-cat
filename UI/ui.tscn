@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://3ug1t30kx5j4"]
+[gd_scene load_steps=21 format=3 uid="uid://3ug1t30kx5j4"]
 
 [ext_resource type="Script" path="res://UI/ui.gd" id="1_mfp3s"]
 [ext_resource type="PackedScene" uid="uid://cxl7umrsfp8yd" path="res://cutscene/intro_cutscene.tscn" id="2_6t2ul"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://rrv2x8qbrow8" path="res://assets/audio/bgm/in-game-music.ogg" id="8_3uwnm"]
 [ext_resource type="AudioStream" uid="uid://oxiifx4lyl2i" path="res://assets/audio/nemo_purr_a_edited.wav" id="8_c3qck"]
 [ext_resource type="AudioStream" uid="uid://d31qjxthhwnil" path="res://assets/audio/bgm/end-music.ogg" id="9_wm7dh"]
+[ext_resource type="AudioStream" uid="uid://o5i2benlppbx" path="res://assets/audio/ui-confirm-sound.wav" id="10_x6huf"]
 
 [sub_resource type="Animation" id="Animation_rrblr"]
 length = 0.001
@@ -204,12 +205,18 @@ libraries = {
 "": SubResource("AnimationLibrary_k3syd")
 }
 
-[node name="StartSound" type="AudioStreamPlayer" parent="."]
+[node name="SoundEffects" type="Node" parent="."]
+
+[node name="StartSound" type="AudioStreamPlayer" parent="SoundEffects"]
 stream = ExtResource("5_3vfr4")
 volume_db = -5.647
 
-[node name="NemoPurrASound" type="AudioStreamPlayer" parent="."]
+[node name="NemoPurrASound" type="AudioStreamPlayer" parent="SoundEffects"]
 stream = ExtResource("8_c3qck")
+volume_db = -6.559
+
+[node name="ConfirmSound" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource("10_x6huf")
 volume_db = -6.559
 
 [node name="Music" type="Node" parent="."]

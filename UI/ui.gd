@@ -22,7 +22,8 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("pause"):
 		if ingame:
-			$NemoPurrASound.play()
+			if not paused:
+				$SoundEffects/NemoPurrASound.play()
 			toggle_pause()
 
 func set_ingame(value):
@@ -67,13 +68,13 @@ func update_high_score(value):
 	$GameOverScreen.set_high_score(value)
 
 func _on_start_button_pressed():
-	$StartSound.play()
+	$SoundEffects/StartSound.play()
 	$TitleScreen.process_mode = Node.PROCESS_MODE_DISABLED
 	$AnimationPlayer.play("start_from_title")
 	start_from_title.emit()
 
 func _on_play_again_button_pressed():
-	$StartSound.play()
+	$SoundEffects/StartSound.play()
 	$GameOverScreen.hide()
 	$InGameHUD.show()
 	$Timer.reset()
@@ -129,7 +130,7 @@ func _on_pause_screen_restart_confirmed():
 	_on_play_again_button_pressed()
 
 func _on_unpause():
-	$NemoPurrASound.play()
+	#$SoundEffects/NemoPurrASound.play()
 	toggle_pause()
 
 func _on_intro_cutscene_animation_finished():
@@ -137,6 +138,7 @@ func _on_intro_cutscene_animation_finished():
 	$AnimationPlayer.play("title_fade_in")
 
 func _on_intro_cutscene_skip():
+	$SoundEffects/ConfirmSound.play()
 	$TitleScreen.modulate.a = 1
 	$TitleScreen/TitleBackground.show()
 	$TitleScreen/PlayerSprite.show()
