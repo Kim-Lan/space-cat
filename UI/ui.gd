@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-#signal start_game
 signal start_from_title
 signal play_again
 signal return_title
@@ -12,7 +11,7 @@ var ingame: bool
 var paused: bool
 
 func _ready():
-	$TitleScreen.show()
+	$TitleScreen.hide()
 	$GameOverScreen.hide()
 	$InGameHUD.hide()
 	$PauseScreen.hide()
@@ -98,7 +97,11 @@ func _on_reset_high_score_pressed():
 	reset_high_score.emit()
 
 func _on_animation_player_animation_finished(anim_name):
-	if (anim_name == "start_from_title"):
+	if (anim_name == "title_fade_in"):
+		$TitleScreen/TitleBackground.show()
+		$TitleScreen/PlayerSprite.show()
+		$IntroCutscene.queue_free()
+	elif (anim_name == "start_from_title"):
 		$TitleScreen.hide()
 		$Music/TitleMusic.stop()
 	elif (anim_name == "return_to_title"):
@@ -126,3 +129,9 @@ func _on_pause_screen_restart_confirmed():
 func _on_unpause():
 	$NemoPurrASound.play()
 	toggle_pause()
+
+func _on_intro_cutscene_animation_finished():
+	print("animation finished")
+	#$TitleScreen.modulate.a = 0
+	$TitleScreen.show()
+	$AnimationPlayer.play("title_fade_in")

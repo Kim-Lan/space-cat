@@ -1,11 +1,41 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxl7umrsfp8yd"]
+[gd_scene load_steps=23 format=3 uid="uid://cxl7umrsfp8yd"]
 
 [ext_resource type="Script" path="res://cutscene/intro_cutscene.gd" id="1_uxitw"]
 [ext_resource type="PackedScene" uid="uid://dwpu8fmfefy1a" path="res://background.tscn" id="2_43bet"]
 [ext_resource type="Texture2D" uid="uid://dw2ccthpfjttu" path="res://assets/background/backstars.png" id="2_ksqkb"]
 [ext_resource type="Texture2D" uid="uid://b5yprj84nn3wy" path="res://assets/background/frontstars.png" id="3_2e47x"]
-[ext_resource type="Texture2D" uid="uid://f04rtx6cbrv6" path="res://cutscene/intro-rocket.png" id="3_orf6k"]
+[ext_resource type="Texture2D" uid="uid://5b08q4b3t67u" path="res://cutscene/introback.png" id="3_vgha8"]
+[ext_resource type="Texture2D" uid="uid://qkp0smp8b5ka" path="res://cutscene/introfront.png" id="4_5okcu"]
 [ext_resource type="Texture2D" uid="uid://bnfjffy0den5i" path="res://assets/player/player.png" id="4_hbn02"]
+[ext_resource type="Texture2D" uid="uid://bn7vvtoq1ykr8" path="res://cutscene/rocketbase.png" id="7_1ite7"]
+[ext_resource type="Texture2D" uid="uid://bq6au4k50bhs" path="res://cutscene/rockettop.png" id="8_gra0j"]
+
+[sub_resource type="Animation" id="Animation_taak3"]
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cat:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 204, 100, 100), Rect2(102, 204, 100, 100), Rect2(204, 204, 100, 100), Rect2(306, 204, 100, 100), Rect2(408, 204, 100, 100), Rect2(510, 204, 100, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cat:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_lk8m5"]
 length = 0.8
@@ -20,7 +50,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(0, 0, 100, 100), Rect2(100, 0, 100, 100), Rect2(200, 0, 100, 100), Rect2(300, 0, 100, 100)]
+"values": [Rect2(0, 0, 100, 100), Rect2(102, 0, 100, 100), Rect2(204, 0, 100, 100), Rect2(306, 0, 100, 100)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -48,7 +78,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Rect2(0, 100, 100, 100), Rect2(100, 100, 100, 100), Rect2(200, 100, 100, 100), Rect2(300, 0, 100, 100)]
+"values": [Rect2(0, 102, 100, 100), Rect2(102, 102, 100, 100), Rect2(204, 102, 100, 100), Rect2(306, 102, 100, 100)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -65,6 +95,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ccne5"]
 _data = {
+"dance": SubResource("Animation_taak3"),
 "idle": SubResource("Animation_lk8m5"),
 "swim": SubResource("Animation_7oalp")
 }
@@ -86,34 +117,22 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Cat:position")
+tracks/1/path = NodePath("Sky:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(512, 450)]
+"values": [Vector2(0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Ground:position")
+tracks/2/path = NodePath("Background:offset")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Background:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -122,7 +141,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_2ftpi"]
 resource_name = "animation"
-length = 5.0
+length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -130,7 +149,7 @@ tracks/0/path = NodePath("Background:scroll_offset")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.5, 4.5),
+"times": PackedFloat32Array(4.1, 9.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 4608)]
@@ -138,50 +157,138 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Cat:position")
-tracks/1/interp = 2
+tracks/1/path = NodePath("Sky:position")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2, 4, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(1, 4.1),
+"transitions": PackedFloat32Array(2, 1),
 "update": 0,
-"values": [Vector2(512, 450), Vector2(512, 450), Vector2(512, 217), Vector2(512, 450)]
+"values": [Vector2(0, 0), Vector2(0, 768)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Ground:position")
+tracks/2/path = NodePath("Background:offset")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(1, 4.1),
+"transitions": PackedFloat32Array(2, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 768)]
+"values": [Vector2(0, -768), Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Background:offset")
+tracks/3/path = NodePath("Cat/CatAnimationPlayer:current_animation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -768), Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Cat/CatAnimationPlayer:current_animation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(-0.1, 3.9),
+"times": PackedFloat32Array(6.6, 9.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [&"swim", &"idle"]
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RocketBase/RocketBaseAnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("stop", "move", "stop"),
+"times": PackedFloat32Array(0, 0.6, 3.9)
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Ground:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1, 3.5),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(0, 497), Vector2(0, 1497)]
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RocketBase:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(512, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RocketBase:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(459, -0.25, 0, 0.25, 0, 459, -0.25, 0, 0.25, 0, 559, -0.25, 0, 0.25, 0, 2000, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.8, 4.2, 10.1)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("RocketTop:position:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(512, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("RocketTop:position:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(224, -0.25, 0, 0.25, 0, 224, -0.25, 0, 0.25, 0, 324, -0.25, 0, 0.25, 0, 450, -0.25, 0, 0.25, 0, 450, -0.25, 0, 0.25, 0, 1000, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.8, 4.2, 5.5, 6.7, 10.1)
+}
+tracks/10/type = "animation"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("RocketTop/RocketTopAnimationPlayer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"clips": PackedStringArray("closed", "open"),
+"times": PackedFloat32Array(0, 5.9)
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cat:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(-2.4, 6.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("RocketBase:offset")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s4uxh"]
@@ -190,7 +297,128 @@ _data = {
 "animation": SubResource("Animation_2ftpi")
 }
 
-[node name="IntroCutscene" type="Node"]
+[sub_resource type="Animation" id="Animation_d74iu"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 260, 148)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o47jg"]
+length = 66.035
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 260, 148), Rect2(0, 150, 260, 148), Rect2(262, 150, 260, 148), Rect2(524, 150, 260, 148), Rect2(786, 150, 260, 148), Rect2(1048, 150, 260, 148)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n7l6y"]
+_data = {
+"closed": SubResource("Animation_d74iu"),
+"open": SubResource("Animation_o47jg")
+}
+
+[sub_resource type="Animation" id="Animation_klapo"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 392, 242, 390), Rect2(244, 392, 242, 390), Rect2(488, 392, 242, 390), Rect2(732, 392, 242, 390)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p5cww"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 242, 390)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6skl8"]
+_data = {
+"move": SubResource("Animation_klapo"),
+"stop": SubResource("Animation_p5cww")
+}
+
+[node name="IntroCutscene" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_uxitw")
 
@@ -199,10 +427,16 @@ offset = Vector2(0, -768)
 transform = Transform2D(1, 0, 0, 1, 0, -768)
 camera_velocity = Vector2(0, 50)
 
-[node name="Ground" type="TextureRect" parent="."]
+[node name="Sky" type="TextureRect" parent="."]
 offset_right = 1024.0
-offset_bottom = 768.004
-texture = ExtResource("3_orf6k")
+offset_bottom = 768.003
+texture = ExtResource("3_vgha8")
+
+[node name="Ground" type="TextureRect" parent="."]
+offset_top = 497.0
+offset_right = 1024.0
+offset_bottom = 768.001
+texture = ExtResource("4_5okcu")
 
 [node name="Backstars" type="TextureRect" parent="."]
 visible = false
@@ -237,10 +471,11 @@ mouse_filter = 2
 texture = ExtResource("3_2e47x")
 
 [node name="Cat" type="Sprite2D" parent="."]
-position = Vector2(512, 450)
+visible = false
+position = Vector2(512, 436)
 texture = ExtResource("4_hbn02")
 region_enabled = true
-region_rect = Rect2(200, 0, 100, 100)
+region_rect = Rect2(0, 204, 100, 100)
 
 [node name="CatAnimationPlayer" type="AnimationPlayer" parent="Cat"]
 root_node = NodePath("../..")
@@ -252,3 +487,27 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_s4uxh")
 }
+
+[node name="RocketTop" type="Sprite2D" parent="."]
+position = Vector2(512, 224)
+texture = ExtResource("8_gra0j")
+region_enabled = true
+region_rect = Rect2(0, 0, 260, 148)
+
+[node name="RocketTopAnimationPlayer" type="AnimationPlayer" parent="RocketTop"]
+libraries = {
+"": SubResource("AnimationLibrary_n7l6y")
+}
+
+[node name="RocketBase" type="Sprite2D" parent="."]
+position = Vector2(512, 459)
+texture = ExtResource("7_1ite7")
+region_enabled = true
+region_rect = Rect2(0, 392, 242, 390)
+
+[node name="RocketBaseAnimationPlayer" type="AnimationPlayer" parent="RocketBase"]
+libraries = {
+"": SubResource("AnimationLibrary_6skl8")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

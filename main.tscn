@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://3ug1t30kx5j4" path="res://UI/ui.tscn" id="4_5gj3v"]
 [ext_resource type="PackedScene" uid="uid://dwpu8fmfefy1a" path="res://background.tscn" id="4_h3cc0"]
 [ext_resource type="Texture2D" uid="uid://jcnh6brdlsia" path="res://assets/background/title_background.png" id="5_65nee"]
-[ext_resource type="AudioStream" uid="uid://dbpp8w4cgcytg" path="res://assets/audio/hit-sound.wav" id="7_6qyov"]
+[ext_resource type="AudioStream" uid="uid://dbpp8w4cgcytg" path="res://assets/audio/effects/hit-sound.wav" id="7_6qyov"]
 [ext_resource type="AudioStream" uid="uid://bpamomqsbvfnd" path="res://assets/audio/effects/treat_sound_small.wav" id="9_e188c"]
 [ext_resource type="AudioStream" uid="uid://tn0pd218xesx" path="res://assets/audio/effects/treat_sound_big.wav" id="10_hecww"]
 
@@ -79,6 +79,7 @@ treat_scene = ExtResource("3_p38tt")
 [node name="Background" parent="." instance=ExtResource("4_h3cc0")]
 
 [node name="TitleBackground" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(512, 384)
 texture = ExtResource("5_65nee")
 
@@ -86,6 +87,7 @@ texture = ExtResource("5_65nee")
 y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_1wr41")]
+visible = false
 position = Vector2(512, 436)
 
 [node name="NPCs" type="Node2D" parent="."]

@@ -52,6 +52,7 @@ func reset_screen():
 	get_tree().call_group("npc_group", "queue_free")
 	get_tree().call_group("treat_group", "queue_free")
 	$Player/DamagedAnimationPlayer.stop()
+	$Player.show()
 	$Player.position = $StartPosition.position
 	$Player.velocity = Vector2(0, 0)
 	$Player.autoscroll = Vector2(0, 0)
