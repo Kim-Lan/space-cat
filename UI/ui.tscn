@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://3ug1t30kx5j4"]
+[gd_scene load_steps=24 format=3 uid="uid://3ug1t30kx5j4"]
 
 [ext_resource type="Script" path="res://UI/ui.gd" id="1_mfp3s"]
 [ext_resource type="PackedScene" uid="uid://cxl7umrsfp8yd" path="res://cutscene/intro_cutscene.tscn" id="2_6t2ul"]
 [ext_resource type="PackedScene" uid="uid://cimgwhgbt41ci" path="res://UI/game_over_screen.tscn" id="2_cw34c"]
 [ext_resource type="PackedScene" uid="uid://blgxkiiadrh4k" path="res://UI/title_screen.tscn" id="2_jab8u"]
+[ext_resource type="PackedScene" uid="uid://cm4l5dj82lkv" path="res://UI/full_screen_toggle.tscn" id="2_ltdpb"]
 [ext_resource type="PackedScene" uid="uid://30y4r8nnjlcx" path="res://UI/in_game_hud.tscn" id="3_gnf21"]
 [ext_resource type="PackedScene" uid="uid://k6jxab8qcxj" path="res://UI/timer.tscn" id="3_x88c0"]
 [ext_resource type="PackedScene" uid="uid://uyc4bfmugxl0" path="res://UI/pause_screen.tscn" id="4_n52jd"]
@@ -182,6 +183,8 @@ size = Vector2(150, 50)
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_mfp3s")
+
+[node name="FullScreenToggle" parent="." instance=ExtResource("2_ltdpb")]
 
 [node name="InGameHUD" parent="." instance=ExtResource("3_gnf21")]
 modulate = Color(1, 1, 1, 0)
