@@ -23,7 +23,6 @@ func _ready():
 
 func _on_start_from_title():
 	starting_game()
-	$AnimationPlayer.play("start_from_title")
 
 func _on_play_again():
 	starting_game()
@@ -32,12 +31,6 @@ func _on_return_title():
 	$SoundEffects/TreatSoundBig.play()
 	reset_screen()
 	$Player.disable_input = true
-	$TitleBackground.show()
-	$AnimationPlayer.play("return_to_title")
-
-func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "start_from_title":
-		$TitleBackground.hide()
 
 func starting_game():
 	$StartDelay.start()
