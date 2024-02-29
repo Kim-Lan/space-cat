@@ -73,6 +73,8 @@ func show_game_over(score):
 	$Music/EndMusic.play()
 
 func update_high_score(value):
+	if value == 69:
+		value = "69 nice"
 	$TitleScreen.set_high_score(value)
 	$PauseScreen.set_high_score(value)
 	$GameOverScreen.set_high_score(value)
