@@ -132,14 +132,11 @@ func get_eepy():
 	$AnimationPlayer.play("eepy")
 
 func _on_territory_area_exited(_area):
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.001).timeout
 	get_eepy()
 
 func bap():
 	$BapAnimationPlayer.play("bap")
-
-func draw_territory():
-	$TerritoryCircle.visible = true
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
