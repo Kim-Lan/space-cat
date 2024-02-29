@@ -4,10 +4,6 @@ signal unpause
 signal return_title_confirmed
 signal restart_confirmed
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 func show_pause():
 	var rand = randf()
 	if rand < 0.01:

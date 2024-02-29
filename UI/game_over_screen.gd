@@ -3,9 +3,6 @@ extends Control
 signal play_again_button_pressed
 signal return_title_button_pressed
 
-func _ready():
-	pass
-
 func set_final_score(value):
 	var final_score_str = str(value)
 	if value == 69:

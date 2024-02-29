@@ -15,7 +15,6 @@ func set_score(value):
 func update_health(value):
 	for i in health_bar.get_child_count():
 		health_bar.get_child(i).visible = value > i
-	#$HealthLabel.text = HEALTH_LABEL + str(value)
 
 func draw_health(value):
 	get_tree().call_group("hearts", "queue_free")

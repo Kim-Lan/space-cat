@@ -20,7 +20,7 @@ func _ready():
 	paused = false
 
 func _input(event):
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("toggle_pause"):
 		if ingame:
 			if not paused:
 				$SoundEffects/NemoPurrASound.play()

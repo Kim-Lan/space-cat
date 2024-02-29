@@ -9,10 +9,6 @@ var time_paused = 0
 var time_pause_start
 var time_pause_end
 
-func _ready():
-	#start()
-	pass
-
 func reset():
 	time_elapsed = 0
 	time_paused = 0
