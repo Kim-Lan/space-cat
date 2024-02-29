@@ -20,9 +20,11 @@ func _ready():
 	$Player.disable_input = true
 
 func _on_start_from_title():
+	$StartDelay.start(1.5)
 	starting_game()
 
 func _on_play_again():
+	$StartDelay.start(0.001)
 	starting_game()
 
 func _on_return_title():
@@ -31,7 +33,6 @@ func _on_return_title():
 	$Player.disable_input = true
 
 func starting_game():
-	$StartDelay.start()
 	reset_screen()
 	score = 0
 	current_health = max_health
