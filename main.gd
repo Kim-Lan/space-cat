@@ -143,7 +143,10 @@ func save_high_score():
 	if score > high_score:
 		var file = FileAccess.open("user://high_score.txt", FileAccess.WRITE)
 		high_score = score
-		file.store_string(str(high_score))
+		if high_score == 69:
+			file.store_string("pp")
+		else:
+			file.store_string(str(high_score))
 		$UI.update_high_score(high_score)
 		file.close()
 
@@ -154,7 +157,7 @@ func load_high_score():
 		if text == "pp":
 			high_score = 69
 		else:
-			high_score = int(file.get_as_text())
+			high_score = int(text)
 	else:
 		high_score = 0
 	$UI.update_high_score(high_score)

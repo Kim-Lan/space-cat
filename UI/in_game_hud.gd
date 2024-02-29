@@ -29,8 +29,8 @@ func minus_health():
 	var last_heart = health_bar.get_child(current_health)
 	last_heart.flash()
 
-func _on_area_entered(area):
+func _on_area_entered(_area):
 	modulate.a = 0.5
 
-func _on_area_exited(area):
+func _on_area_exited(_area):
 	modulate.a = 1

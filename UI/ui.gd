@@ -161,8 +161,8 @@ func _on_intro_cutscene_skip():
 	$TitleScreen/Buttons/StartButton.grab_focus()
 	$IntroCutscene.queue_free()
 
-func _on_timer_area_entered(area):
+func _on_timer_area_entered(_area):
 	$Timer.modulate.a = 0.5
 
-func _on_timer_area_exited(area):
+func _on_timer_area_exited(_area):
 	$Timer.modulate.a = 1
