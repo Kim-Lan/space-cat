@@ -40,6 +40,8 @@ func set_ingame(value):
 	ingame = value
 
 func update_score(value):
+	if value == 69:
+		value = "69 nice"
 	$InGameHUD.set_score(value)
 	$PauseScreen.set_current_score(value)
 
@@ -142,7 +144,6 @@ func _on_pause_screen_restart_confirmed():
 	_on_play_again_button_pressed()
 
 func _on_unpause():
-	#$SoundEffects/NemoPurrASound.play()
 	toggle_pause()
 
 func _on_intro_cutscene_animation_finished():
